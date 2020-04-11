@@ -7,7 +7,7 @@
 {
   imports =
     [
-    ./private  
+    ./private
     ./hardware-configuration.nix
     ./boot-config.nix
     ./packages.nix

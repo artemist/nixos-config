@@ -93,6 +93,7 @@ in
     bind
     borgbackup
     file
+    fzf
     git-lfs
     gitAndTools.gitFull
     htop
@@ -152,6 +153,7 @@ in
     llvm.lld
     nasm
     patchelf
+    python37Packages.python-language-server
     rr
     rustup
     valgrind
