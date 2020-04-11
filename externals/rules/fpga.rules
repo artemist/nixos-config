@@ -1,0 +1,3 @@
+
+# TinyFPGA Bx
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="6130", TAG+="uaccess"
