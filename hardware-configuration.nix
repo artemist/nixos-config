@@ -8,44 +8,59 @@
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/aca21111-a488-4bc7-90a7-e61517c24818";
-      fsType = "btrfs";
-      options = [ "subvol=root" ];
-    };
-
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/aca21111-a488-4bc7-90a7-e61517c24818";
-      fsType = "btrfs";
-      options = [ "subvol=nix" ];
+    { device = "/dev/galadriel/nixos";
+      fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/1AC2-9317";
+    { device = "/dev/mapper/cryptboot";
+      fsType = "ext4";
+    };
+
+  boot.initrd.luks.devices."cryptboot".device = "/dev/disk/by-uuid/716e31fa-6f96-46a8-8ec4-c7e0df34639f";
+
+  fileSystems."/boot/efi" =
+    { device = "/dev/disk/by-uuid/86D6-A42E";
       fsType = "vfat";
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/aca21111-a488-4bc7-90a7-e61517c24818";
+    { device = "/dev/galadriel/home";
       fsType = "btrfs";
-      options = [ "subvol=home" ];
+      options = [ "subvol=home" "user_subvol_rm_allowed" ];
     };
 
-  fileSystems."/data" =
-    { device = "/dev/disk/by-uuid/ba796824-5165-4a95-87c2-1fb49a449138";
+  fileSystems."/var/lib/flatpak" =
+    { device = "/dev/galadriel/home";
       fsType = "btrfs";
+      options = [ "subvol=flatpak" "user_subvol_rm_allowed" ];
     };
 
-  boot.initrd.luks.devices."data".device = "/dev/disk/by-uuid/3de20c8e-2c31-491a-a8cc-fea4762e8601";
+  fileSystems."/var/lib/docker" =
+    { device = "/dev/galadriel/home";
+      fsType = "btrfs";
+      options = [ "subvol=docker" "user_subvol_rm_allowed" ];
+    };
+
+  fileSystems."/var/lib/lxd" =
+    { device = "/dev/galadriel/home";
+      fsType = "btrfs";
+      options = [ "subvol=lxd" "user_subvol_rm_allowed" ];
+    };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/b134fecf-719f-45af-b317-001e413f06c4"; }
+    [ { device = "/dev/galadriel/swap"; }
     ];
 
-  nix.maxJobs = lib.mkDefault 16;
+  nix.maxJobs = lib.mkDefault 4;
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  # High-DPI console
+  console.font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
+
 }

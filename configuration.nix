@@ -12,7 +12,6 @@
     ./boot-config.nix
     ./packages.nix
     ./fonts.nix
-    ./ssh.nix
   ];
 
   nix = {
@@ -84,10 +83,6 @@
     avahi = {
       enable = true;
       nssmdns = true;
-      publish = {
-        enable = true;
-        userServices = true;
-      };
     };
     accounts-daemon.enable = true;
     chrony.enable = true;
@@ -97,6 +92,8 @@
     keybase.enable = true;
     logind.extraConfig = "HandlePowerKey=suspend";
     pcscd.enable = true;
+    tlp.enable = true;
+    upower.enable = true;
     syncthing = {
       enable = true;
       user = "artemis";
@@ -104,6 +101,7 @@
     };
     printing = {
       enable = true;
+      browsedConf = "BrowseProtocols none";
       drivers = with pkgs; [ gutenprint gutenprintBin ];
     };
   };
@@ -113,11 +111,12 @@
   };
 
   hardware = {	
-    cpu.amd.updateMicrocode = true;
+    cpu.intel.updateMicrocode = true;
     u2f.enable = true;
+    sensor.iio.enable = true;
     bluetooth.enable = true;
     opengl = {	
-      extraPackages = [ pkgs.vaapiVdpau pkgs.libvdpau-va-gl ];
+      extraPackages = [ pkgs.vaapiIntel ];
       driSupport32Bit = true;
     };
     pulseaudio = {
@@ -129,7 +128,7 @@
   };
 
   networking = {
-    hostName = "balrog";
+    hostName = "galadriel";
     firewall.enable = false;
     networkmanager = {
       enable = true;

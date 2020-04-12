@@ -3,7 +3,7 @@
 let
   llvm = pkgs.llvmPackages_10;
   go = pkgs.go_1_14;
-  unwrappedFirefox = pkgs.firefox-bin-unwrapped.override { systemLocale = "de-DE"; };
+  unwrappedFirefox = pkgs.firefox-devedition-bin-unwrapped.override { systemLocale = "de-DE"; };
   fullFirefox = (pkgs.wrapFirefox unwrappedFirefox {
     browserName = "firefox";
     desktopName = "Firefox";
@@ -57,8 +57,10 @@ in
     exfat
     gparted
     hdparm
+    i7z
     iptables
     krb5
+    linuxPackages.cpupower
     lm_sensors
     manpages
     nethogs
@@ -74,7 +76,6 @@ in
 
     # Wayland tools
     dex
-    glib
     grim
     imagemagick
     mako
@@ -92,6 +93,7 @@ in
     bat
     bind
     borgbackup
+    exa
     file
     fzf
     git-lfs
@@ -123,6 +125,7 @@ in
     usbutils
     xclip
     xxd
+    ytop
     zip
     
     # Networking
@@ -232,17 +235,6 @@ in
 
     # Games
     multimc
-    steam
-    steam-run
-
-    # Game dependencies
-    gnome3.zenity # Steam requires zenity
-    SDL2 SDL2_ttf SDL2_image
-
-    # Debug info
-    wayland.debug
-
-    # Dictionaries
   ]) ++ (with pkgs.hunspellDicts; [
     en-us-large
     de_DE
