@@ -54,7 +54,6 @@ in
     # Linux tools
     cachix
     dmidecode
-    exfat
     gparted
     hdparm
     i7z
@@ -64,15 +63,20 @@ in
     lm_sensors
     manpages
     nethogs
-    ntfs3g
     parted
     pinentry-gtk2 # needed for tomb
     powertop
     psmisc
     sbsigntool
-    udftools
     xorg.xeyes
     xorg.xkill
+
+    # Filesystems
+    cifs_utils
+    exfat
+    nfsUtils
+    ntfs3g
+    udftools
 
     # Wayland tools
     dex
