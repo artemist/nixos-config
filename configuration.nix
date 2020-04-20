@@ -13,6 +13,7 @@
     ./packages.nix
     ./fonts.nix
     ./ssh.nix
+    ./dns.nix
   ];
 
   nix = {
