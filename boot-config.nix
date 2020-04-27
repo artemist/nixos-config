@@ -10,7 +10,7 @@
     initrd.luks = {
       reusePassphrases = true;
       devices = {
-        balrog = {
+        "${config.networking.hostName}" = {
           device = "/dev/disk/by-uuid/274ec302-20b7-43bf-aa72-895ffdd96919";
           preLVM = true;
           allowDiscards = true;

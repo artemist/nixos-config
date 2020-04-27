@@ -2,7 +2,6 @@
 
 {
   networking = {
-    nameservers = [ "::1" "127.0.0.1" ];
     resolvconf.useLocalResolver = true;
     networkmanager.dns = "none";
   };
@@ -20,7 +19,7 @@
       };
 
       server_names = ["cloudflare"];
-      fallback_resolvers = ["1.1.1.1:53" "1.0.0.1:53"];
+      fallback_resolvers = ["1.1.1.1:53" "8.8.8.8:53"];
 
       listen_addresses = ["0.0.0.0:53"];
     };

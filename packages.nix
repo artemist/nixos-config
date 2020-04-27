@@ -100,6 +100,7 @@ in
     fzf
     git-lfs
     gitAndTools.gitFull
+    gitAndTools.pass-git-helper
     htop
     hunspell
     iw
@@ -110,11 +111,12 @@ in
     neovim
     nix-index
     openssl
-    parallel
     p7zip
     pandoc
+    parallel
     pciutils
     pdftk
+    pijul
     poppler_utils
     ripgrep
     rlwrap
@@ -123,6 +125,7 @@ in
     tomb
     traceroute
     tree
+    unrar
     unzip
     usbutils
     xclip
@@ -175,9 +178,8 @@ in
     yosys
 
     # Radio
-    gr-limesdr
     limesuite
-    gnuradio
+    gnuradio-with-packages
     soapysdr
     gqrx
 
@@ -226,10 +228,11 @@ in
     tdesktop
 
     # Gnome configuration
-    arc-theme
     gnome3.adwaita-icon-theme
     gnome3.gnome-tweak-tool
+    gnome3.gsettings-desktop-schemas
     gnomeExtensions.appindicator
+    gnome_themes_standard
     hicolor-icon-theme
     numix-icon-theme
     numix-icon-theme-circle

@@ -14,6 +14,7 @@
     ./fonts.nix
     ./ssh.nix
     ./dns.nix
+    ./rocm.nix
   ];
 
   nix = {
@@ -130,7 +131,7 @@
   };
 
   networking = {
-    hostName = "balrog";
+    hostName = "starlight";
     firewall.enable = false;
     networkmanager = {
       enable = true;
