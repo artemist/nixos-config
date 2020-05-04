@@ -99,6 +99,10 @@
     keybase.enable = true;
     logind.extraConfig = "HandlePowerKey=suspend";
     pcscd.enable = true;
+    tor = {
+      enable = true;
+      client.enable = true;
+    };
     syncthing = {
       enable = true;
       user = "artemis";

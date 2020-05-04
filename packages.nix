@@ -81,6 +81,7 @@ in
     glib
     grim
     imagemagick
+    libnotify
     mako
     polkit_gnome
     slurp
@@ -226,6 +227,7 @@ in
     signal-desktop
     slack
     tdesktop
+    weechat
 
     # Gnome configuration
     gnome3.adwaita-icon-theme
