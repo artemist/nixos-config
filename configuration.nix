@@ -128,7 +128,7 @@
   };
 
   networking = {
-    hostName = "galadriel";
+    hostName = "rainbowdash";
     firewall.enable = false;
     networkmanager = {
       enable = true;
@@ -151,7 +151,6 @@
       enable = true;
       wrapperFeatures.gtk = true;
     };
-    light.enable = true;
     wireshark = {
       enable = true;
       package = pkgs.wireshark-qt;
@@ -180,6 +179,6 @@
   systemd.extraConfig = "DefaultLimitCORE=infinity";
   security.pam.loginLimits = [ { domain = "*"; item = "core"; type = "hard"; value = "infinity"; } ];
 
-  system.stateVersion = "19.03";
+  system.stateVersion = "20.03";
 
 }

@@ -3,7 +3,7 @@
 let
   llvm = pkgs.llvmPackages_10;
   go = pkgs.go_1_14;
-  unwrappedFirefox = pkgs.firefox-devedition-bin-unwrapped.override { systemLocale = "de-DE"; };
+  unwrappedFirefox = pkgs.firefox-bin-unwrapped.override { systemLocale = "de-DE"; };
   fullFirefox = (pkgs.wrapFirefox unwrappedFirefox {
     browserName = "firefox";
     desktopName = "Firefox";
@@ -229,7 +229,6 @@ in
     tdesktop
 
     # Gnome configuration
-    arc-theme
     gnome3.adwaita-icon-theme
     gnome3.gnome-tweak-tool
     gnomeExtensions.appindicator
