@@ -139,6 +139,9 @@
 
   programs = {
     adb.enable = true;
+    firejail.enable = true;
+    fish.enable = true;
+    xonsh.enable = true;
     java = {
       enable = true;
       package = pkgs.adoptopenjdk-bin;
@@ -155,9 +158,6 @@
       enable = true;
       package = pkgs.wireshark-qt;
     };
-    firejail.enable = true;	
-    fish.enable = true;
-    xonsh.enable = true;
   };
 
   users = {

@@ -3,6 +3,7 @@
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
+    blacklistedKernelModules = [ "nouveau" ];
     kernel.sysctl."vm.swappiness" = 5;
     cleanTmpDir = true;
 
