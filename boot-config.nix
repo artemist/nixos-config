@@ -26,7 +26,7 @@
 
     loader = {
       efi = {
-        canTouchEfiVariables = true;
+        canTouchEfiVariables = false; # The X1 extreme gen 2 has very easy to brick firmware, let me do it manually
         efiSysMountPoint = "/boot/efi";
       };
       grub = {
