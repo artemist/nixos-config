@@ -36,7 +36,7 @@
       options = [ "subvol=home" ];
     };
 
-  fileSystems."/data" =
+  fileSystems."/media/data" =
     { device = "/dev/disk/by-uuid/ba796824-5165-4a95-87c2-1fb49a449138";
       fsType = "btrfs";
     };
