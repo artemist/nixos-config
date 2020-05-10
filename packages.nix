@@ -44,7 +44,6 @@ in
     cabextract
     samba
     wineWowPackages.staging
-    winetricks
 
     # Virtualization
     docker-compose
@@ -112,7 +111,6 @@ in
     neovim
     nix-index
     openssl
-    p7zip
     pandoc
     parallel
     pciutils
