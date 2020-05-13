@@ -53,6 +53,8 @@ in
     # Linux tools
     cachix
     dmidecode
+    efibootmgr
+    efitools
     gparted
     hdparm
     iptables
@@ -135,6 +137,7 @@ in
     curlFull
     httpie
     iodine
+    magic-wormhole
     megatools
     mosh
     sshfs

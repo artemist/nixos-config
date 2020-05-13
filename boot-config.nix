@@ -1,11 +1,17 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ./externals/systemd-boot-secure ];
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     kernel.sysctl."vm.swappiness" = 5;
     cleanTmpDir = true;
-    loader.systemd-boot.enable = true;
+    loader.systemd-boot-secure = {
+      enable = true;
+      signed = true;
+      signing-key = "/root/secure-boot/db.key";
+      signing-certificate = "/root/secure-boot/db.crt";
+    };
 
     initrd.luks = {
       reusePassphrases = true;
