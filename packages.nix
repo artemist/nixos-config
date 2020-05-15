@@ -44,7 +44,6 @@ in
     cabextract
     samba
     wineWowPackages.staging
-    winetricks
 
     # Virtualization
     docker-compose
@@ -54,6 +53,8 @@ in
     # Linux tools
     cachix
     dmidecode
+    efibootmgr
+    efitools
     gparted
     hdparm
     i7z
@@ -116,7 +117,6 @@ in
     nix-index
     openssl
     parallel
-    p7zip
     pandoc
     pciutils
     pdftk
