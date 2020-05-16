@@ -116,10 +116,11 @@ in
     neovim
     nix-index
     openssl
-    parallel
     pandoc
+    parallel
     pciutils
     pdftk
+    pijul
     poppler_utils
     ripgrep
     rlwrap
@@ -140,6 +141,7 @@ in
     curlFull
     httpie
     iodine
+    magic-wormhole
     megatools
     mosh
     sshfs
