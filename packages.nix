@@ -205,6 +205,7 @@ in
     (pass.withExtensions (exts: [ exts.pass-otp ]))
     _1password
     keybase-gui
+    opensc
     wireguard
     yubikey-manager
     yubioath-desktop

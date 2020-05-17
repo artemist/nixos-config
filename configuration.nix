@@ -12,6 +12,7 @@
     ./boot-config.nix
     ./packages.nix
     ./tpm2.nix
+    ./secure-boot.nix
     ./fonts.nix
   ];
 
