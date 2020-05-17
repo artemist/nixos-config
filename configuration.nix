@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     ./boot-config.nix
     ./packages.nix
+    ./tpm2.nix
     ./fonts.nix
   ];
 
