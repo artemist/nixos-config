@@ -64,22 +64,7 @@
     };
   };
 
-  security = {
-    pam = {
-      u2f = {
-        enable = true;
-        authFile = "/etc/u2f_keys";
-        cue = true;
-      };
-      services.swaylock.u2fAuth = false;
-      services.i3lock.u2fAuth = false;
-      services.login.u2fAuth = false;
-      services.sytemd-user.u2fAuth = false;
-      services.xlock.u2fAuth = false;
-      services.xscreensaver.u2fAuth = false;
-    };
-    polkit.enable = true;
-  };
+  security.polkit.enable = true;
 
   services = {	
     avahi = {
@@ -96,6 +81,7 @@
     pcscd.enable = true;
     tlp.enable = true;
     upower.enable = true;
+    xserver.videoDrivers = [ "nvidia" ];
     syncthing = {
       enable = true;
       user = "artemis";
@@ -117,6 +103,11 @@
     u2f.enable = true;
     sensor.iio.enable = true;
     bluetooth.enable = true;
+    nvidia.prime = {
+      offload.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
     opengl = {	
       extraPackages = [ pkgs.vaapiIntel ];
       driSupport32Bit = true;
