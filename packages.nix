@@ -161,12 +161,14 @@ in
     llvm.clang
     llvm.lld
     nasm
+    nodejs
     patchelf
     python37Packages.python-language-server
     rr
     rustup
     valgrind
     vscode
+    yarn
 
     # Hardware
     arachne-pnr

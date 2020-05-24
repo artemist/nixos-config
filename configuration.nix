@@ -99,6 +99,7 @@
     keybase.enable = true;
     logind.extraConfig = "HandlePowerKey=suspend";
     pcscd.enable = true;
+    pipewire.enable = true;
     tor = {
       enable = true;
       client.enable = true;
@@ -115,7 +116,10 @@
   };
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      (callPackage ./externals/packages/xdg-desktop-portal-wlr.nix { })
+    ];
   };
 
   hardware = {	

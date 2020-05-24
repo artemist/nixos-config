@@ -21,6 +21,10 @@
           preLVM = true;
           allowDiscards = true;
         };
+        glimmer = {
+          preLVM = true;
+          allowDiscards = true;
+        };
       };
     };
   };
