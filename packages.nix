@@ -148,6 +148,7 @@ in
 
     # Development
     arduino
+    bear
     binutils-unwrapped
     ccache
     clang-tools
@@ -157,13 +158,16 @@ in
     gdb
     gnumake
     go
+    gopls
     jetbrains.clion
     llvm.clang
     llvm.lld
     nasm
+    nixpkgs-fmt
     nodejs
     patchelf
-    python37Packages.python-language-server
+    python3Packages.python-language-server
+    rnix-lsp
     rr
     rustup
     valgrind

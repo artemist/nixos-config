@@ -7,15 +7,15 @@
 {
   imports =
     [
-    ./private
-    ./hardware-configuration.nix
-    ./boot-config.nix
-    ./packages.nix
-    ./fonts.nix
-    ./ssh.nix
-    ./dns.nix
-    ./rocm.nix
-  ];
+      ./private
+      ./hardware-configuration.nix
+      ./boot-config.nix
+      ./packages.nix
+      ./fonts.nix
+      ./ssh.nix
+      ./dns.nix
+      ./rocm.nix
+    ];
 
   nix = {
     daemonNiceLevel = 5;
@@ -82,7 +82,7 @@
     polkit.enable = true;
   };
 
-  services = {	
+  services = {
     avahi = {
       enable = true;
       nssmdns = true;
@@ -118,15 +118,15 @@
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      (callPackage ./externals/packages/xdg-desktop-portal-wlr.nix { })
+      (callPackage ./externals/packages/xdg-desktop-portal-wlr.nix {})
     ];
   };
 
-  hardware = {	
+  hardware = {
     cpu.amd.updateMicrocode = true;
     u2f.enable = true;
     bluetooth.enable = true;
-    opengl = {	
+    opengl = {
       extraPackages = [ pkgs.vaapiVdpau pkgs.libvdpau-va-gl ];
       driSupport32Bit = true;
     };
@@ -167,9 +167,16 @@
       enable = true;
       package = pkgs.wireshark-qt;
     };
-    firejail.enable = true;	
+    firejail.enable = true;
     fish.enable = true;
-    xonsh.enable = true;
+    xonsh = {
+      enable = true;
+      package = pkgs.xonsh.overridePythonAttrs (
+        old: {
+          propagatedBuildInputs = old.propagatedBuildInputs ++ [ pkgs.python3Packages.nixpkgs ];
+        }
+      );
+    };
   };
 
   users = {
@@ -178,10 +185,10 @@
       description = "Artemis Tosini";
       uid = 1000;
       shell = "/run/current-system/sw/bin/fish";
-      extraGroups = ["networkmanager" "wheel" "adbusers" "wireshark" "video" "docker" "lxd" "plugdev" "dialout"];
+      extraGroups = [ "networkmanager" "wheel" "adbusers" "wireshark" "video" "docker" "lxd" "plugdev" "dialout" ];
       # hashedPassword set in private
     };
-    extraGroups.plugdev = { };
+    extraGroups.plugdev = {};
     users.root = {
       subUidRanges = [ { startUid = 16777216; count = 16777216; } { startUid = config.users.users.artemis.uid; count = 1; } ];
       subGidRanges = [ { startGid = 16777216; count = 16777216; } { startGid = 100; count = 1; } ];
