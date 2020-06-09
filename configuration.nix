@@ -170,7 +170,7 @@
     firejail.enable = true;
     fish.enable = true;
     xonsh = {
-      enable = true;
+      # enable = true;
       package = pkgs.xonsh.overridePythonAttrs (
         old: {
           propagatedBuildInputs = old.propagatedBuildInputs ++ [ pkgs.python3Packages.nixpkgs ];

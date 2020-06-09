@@ -98,6 +98,7 @@ in
     bat
     bind
     borgbackup
+    (callPackage ./externals/packages/borgmatic/requirements.nix {}).packages.borgmatic
     file
     fzf
     git-lfs

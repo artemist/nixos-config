@@ -27,6 +27,8 @@
         };
       };
     };
+
+    binfmt.emulatedSystems = [ "wasm32-wasi" "wasm64-wasi" "armv7l-linux" "aarch64-linux" ];
   };
 
   services.udev = {
