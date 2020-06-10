@@ -81,7 +81,6 @@
     pcscd.enable = true;
     tlp.enable = true;
     upower.enable = true;
-    xserver.videoDrivers = [ "nvidia" ];
     syncthing = {
       enable = true;
       user = "artemis";
@@ -103,11 +102,6 @@
     u2f.enable = true;
     sensor.iio.enable = true;
     bluetooth.enable = true;
-    nvidia.prime = {
-      offload.enable = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
     opengl = {	
       extraPackages = [ pkgs.vaapiIntel ];
       driSupport32Bit = true;
@@ -134,6 +128,7 @@
     adb.enable = true;
     firejail.enable = true;
     fish.enable = true;
+    light.enable = true;
     xonsh.enable = true;
     java = {
       enable = true;
@@ -159,7 +154,7 @@
       description = "Artemis Tosini";
       uid = 1000;
       shell = "/run/current-system/sw/bin/fish";
-      extraGroups = ["networkmanager" "wheel" "adbusers" "wireshark" "video" "docker" "lxd" "plugdev" "dialout"];
+      extraGroups = [ "networkmanager" "wheel" "adbusers" "wireshark" "video" "docker" "lxd" "plugdev" "dialout"];
       # hashedPassword set in private
     };
     extraGroups.plugdev = { };

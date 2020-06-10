@@ -64,6 +64,7 @@ in
     lm_sensors
     manpages
     nethogs
+    nvme-cli
     parted
     pinentry-gtk2 # needed for tomb
     powertop

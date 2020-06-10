@@ -3,7 +3,6 @@
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    blacklistedKernelModules = [ "nouveau" ];
     kernel.sysctl."vm.swappiness" = 5;
     cleanTmpDir = true;
 
@@ -14,16 +13,7 @@
         preLVM = true;
         allowDiscards = true;
       };
-
-      # Fix bug dealing with battery
-      kernelModules = [ "battery" ];
     };
-
-    # Enable power management for the GPU
-    extraModprobeConfig = ''options nvidia NVreg_DynamicPowerManagement=0x02'';
-
-    # The X1 extreme gen 2 has very easy to brick firmware, let me do it manually
-    loader.efi.canTouchEfiVariables = false;
   };
 
   services.udev.packages = [
