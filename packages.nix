@@ -21,6 +21,8 @@ in
     gimp
     lame
     mpv
+    obs-studio
+    obs-wlrobs
     opusTools
     pamixer
     pavucontrol
@@ -63,6 +65,7 @@ in
     manpages
     nethogs
     parted
+    pinentry-curses
     pinentry-gtk2 # needed for tomb
     powertop
     psmisc
@@ -167,7 +170,7 @@ in
     nixpkgs-fmt
     nodejs
     patchelf
-    python3Packages.python-language-server
+    python37Packages.python-language-server
     rnix-lsp
     rr
     rustup
@@ -226,8 +229,8 @@ in
     zathura
 
     # Web
+    (chromium.override { useOzone = true; })
     fullFirefox
-    google-chrome
     tor-browser-bundle-bin
 
     # Communication

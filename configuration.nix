@@ -13,7 +13,6 @@
       ./packages.nix
       ./fonts.nix
       ./ssh.nix
-      ./dns.nix
       ./rocm.nix
     ];
 
@@ -124,7 +123,6 @@
 
   hardware = {
     cpu.amd.updateMicrocode = true;
-    u2f.enable = true;
     bluetooth.enable = true;
     opengl = {
       extraPackages = [ pkgs.vaapiVdpau pkgs.libvdpau-va-gl ];
