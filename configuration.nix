@@ -79,6 +79,7 @@
     keybase.enable = true;
     logind.extraConfig = "HandlePowerKey=suspend";
     pcscd.enable = true;
+    throttled.enable = true;
     tlp.enable = true;
     upower.enable = true;
     syncthing = {
@@ -99,11 +100,15 @@
 
   hardware = {	
     cpu.intel.updateMicrocode = true;
-    u2f.enable = true;
     sensor.iio.enable = true;
     bluetooth.enable = true;
     opengl = {	
-      extraPackages = [ pkgs.vaapiIntel ];
+      extraPackages = with pkgs; [
+        intel-media-driver
+        libvdpau-va-gl
+        vaapiIntel
+        vaapiVdpau
+      ];
       driSupport32Bit = true;
     };
     pulseaudio = {
@@ -129,7 +134,6 @@
     firejail.enable = true;
     fish.enable = true;
     light.enable = true;
-    xonsh.enable = true;
     java = {
       enable = true;
       package = pkgs.adoptopenjdk-bin;

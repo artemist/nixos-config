@@ -7,7 +7,7 @@ let
   fullFirefox = (pkgs.wrapFirefox unwrappedFirefox {
     browserName = "firefox";
     desktopName = "Firefox";
-    gdkWayland = true;
+    forceWayland = true;
     pname = "firefox-bin";
   });
 in
@@ -60,6 +60,7 @@ in
     i7z
     iptables
     krb5
+    libva-utils
     linuxPackages.cpupower
     lm_sensors
     manpages
@@ -153,6 +154,7 @@ in
 
     # Development
     arduino
+    bear
     binutils-unwrapped
     ccache
     clang-tools
@@ -162,22 +164,27 @@ in
     gdb
     gnumake
     go
+    gopls
     jetbrains.clion
     llvm.clang
     llvm.lld
     nasm
+    nixpkgs-fmt
+    nodejs
     patchelf
-    python37Packages.python-language-server
+    python3Packages.python-language-server
+    rnix-lsp
     rr
     rustup
     valgrind
     vscode
+    yarn
 
     # Hardware
     arachne-pnr
     eagle
     icestorm
-    kicad
+    (kicad.override { scriptingSupport = false; })
     nextpnr
     tinyprog
     verilator
@@ -199,8 +206,8 @@ in
     ncat
     pcsctools
     pwndbg
-    python37Packages.binwalk-full
-    python37Packages.shodan
+    python3Packages.binwalk-full
+    python3Packages.shodan
 
     # Security
     (pass.withExtensions (exts: [ exts.pass-otp ]))
@@ -217,17 +224,17 @@ in
     syncthing-gtk
 
     # GUI tools
+    alacritty
     evince
     gnome3.eog
     gnome3.gnome-system-monitor
     googleearth
-    kitty
     libreoffice-fresh
     zathura
 
     # Web
+    chromium
     fullFirefox
-    google-chrome
     tor-browser-bundle-bin
 
     # Communication
@@ -248,6 +255,7 @@ in
 
     # Games
     multimc
+    steam-run
   ]) ++ (with pkgs.hunspellDicts; [
     en-us-large
     de_DE
