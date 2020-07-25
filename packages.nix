@@ -2,7 +2,6 @@
 
 let
   llvm = pkgs.llvmPackages_10;
-  go = pkgs.go_1_14;
   unwrappedFirefox = pkgs.firefox-bin-unwrapped.override { systemLocale = "de-DE"; };
   fullFirefox = (pkgs.wrapFirefox unwrappedFirefox {
     browserName = "firefox";
@@ -27,11 +26,6 @@ in
     sox
     vlc_qt5
     youtubeDL
-
-    # Drawing and art
-    krita
-    xournal
-    xournalpp
 
     # Books
     calibre
@@ -163,9 +157,6 @@ in
     gcc9
     gdb
     gnumake
-    go
-    gopls
-    jetbrains.clion
     llvm.clang
     llvm.lld
     nasm
@@ -174,22 +165,10 @@ in
     patchelf
     python3Packages.python-language-server
     rnix-lsp
-    rr
     rustup
     valgrind
     vscode
     yarn
-
-    # Hardware
-    arachne-pnr
-    eagle
-    icestorm
-    (kicad.override { scriptingSupport = false; })
-    nextpnr
-    tinyprog
-    verilator
-    verilog
-    yosys
 
     # Radio
     gr-limesdr
@@ -228,7 +207,6 @@ in
     evince
     gnome3.eog
     gnome3.gnome-system-monitor
-    googleearth
     libreoffice-fresh
     zathura
 
@@ -252,10 +230,6 @@ in
     hicolor-icon-theme
     numix-icon-theme
     numix-icon-theme-circle
-
-    # Games
-    multimc
-    steam-run
   ]) ++ (with pkgs.hunspellDicts; [
     en-us-large
     de_DE

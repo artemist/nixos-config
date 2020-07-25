@@ -5,7 +5,6 @@
     kernelPackages = pkgs.linuxPackages_latest;
     kernel.sysctl."vm.swappiness" = 5;
     cleanTmpDir = true;
-    blacklistedKernelModules = [ "psmouse" ];
 
     initrd = {
       luks.devices."${config.networking.hostName}" = {

@@ -11,8 +11,6 @@
     ./hardware-configuration.nix
     ./boot-config.nix
     ./packages.nix
-    ./tpm2.nix
-    ./secure-boot.nix
     ./fonts.nix
   ];
 
@@ -56,14 +54,6 @@
 
   sound.enable = true;
 
-  virtualisation = {
-    docker.enable = true;
-    lxd = {
-      enable = true;
-      recommendedSysctlSettings = true;
-    };
-  };
-
   security.polkit.enable = true;
 
   services = {	
@@ -75,8 +65,6 @@
     chrony.enable = true;
     flatpak.enable = true;
     fwupd.enable = true;
-    kbfs.enable = true;
-    keybase.enable = true;
     logind.extraConfig = "HandlePowerKey=suspend";
     pcscd.enable = true;
     throttled.enable = true;
@@ -120,7 +108,7 @@
   };
 
   networking = {
-    hostName = "rainbowdash";
+    hostName = "spike";
     firewall.enable = false;
     networkmanager = {
       enable = true;
@@ -131,13 +119,8 @@
 
   programs = {
     adb.enable = true;
-    firejail.enable = true;
     fish.enable = true;
     light.enable = true;
-    java = {
-      enable = true;
-      package = pkgs.adoptopenjdk-bin;
-    };
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -158,14 +141,10 @@
       description = "Artemis Tosini";
       uid = 1000;
       shell = "/run/current-system/sw/bin/fish";
-      extraGroups = [ "networkmanager" "wheel" "adbusers" "wireshark" "video" "docker" "lxd" "plugdev" "dialout"];
+      extraGroups = [ "networkmanager" "wheel" "adbusers" "wireshark" "video" "plugdev" "dialout"];
       # hashedPassword set in private
     };
     extraGroups.plugdev = { };
-    users.root = {
-      subUidRanges = [ { startUid = 16777216; count = 16777216; } { startUid = config.users.users.artemis.uid; count = 1; } ];
-      subGidRanges = [ { startGid = 16777216; count = 16777216; } { startGid = 100; count = 1; } ];
-    };
     mutableUsers = false;
   };
   systemd.extraConfig = "DefaultLimitCORE=infinity";
