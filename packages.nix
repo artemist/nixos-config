@@ -6,18 +6,15 @@ let
   fullFirefox = (pkgs.wrapFirefox unwrappedFirefox {
     browserName = "firefox";
     desktopName = "Firefox";
-    forceWayland = true;
+    gdkWayland = true;
     pname = "firefox-bin";
   });
 in
   {
     environment.systemPackages = (with pkgs; [
     # Audiovisual
-    audacity
-    darktable
     ffmpeg-full
     flac
-    gimp
     lame
     mpv
     opusTools
@@ -38,11 +35,6 @@ in
     cabextract
     samba
     wineWowPackages.staging
-
-    # Virtualization
-    docker-compose
-    gnome3.gnome-boxes
-    qemu
 
     # Linux tools
     cachix
@@ -138,7 +130,6 @@ in
     httpie
     iodine
     magic-wormhole
-    megatools
     mosh
     sshfs
     sshuttle
@@ -147,18 +138,9 @@ in
     wget
 
     # Development
-    arduino
     bear
     binutils-unwrapped
-    ccache
-    clang-tools
-    cmake
-    conda
-    gcc9
     gdb
-    gnumake
-    llvm.clang
-    llvm.lld
     nasm
     nixpkgs-fmt
     nodejs
@@ -166,39 +148,24 @@ in
     python3Packages.python-language-server
     rnix-lsp
     rustup
-    valgrind
-    vscode
     yarn
-
-    # Radio
-    gr-limesdr
-    limesuite
-    gnuradio-with-packages
-    soapysdr
-    gqrx
 
     # Hacking tools
     aircrack-ng
-    fusee-launcher
-    ghidra-bin
-    insomnia
     ncat
     pcsctools
     pwndbg
     python3Packages.binwalk-full
-    python3Packages.shodan
 
     # Security
     (pass.withExtensions (exts: [ exts.pass-otp ]))
     _1password
-    keybase-gui
     opensc
     wireguard
     yubikey-manager
     yubioath-desktop
 
     # Syncing
-    dropbox
     syncthing-cli
     syncthing-gtk
 
@@ -207,7 +174,6 @@ in
     evince
     gnome3.eog
     gnome3.gnome-system-monitor
-    libreoffice-fresh
     zathura
 
     # Web

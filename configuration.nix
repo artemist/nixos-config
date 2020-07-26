@@ -12,6 +12,7 @@
     ./boot-config.nix
     ./packages.nix
     ./fonts.nix
+    ./ssh.nix
   ];
 
   nix = {
@@ -60,6 +61,7 @@
     avahi = {
       enable = true;
       nssmdns = true;
+      publish.enable = true;
     };
     accounts-daemon.enable = true;
     chrony.enable = true;
@@ -67,7 +69,6 @@
     fwupd.enable = true;
     logind.extraConfig = "HandlePowerKey=suspend";
     pcscd.enable = true;
-    throttled.enable = true;
     tlp.enable = true;
     upower.enable = true;
     syncthing = {

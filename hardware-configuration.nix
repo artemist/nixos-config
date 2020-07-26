@@ -8,33 +8,43 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "sdhci_pci" ];
+  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "usb_storage" "usbhid" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/mapper/rainbowdash-root";
+    { device = "/dev/disk/by-uuid/54a16759-45b0-4b30-92d9-d60ee6815511";
       fsType = "btrfs";
       options = [ "subvol=root" ];
     };
 
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/54a16759-45b0-4b30-92d9-d60ee6815511";
+      fsType = "btrfs";
+      options = [ "subvol=nix" ];
+    };
+
+  fileSystems."/var/lib/flatpak" =
+    { device = "/dev/disk/by-uuid/54a16759-45b0-4b30-92d9-d60ee6815511";
+      fsType = "btrfs";
+      options = [ "subvol=flatpak" ];
+    };
+
   fileSystems."/home" =
-    { device = "/dev/mapper/rainbowdash-root";
+    { device = "/dev/disk/by-uuid/54a16759-45b0-4b30-92d9-d60ee6815511";
       fsType = "btrfs";
       options = [ "subvol=home" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/642D-02DF";
+    { device = "/dev/disk/by-uuid/597E-B7FC";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/289be8e5-6547-41d4-a6ba-309141f9fccd"; }
+    [ { device = "/dev/disk/by-uuid/52effd04-0e5a-4ac6-a0c9-5970c063e5f4"; }
     ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  # High-DPI console
-  console.font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
 }
