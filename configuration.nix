@@ -110,7 +110,7 @@
     };
     printing = {
       enable = true;
-      drivers = with pkgs; [ gutenprint gutenprintBin ];
+      drivers = with pkgs; [ brlaser ];
     };
   };
   xdg.portal = {

@@ -7,7 +7,7 @@ let
   fullFirefox = (pkgs.wrapFirefox unwrappedFirefox {
     browserName = "firefox";
     desktopName = "Firefox";
-    gdkWayland = true;
+    forceWayland = true;
     pname = "firefox-bin";
   });
 in
@@ -16,9 +16,11 @@ in
     # Audiovisual
     audacity
     darktable
+    exiftool
     ffmpeg-full
     flac
     gimp
+    inkscape
     lame
     mpv
     obs-studio
@@ -69,9 +71,11 @@ in
     pinentry-gtk2 # needed for tomb
     powertop
     psmisc
+    qrencode
     sbsigntool
     xorg.xeyes
     xorg.xkill
+    zbar
 
     # Filesystems
     cifs_utils
@@ -97,11 +101,12 @@ in
     xsettingsd
 
     # Useful CLI tools
+    (callPackage ./externals/packages/borgmatic/requirements.nix {}).packages.borgmatic
+    age
     appimage-run
     bat
     bind
     borgbackup
-    (callPackage ./externals/packages/borgmatic/requirements.nix {}).packages.borgmatic
     file
     fzf
     git-lfs
@@ -125,6 +130,7 @@ in
     poppler_utils
     ripgrep
     rlwrap
+    signify
     subversion
     tmux
     tomb
@@ -224,7 +230,6 @@ in
     gnome3.eog
     gnome3.gnome-system-monitor
     googleearth
-    kitty
     libreoffice-fresh
     zathura
 
@@ -267,4 +272,7 @@ in
     en-us-large
     de_DE
   ]);
+
+  # Needed for obs-wlrobs
+  environment.pathsToLink = [ "/share/obs" ];
 }
