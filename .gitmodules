@@ -1,6 +1,3 @@
 [submodule "private"]
 	path = private
 	url = git@github.com:artemist/nixos-config-private.git
-[submodule "externals/nixos-rocm"]
-	path = externals/nixos-rocm
-	url = https://github.com/nixos-rocm/nixos-rocm.git

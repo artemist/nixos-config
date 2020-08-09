@@ -13,7 +13,6 @@
       ./packages.nix
       ./fonts.nix
       ./ssh.nix
-      ./rocm.nix
     ];
 
   nix = {
@@ -182,7 +181,6 @@
       isNormalUser = true;
       description = "Artemis Tosini";
       uid = 1000;
-      shell = "/run/current-system/sw/bin/fish";
       extraGroups = [ "networkmanager" "wheel" "adbusers" "wireshark" "video" "docker" "lxd" "plugdev" "dialout" ];
       # hashedPassword set in private
     };

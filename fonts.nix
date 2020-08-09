@@ -2,6 +2,7 @@
 
 {
   fonts = {
+    fontconfig.enable = true;
     enableDefaultFonts = true;
     fonts = with pkgs; [
       cantarell-fonts

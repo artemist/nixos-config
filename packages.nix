@@ -14,7 +14,7 @@ in
   {
     environment.systemPackages = (with pkgs; [
     # Audiovisual
-    audacity
+    # audacity
     darktable
     exiftool
     ffmpeg-full
@@ -234,9 +234,10 @@ in
     zathura
 
     # Web
-    (chromium.override { useOzone = true; })
+    # (chromium.override { useOzone = true; })
+    chromium
     fullFirefox
-    tor-browser-bundle-bin
+    # tor-browser-bundle-bin
 
     # Communication
     discord
