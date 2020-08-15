@@ -8,11 +8,9 @@
   imports =
     [
       ./private
-      ./hardware-configuration.nix
-      ./boot-config.nix
+      ./system/current
       ./packages.nix
       ./fonts.nix
-      ./ssh.nix
     ];
 
   nix = {
@@ -42,10 +40,11 @@
 
   environment = {
     variables = {
-      MOZ_USE_XINPUT2 = "1";
       EDITOR = "nvim";
-      TERMINAL = "kitty";
+      TERMINAL = "alacritty";
+      MOZ_USE_XINPUT2 = "1";
       _JAVA_AWT_WM_NONREPARENTING = "1";
+      GTK_THEME = "Adwaita-dark";
     };
     enableDebugInfo = true;
     shellAliases = {
@@ -116,7 +115,7 @@
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      (callPackage ./externals/packages/xdg-desktop-portal-wlr.nix {})
+      xdg-desktop-portal-wlr
     ];
   };
 
@@ -136,7 +135,6 @@
   };
 
   networking = {
-    hostName = "starlight";
     firewall.enable = false;
     networkmanager = {
       enable = true;

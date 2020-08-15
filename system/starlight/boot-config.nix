@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./externals/systemd-boot-secure ];
+  imports = [ ../../externals/systemd-boot-secure ];
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     kernel.sysctl."vm.swappiness" = 5;
