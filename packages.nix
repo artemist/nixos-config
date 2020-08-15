@@ -14,7 +14,7 @@ in
   {
     environment.systemPackages = (with pkgs; [
     # Audiovisual
-    # audacity
+    audacity
     darktable
     exiftool
     ffmpeg-full
@@ -66,6 +66,7 @@ in
     lm_sensors
     manpages
     nethogs
+    nvme-cli
     parted
     pinentry-curses
     pinentry-gtk2 # needed for tomb
@@ -196,6 +197,7 @@ in
     yosys
 
     # Radio
+    gr-limesdr
     limesuite
     gnuradio-with-packages
     soapysdr
@@ -226,6 +228,7 @@ in
     syncthing-gtk
 
     # GUI tools
+    alacritty
     evince
     gnome3.eog
     gnome3.gnome-system-monitor
@@ -234,17 +237,15 @@ in
     zathura
 
     # Web
-    # (chromium.override { useOzone = true; })
     chromium
     fullFirefox
-    # tor-browser-bundle-bin
+    tor-browser-bundle-bin
 
     # Communication
     discord
     signal-desktop
     slack
     tdesktop
-    weechat
 
     # Gnome configuration
     gnome3.adwaita-icon-theme
@@ -258,15 +259,7 @@ in
 
     # Games
     multimc
-    steam
     steam-run
-
-    # Game dependencies
-    gnome3.zenity # Steam requires zenity
-    SDL2 SDL2_ttf SDL2_image
-
-    # Debug info
-    wayland.debug
 
     # Dictionaries
   ]) ++ (with pkgs.hunspellDicts; [

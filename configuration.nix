@@ -42,6 +42,8 @@
     variables = {
       EDITOR = "nvim";
       TERMINAL = "alacritty";
+
+      # for Sway
       MOZ_USE_XINPUT2 = "1";
       _JAVA_AWT_WM_NONREPARENTING = "1";
       GTK_THEME = "Adwaita-dark";
@@ -62,22 +64,7 @@
     };
   };
 
-  security = {
-    pam = {
-      u2f = {
-        enable = true;
-        authFile = "/etc/u2f_keys";
-        cue = true;
-      };
-      services.swaylock.u2fAuth = false;
-      services.i3lock.u2fAuth = false;
-      services.login.u2fAuth = false;
-      services.sytemd-user.u2fAuth = false;
-      services.xlock.u2fAuth = false;
-      services.xscreensaver.u2fAuth = false;
-    };
-    polkit.enable = true;
-  };
+  security.polkit.enable = true;
 
   services = {
     avahi = {
@@ -96,7 +83,6 @@
     keybase.enable = true;
     logind.extraConfig = "HandlePowerKey=suspend";
     pcscd.enable = true;
-    pipewire.enable = true;
     tor = {
       enable = true;
       client.enable = true;
@@ -157,21 +143,11 @@
       enable = true;
       wrapperFeatures.gtk = true;
     };
-    light.enable = true;
     wireshark = {
       enable = true;
       package = pkgs.wireshark-qt;
     };
-    firejail.enable = true;
     fish.enable = true;
-    xonsh = {
-      # enable = true;
-      package = pkgs.xonsh.overridePythonAttrs (
-        old: {
-          propagatedBuildInputs = old.propagatedBuildInputs ++ [ pkgs.python3Packages.nixpkgs ];
-        }
-      );
-    };
   };
 
   users = {
@@ -191,7 +167,4 @@
   };
   systemd.extraConfig = "DefaultLimitCORE=infinity";
   security.pam.loginLimits = [ { domain = "*"; item = "core"; type = "hard"; value = "infinity"; } ];
-
-  system.stateVersion = "19.03";
-
 }

@@ -17,4 +17,13 @@
     upower.enable = true;
     throttled.enable = true;
   };
+
+  programs.light.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    i7z
+    linuxPackages.cpupower
+  ];
+
+  system.stateVersion = "20.03";
 }
