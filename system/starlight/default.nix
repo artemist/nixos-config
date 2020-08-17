@@ -1,7 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./boot-config.nix ./hardware-configuration.nix ];
+  imports = [
+    ./boot-config.nix
+    ./hardware-configuration.nix
+    ../../services/ssh.nix
+    ../../private/starlight.nix
+  ];
 
   networking.hostName = "starlight";
 
