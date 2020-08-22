@@ -80,7 +80,6 @@ in
 
     # Filesystems
     cifs_utils
-    exfat
     nfsUtils
     ntfs3g
     udftools
