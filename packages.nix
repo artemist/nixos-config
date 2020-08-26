@@ -73,6 +73,7 @@ in
     powertop
     psmisc
     qrencode
+    rsync
     sbsigntool
     xorg.xeyes
     xorg.xkill

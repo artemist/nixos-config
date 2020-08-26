@@ -12,7 +12,9 @@
       vaapiIntel
     ];
   };
+
   services = {
+    avahi.publish.enable = true;
     tlp.enable = true;
     upower.enable = true;
     throttled.enable = true;
