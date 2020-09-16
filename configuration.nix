@@ -13,35 +13,35 @@
       ./fonts.nix
     ];
 
-  nix = {
-    daemonNiceLevel = 5;
-    daemonIONiceLevel = 1;
-    autoOptimiseStore = true;
-    gc = {
-      automatic = true;
-      dates = "00:00";
-      options = "--delete-older-than 14d";
+    nix = {
+      daemonNiceLevel = 5;
+      daemonIONiceLevel = 1;
+      autoOptimiseStore = true;
+      gc = {
+        automatic = true;
+        dates = "00:00";
+        options = "--delete-older-than 14d";
+      };
+      trustedUsers = [ "artemis" ];
     };
-    trustedUsers = [ "artemis" ];
-  };
 
-  console = {
-    keyMap = "us";
-    earlySetup = true;
-  };
+    console = {
+      keyMap = "us";
+      earlySetup = true;
+    };
 
-  i18n.defaultLocale = "de_DE.UTF-8";
+    i18n.defaultLocale = "de_DE.UTF-8";
 
-  nixpkgs = {
-    config.allowUnfree = true;
-  };
+    nixpkgs = {
+      config.allowUnfree = true;
+    };
 
-  time.timeZone = "Etc/UTC";
+    time.timeZone = "Etc/UTC";
 
-  environment = {
-    variables = {
-      EDITOR = "nvim";
-      TERMINAL = "alacritty";
+    environment = {
+      variables = {
+        EDITOR = "nvim";
+        TERMINAL = "alacritty";
 
       # for Sway
       MOZ_USE_XINPUT2 = "1";
@@ -92,9 +92,16 @@
       user = "artemis";
       dataDir = "/home/artemis";
     };
+    udev.packages = [ pkgs.openocd ];
     printing = {
       enable = true;
-      drivers = with pkgs; [ brlaser ];
+      drivers = [ (pkgs.brlaser.overrideAttrs (old: {
+        patches = [ (pkgs.fetchpatch {
+          name = "l2300d-fix.patch";
+          url = "https://patch-diff.githubusercontent.com/raw/pdewacht/brlaser/pull/68.patch";
+          sha256 = "07iqv048q0iplghn0aamjslyixw1p5jbk004i20xnl1vs95nyqzy";
+        }) ];
+      })) ];
     };
   };
   xdg.portal = {

@@ -2,14 +2,7 @@
 
 let
   llvm = pkgs.llvmPackages_10;
-  go = pkgs.go_1_14;
-  unwrappedFirefox = pkgs.firefox-bin-unwrapped.override { systemLocale = "de-DE"; };
-  fullFirefox = (pkgs.wrapFirefox unwrappedFirefox {
-    browserName = "firefox";
-    desktopName = "Firefox";
-    forceWayland = true;
-    pname = "firefox-bin";
-  });
+  go = pkgs.go_1_15;
 in
   {
     environment.systemPackages = (with pkgs; [
@@ -51,11 +44,9 @@ in
 
     # Virtualization
     docker-compose
-    gnome3.gnome-boxes
     qemu
 
     # Linux tools
-    cachix
     dmidecode
     efibootmgr
     efitools
@@ -102,7 +93,7 @@ in
     xsettingsd
 
     # Useful CLI tools
-    (callPackage ./externals/packages/borgmatic/requirements.nix {}).packages.borgmatic
+    # (callPackage ./externals/packages/borgmatic/requirements.nix {}).packages.borgmatic
     age
     appimage-run
     bat
@@ -123,6 +114,7 @@ in
     neovim
     nix-index
     openssl
+    p7zip
     pandoc
     parallel
     pciutils
@@ -185,16 +177,9 @@ in
     vscode
     yarn
 
-    # Hardware
-    arachne-pnr
-    eagle
-    icestorm
+    # Embedded
     kicad
-    nextpnr
-    tinyprog
-    verilator
-    verilog
-    yosys
+    openocd
 
     # Radio
     gr-limesdr
@@ -222,11 +207,6 @@ in
     yubikey-manager
     yubioath-desktop
 
-    # Syncing
-    dropbox
-    syncthing-cli
-    syncthing-gtk
-
     # GUI tools
     alacritty
     evince
@@ -238,8 +218,7 @@ in
 
     # Web
     chromium
-    fullFirefox
-    tor-browser-bundle-bin
+    firefox-wayland
 
     # Communication
     discord
