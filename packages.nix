@@ -93,7 +93,6 @@ in
     xsettingsd
 
     # Useful CLI tools
-    # (callPackage ./externals/packages/borgmatic/requirements.nix {}).packages.borgmatic
     age
     appimage-run
     bat
