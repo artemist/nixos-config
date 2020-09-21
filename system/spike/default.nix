@@ -1,7 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./boot-config.nix ./hardware-configuration.nix ];
+  imports = [
+    ./boot-config.nix
+    ./hardware-configuration.nix
+    ../../services/ssh.nix
+  ];
 
   networking.hostName = "spike";
 
@@ -17,7 +21,6 @@
     avahi.publish.enable = true;
     tlp.enable = true;
     upower.enable = true;
-    throttled.enable = true;
   };
 
   programs.light.enable = true;
