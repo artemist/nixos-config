@@ -92,7 +92,14 @@
       user = "artemis";
       dataDir = "/home/artemis";
     };
-    udev.packages = [ pkgs.openocd ];
+    udev.packages = [
+      pkgs.openocd
+      pkgs.android-udev-rules
+      (pkgs.callPackage ./externals/rules/adafruit.nix { })
+      (pkgs.callPackage ./externals/rules/fpga.nix { })
+      (pkgs.callPackage ./externals/rules/limesuite.nix { })
+      (pkgs.callPackage ./externals/rules/uhk.nix { })
+    ];
     printing = {
       enable = true;
       drivers = [ (pkgs.brlaser.overrideAttrs (old: {

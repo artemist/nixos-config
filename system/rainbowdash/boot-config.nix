@@ -17,15 +17,6 @@
     };
   };
 
-  services.udev.packages = [
-    pkgs.android-udev-rules
-    pkgs.openocd
-    (pkgs.callPackage ../../externals/rules/adafruit.nix { })
-    (pkgs.callPackage ../../externals/rules/fpga.nix { })
-    (pkgs.callPackage ../../externals/rules/limesuite.nix { })
-    (pkgs.callPackage ../../externals/rules/uhk.nix { })
-  ];
-
   fileSystems = {
     "/home".options = ["noatime"];
     "/boot".options = ["noatime"];
