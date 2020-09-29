@@ -3,6 +3,10 @@
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
+    kernelPatches = [ {
+      name = "increase_max_topo";
+      patch = ../../externals/patches/increase_max_topo.patch;
+    } ];
     kernel.sysctl."vm.swappiness" = 5;
     cleanTmpDir = true;
 

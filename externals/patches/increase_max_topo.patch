@@ -1,0 +1,13 @@
+diff --git a/include/linux/usb/hcd.h b/include/linux/usb/hcd.h
+index 3dbb42c637c1..8d45c90cee8a 100644
+--- a/include/linux/usb/hcd.h
++++ b/include/linux/usb/hcd.h
+@@ -26,7 +26,7 @@
+ #include <linux/interrupt.h>
+ #include <linux/idr.h>
+ 
+-#define MAX_TOPO_LEVEL		6
++#define MAX_TOPO_LEVEL		1022
+ 
+ /* This file contains declarations of usbcore internals that are mostly
+  * used or exposed by Host Controller Drivers.
