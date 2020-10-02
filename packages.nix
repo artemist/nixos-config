@@ -179,6 +179,8 @@ in
     # Embedded
     kicad
     openocd
+    stlink
+    (callPackage ./externals/packages/jlink { })
 
     # Radio
     gr-limesdr
