@@ -112,6 +112,7 @@ in
     mercurialFull
     neovim
     nix-index
+    nixops
     openssl
     p7zip
     pandoc
@@ -177,7 +178,7 @@ in
     yarn
 
     # Embedded
-    kicad
+    kicad-unstable
     openocd
     stlink
     (callPackage ./externals/packages/jlink { })
@@ -248,5 +249,5 @@ in
   ]);
 
   # Needed for obs-wlrobs
-  environment.pathsToLink = [ "/share/obs" ];
+  environment.pathsToLink = [ "/share/obs" "share/kicad" ];
 }
