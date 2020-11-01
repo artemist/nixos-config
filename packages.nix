@@ -25,17 +25,8 @@ in
     vlc_qt5
     youtubeDL
 
-    # Drawing and art
-    krita
-    xournal
-    xournalpp
-
     # Books
     calibre
-
-    # Emulation
-    mgba
-    mupen64plus
 
     # Wine and tools
     cabextract
@@ -110,7 +101,6 @@ in
     libarchive
     lsof
     mercurialFull
-    neovim
     nix-index
     nixops
     openssl
@@ -151,7 +141,6 @@ in
 
     # Development
     arduino
-    bear
     binutils-unwrapped
     ccache
     clang-tools
@@ -162,7 +151,6 @@ in
     gnumake
     go
     gopls
-    jetbrains.clion
     llvm.clang
     llvm.lld
     nasm
@@ -171,7 +159,6 @@ in
     patchelf
     python37Packages.python-language-server
     rnix-lsp
-    rr
     rustup
     valgrind
     vscode
@@ -214,7 +201,6 @@ in
     evince
     gnome3.eog
     gnome3.gnome-system-monitor
-    googleearth
     libreoffice-fresh
     zathura
 

@@ -11,6 +11,7 @@
       ./system/current
       ./packages.nix
       ./fonts.nix
+      ./sets/neovim.nix
     ];
 
     nix = {
@@ -40,7 +41,6 @@
 
     environment = {
       variables = {
-        EDITOR = "nvim";
         TERMINAL = "alacritty";
 
       # for Sway

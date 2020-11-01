@@ -5,6 +5,7 @@
     ./boot-config.nix
     ./hardware-configuration.nix
     ../../services/ssh.nix
+    ../../sets/fpga.nix
     ../../private/starlight.nix
   ];
 
