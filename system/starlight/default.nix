@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -16,6 +16,19 @@
       KERNEL=="eth*", ATTR{address}=="00:0f:53:16:15:9d", NAME="lan10g1"
   '';
 
+  networking.networkmanager.enable = lib.mkForce false;
+  networking.bridges.br0 = {
+    rstp = true;
+    interfaces = [ "lan10g0" "lan10g1" "enp4s0" ];
+  };
+  networking.interfaces.br0 = {
+    useDHCP = true;
+    ipv6.addresses = [{
+      address = "2001:470:8b04:6900:6969:1454:7749:e591";
+      prefixLength = 128;
+    }];
+  };
+
   hardware.cpu.amd.updateMicrocode = true;
   services = {
     tor = {
@@ -24,7 +37,7 @@
     };
   };
 
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
 
   environment.systemPackages = with pkgs; [
     weechat
