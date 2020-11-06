@@ -28,6 +28,7 @@
       prefixLength = 128;
     }];
   };
+  networking.dhcpcd.allowInterfaces = [ "br0" ];
 
   hardware.cpu.amd.updateMicrocode = true;
   services = {
