@@ -140,7 +140,6 @@ in
     wget
 
     # Development
-    arduino
     binutils-unwrapped
     ccache
     clang-tools
@@ -161,7 +160,6 @@ in
     rnix-lsp
     rustup
     valgrind
-    vscode
     yarn
 
     # Embedded
