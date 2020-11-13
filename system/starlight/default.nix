@@ -4,6 +4,7 @@
   imports = [
     ./boot-config.nix
     ./hardware-configuration.nix
+    ./nginx.nix
     ../../services/ssh.nix
     ../../sets/fpga.nix
     ../../private/starlight.nix
