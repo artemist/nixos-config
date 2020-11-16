@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -93,7 +93,6 @@
       dataDir = "/home/artemis";
     };
     udev.packages = [
-      pkgs.openocd
       pkgs.android-udev-rules
       (pkgs.callPackage ./externals/rules/adafruit.nix { })
       (pkgs.callPackage ./externals/rules/fpga.nix { })
@@ -114,12 +113,8 @@
   };
 
   hardware = {
-    cpu.amd.updateMicrocode = true;
     bluetooth.enable = true;
-    opengl = {
-      extraPackages = [ pkgs.vaapiVdpau pkgs.libvdpau-va-gl ];
-      driSupport32Bit = true;
-    };
+    opengl.driSupport32Bit = true;
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
@@ -131,7 +126,7 @@
   networking = {
     firewall.enable = false;
     networkmanager = {
-      enable = true;
+      enable = lib.mkDefault true;
       ethernet.macAddress = "random";
       wifi.macAddress = "random";
     };

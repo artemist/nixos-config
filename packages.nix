@@ -10,6 +10,9 @@ let
       sha256 = "07fr1yfls94gxpwv3azgzxm7shjs4g5ribvqrh88flpf4cv5hq2d";
     };
   } );
+  openocd = if pkgs.stdenv.cc.isGNU then (pkgs.openocd.overrideAttrs ( old: {
+    NIX_CFLAGS_COMPILE = old.NIX_CFLAGS_COMPILE ++ [ "-Wno-error=strict-prototypes" ];
+  })) else pkgs.openocd;
 in
   {
     environment.systemPackages = (with pkgs; [

@@ -32,6 +32,12 @@
   networking.dhcpcd.allowInterfaces = [ "br0" ];
 
   hardware.cpu.amd.updateMicrocode = true;
+  hardware.opengl.extraPackages = with pkgs; [
+    vaapiVdpau
+    libvdpau-va-gl
+    rocm-opencl-icd
+    rocm-runtime
+  ];
   services = {
     tor = {
       enable = true;
