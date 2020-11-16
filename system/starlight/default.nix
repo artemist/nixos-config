@@ -7,6 +7,8 @@
     ./nginx.nix
     ../../services/ssh.nix
     ../../sets/fpga.nix
+    ../../sets/gpu/amd.nix
+    ../../sets/cpu/amd.nix
     ../../private/starlight.nix
   ];
 
@@ -17,7 +19,7 @@
       KERNEL=="eth*", ATTR{address}=="00:0f:53:16:15:9d", NAME="lan10g1"
   '';
 
-  networking.networkmanager.enable = lib.mkForce false;
+  networking.networkmanager.enable = false;
   networking.bridges.br0 = {
     rstp = true;
     interfaces = [ "lan10g0" "lan10g1" "enp4s0" ];
@@ -32,12 +34,6 @@
   networking.dhcpcd.allowInterfaces = [ "br0" ];
 
   hardware.cpu.amd.updateMicrocode = true;
-  hardware.opengl.extraPackages = with pkgs; [
-    vaapiVdpau
-    libvdpau-va-gl
-    rocm-opencl-icd
-    rocm-runtime
-  ];
   services = {
     tor = {
       enable = true;

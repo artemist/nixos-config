@@ -5,30 +5,12 @@
     ./boot-config.nix
     ./hardware-configuration.nix
     ../../services/ssh.nix
+    ../../sets/gpu/intel.nix
+    ../../sets/cpu/intel.nix
+    ../../sets/laptop.nix
   ];
 
   networking.hostName = "spike";
-
-  hardware = {
-    cpu.intel.updateMicrocode = true;
-    opengl.extraPackages = with pkgs; [
-      intel-media-driver
-      vaapiIntel
-    ];
-  };
-
-  services = {
-    avahi.publish.enable = true;
-    tlp.enable = true;
-    upower.enable = true;
-  };
-
-  programs.light.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    i7z
-    linuxPackages.cpupower
-  ];
-
+  services.avahi.publish.enable = true;
   system.stateVersion = "20.03";
 }

@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, lib, ... }:
 
 {
@@ -11,7 +7,7 @@
       ./system/current
       ./packages.nix
       ./fonts.nix
-      ./sets/neovim.nix
+      ./sets/neovim
     ];
 
     nix = {
@@ -33,9 +29,7 @@
 
     i18n.defaultLocale = "de_DE.UTF-8";
 
-    nixpkgs = {
-      config.allowUnfree = true;
-    };
+    nixpkgs.config.allowUnfree = true;
 
     time.timeZone = "Etc/UTC";
 
@@ -134,10 +128,6 @@
 
   programs = {
     adb.enable = true;
-    java = {
-      enable = true;
-      package = pkgs.adoptopenjdk-bin;
-    };
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
