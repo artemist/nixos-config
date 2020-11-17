@@ -4,10 +4,13 @@
   imports = [
     ./boot-config.nix
     ./hardware-configuration.nix
-    ../../services/ssh.nix
-    ../../sets/gpu/intel.nix
     ../../sets/cpu/intel.nix
+    ../../sets/gpu/intel.nix
+    ../../sets/hacking.nix
     ../../sets/laptop.nix
+    ../../sets/neovim
+    ../../sets/ssh.nix
+    ../../sets/sway.nix
   ];
 
   networking.hostName = "spike";

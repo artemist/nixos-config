@@ -3,16 +3,6 @@
 let
   llvm = pkgs.llvmPackages_10;
   go = pkgs.go_1_15;
-  wofi = pkgs.wofi.overrideAttrs ( old: {
-    src = pkgs.fetchhg {
-      url = old.src.url;
-      rev = "e3db9b8075e71399bba14a568c59032f47981dab";
-      sha256 = "07fr1yfls94gxpwv3azgzxm7shjs4g5ribvqrh88flpf4cv5hq2d";
-    };
-  } );
-  openocd = if pkgs.stdenv.cc.isGNU then (pkgs.openocd.overrideAttrs ( old: {
-    NIX_CFLAGS_COMPILE = old.NIX_CFLAGS_COMPILE ++ [ "-Wno-error=strict-prototypes" ];
-  })) else pkgs.openocd;
 in
   {
     environment.systemPackages = (with pkgs; [
@@ -54,7 +44,6 @@ in
     gparted
     hdparm
     iptables
-    krb5
     lm_sensors
     manpages
     nethogs
@@ -76,22 +65,6 @@ in
     nfsUtils
     ntfs3g
     udftools
-
-    # Wayland tools
-    dex
-    glib
-    grim
-    imagemagick
-    libnotify
-    mako
-    polkit_gnome
-    slurp
-    wf-recorder
-    wl-clipboard
-    wofi
-    xdg-user-dirs
-    xdg_utils
-    xsettingsd
 
     # Useful CLI tools
     age
@@ -172,12 +145,6 @@ in
     valgrind
     yarn
 
-    # Embedded
-    kicad-unstable
-    openocd
-    stlink
-    (callPackage ./externals/packages/jlink { })
-
     # Radio
     gr-limesdr
     limesuite
@@ -186,15 +153,6 @@ in
     gqrx
 
     # Hacking tools
-    aircrack-ng
-    fusee-launcher
-    ghidra-bin
-    insomnia
-    ncat
-    pcsctools
-    pwndbg
-    python37Packages.binwalk-full
-    python37Packages.shodan
 
     # Security
     (pass.withExtensions (exts: [ exts.pass-otp ]))

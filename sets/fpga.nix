@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 {
+  services.udev.packages = [
+    (pkgs.callPackage ../externals/rules/fpga.nix { })
+  ];
   environment.systemPackages = with pkgs; [
     # Synthesis
     icestorm

@@ -5,9 +5,12 @@
     ./boot-config.nix
     ./secure-boot.nix
     ./hardware-configuration.nix
-    ../../sets/gpu/intel.nix
     ../../sets/cpu/intel.nix
+    ../../sets/gpu/intel.nix
+    ../../sets/hacking.nix
     ../../sets/laptop.nix
+    ../../sets/neovim
+    ../../sets/sway.nix
   ];
 
   networking.hostName = "rainbowdash";

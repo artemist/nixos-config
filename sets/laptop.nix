@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./networkmanager.nix
+  ];
+
   services = {
     tlp.enable = true;
     upower.enable = true;
