@@ -26,4 +26,12 @@
       ];
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    nixpkgs-fmt
+    nodejs
+    python3Packages.python-language-server
+    rnix-lsp
+    rust-analyzer
+  ];
 }

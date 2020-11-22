@@ -136,11 +136,7 @@ in
     llvm.clang
     llvm.lld
     nasm
-    nixpkgs-fmt
-    nodejs
     patchelf
-    python37Packages.python-language-server
-    rnix-lsp
     rustup
     valgrind
     yarn
