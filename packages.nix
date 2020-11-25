@@ -187,7 +187,6 @@ in
     numix-icon-theme-circle
 
     # Games
-    multimc
     steam-run
 
     # Dictionaries

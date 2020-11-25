@@ -46,10 +46,6 @@
 
   environment.systemPackages = with pkgs; [
     weechat
-    steam
-
-    gnome3.zenity
-    SDL2 SDL2_ttf SDL2_image
   ];
 
   system.stateVersion = "19.09";
