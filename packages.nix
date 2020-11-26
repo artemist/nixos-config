@@ -85,7 +85,6 @@ in
     lsof
     mercurialFull
     nix-index
-    nixops
     openssl
     p7zip
     pandoc
@@ -140,15 +139,6 @@ in
     rustup
     valgrind
     yarn
-
-    # Radio
-    gr-limesdr
-    limesuite
-    gnuradio-with-packages
-    soapysdr
-    gqrx
-
-    # Hacking tools
 
     # Security
     (pass.withExtensions (exts: [ exts.pass-otp ]))

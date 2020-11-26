@@ -17,13 +17,12 @@
     ../../sets/virtualization.nix
   ];
 
+  # Network
   networking.hostName = "starlight";
-
   services.udev.extraRules = ''
-      KERNEL=="eth*", ATTR{address}=="00:0f:53:16:15:9c", NAME="lan10g0"
-      KERNEL=="eth*", ATTR{address}=="00:0f:53:16:15:9d", NAME="lan10g1"
+    KERNEL=="eth*", ATTR{address}=="00:0f:53:16:15:9c", NAME="lan10g0"
+    KERNEL=="eth*", ATTR{address}=="00:0f:53:16:15:9d", NAME="lan10g1"
   '';
-
   networking.bridges.br0 = {
     rstp = true;
     interfaces = [ "lan10g0" "lan10g1" "enp4s0" ];
@@ -37,13 +36,26 @@
   };
   networking.dhcpcd.allowInterfaces = [ "br0" ];
 
+
+  # Filesystems
+  boot.supportedFilesystems = [ "zfs" "btrfs" ];
+  boot.zfs = {
+    enableUnstable = true;
+    forceImportAll = false;
+    forceImportRoot = false;
+    requestEncryptionCredentials = false;
+  };
+  services.btrfs.autoScrub = {
+    enable = true;
+    fileSystems = [ "/" "/media/data" "/media/archive" ];
+  };
+
+  # Packages
   services.tor = {
     enable = true;
     client.enable = true;
   };
-
   boot.binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
-
   environment.systemPackages = with pkgs; [
     weechat
   ];

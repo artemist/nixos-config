@@ -13,6 +13,7 @@
       signing-certificate = "/root/secure-boot/db.crt";
     };
 
+    # Encrypted drives
     initrd.luks = {
       reusePassphrases = true;
       devices = {

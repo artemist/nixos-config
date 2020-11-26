@@ -1,3 +1,6 @@
 [submodule "private"]
 	path = private
 	url = git@github.com:artemist/nixos-config-private.git
+[submodule "externals/wip-pinebook-pro"]
+	path = externals/wip-pinebook-pro
+	url = https://github.com/samueldr/wip-pinebook-pro
