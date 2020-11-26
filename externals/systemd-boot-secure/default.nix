@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 with lib;
-
 let
   cfg = config.boot.loader.systemd-boot-secure;
 
@@ -38,7 +37,8 @@ let
 
     signingCertificate = if cfg.signed then cfg.signing-certificate else "/no-signing-crt";
   };
-in {
+in
+{
 
   options.boot.loader.systemd-boot-secure = {
     enable = mkOption {

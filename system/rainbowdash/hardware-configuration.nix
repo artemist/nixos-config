@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "sdhci_pci" ];
@@ -14,25 +15,27 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/mapper/rainbowdash-root";
+    {
+      device = "/dev/mapper/rainbowdash-root";
       fsType = "btrfs";
       options = [ "subvol=root" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/mapper/rainbowdash-root";
+    {
+      device = "/dev/mapper/rainbowdash-root";
       fsType = "btrfs";
       options = [ "subvol=home" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/642D-02DF";
+    {
+      device = "/dev/disk/by-uuid/642D-02DF";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/289be8e5-6547-41d4-a6ba-309141f9fccd"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/289be8e5-6547-41d4-a6ba-309141f9fccd"; }];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   # High-DPI console

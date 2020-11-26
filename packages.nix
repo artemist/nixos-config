@@ -1,11 +1,10 @@
 { config, pkgs, ... }:
-
 let
   llvm = pkgs.llvmPackages_10;
   go = pkgs.go_1_15;
 in
-  {
-    environment.systemPackages = (with pkgs; [
+{
+  environment.systemPackages = (with pkgs; [
     # Audiovisual
     audacity
     darktable
@@ -107,7 +106,7 @@ in
     xclip
     xxd
     zip
-    
+
     # Networking
     curlFull
     httpie

@@ -17,7 +17,6 @@
 , libXrender
 , libXrandr
 }:
-
 let
   jlinkVersion = "686a";
 

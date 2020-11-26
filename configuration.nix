@@ -93,5 +93,5 @@
     mutableUsers = false;
   };
   systemd.extraConfig = "DefaultLimitCORE=infinity";
-  security.pam.loginLimits = [ { domain = "*"; item = "core"; type = "hard"; value = "infinity"; } ];
+  security.pam.loginLimits = [{ domain = "*"; item = "core"; type = "hard"; value = "infinity"; }];
 }

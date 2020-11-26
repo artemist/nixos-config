@@ -18,6 +18,6 @@
     dfu-util
     tinyprog
     wishbone-tool
-    ( callPackage ../externals/packages/fujproj { } )
+    (callPackage ../externals/packages/fujproj { })
   ];
 }

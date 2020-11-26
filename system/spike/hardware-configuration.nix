@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "usb_storage" "usbhid" "sd_mod" "sdhci_pci" ];
@@ -14,37 +15,41 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/54a16759-45b0-4b30-92d9-d60ee6815511";
+    {
+      device = "/dev/disk/by-uuid/54a16759-45b0-4b30-92d9-d60ee6815511";
       fsType = "btrfs";
       options = [ "subvol=root" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/54a16759-45b0-4b30-92d9-d60ee6815511";
+    {
+      device = "/dev/disk/by-uuid/54a16759-45b0-4b30-92d9-d60ee6815511";
       fsType = "btrfs";
       options = [ "subvol=nix" ];
     };
 
   fileSystems."/var/lib/flatpak" =
-    { device = "/dev/disk/by-uuid/54a16759-45b0-4b30-92d9-d60ee6815511";
+    {
+      device = "/dev/disk/by-uuid/54a16759-45b0-4b30-92d9-d60ee6815511";
       fsType = "btrfs";
       options = [ "subvol=flatpak" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/54a16759-45b0-4b30-92d9-d60ee6815511";
+    {
+      device = "/dev/disk/by-uuid/54a16759-45b0-4b30-92d9-d60ee6815511";
       fsType = "btrfs";
       options = [ "subvol=home" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/597E-B7FC";
+    {
+      device = "/dev/disk/by-uuid/597E-B7FC";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/52effd04-0e5a-4ac6-a0c9-5970c063e5f4"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/52effd04-0e5a-4ac6-a0c9-5970c063e5f4"; }];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

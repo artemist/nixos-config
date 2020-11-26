@@ -16,6 +16,6 @@
 
   users = {
     users.artemis.extraGroups = [ "plugdev" "dialout" ];
-    extraGroups.plugdev = {};
+    extraGroups.plugdev = { };
   };
 }

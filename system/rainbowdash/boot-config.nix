@@ -18,8 +18,8 @@
   };
 
   fileSystems = {
-    "/home".options = ["noatime"];
-    "/boot".options = ["noatime"];
-    "/".options = ["noatime"];
+    "/home".options = [ "noatime" ];
+    "/boot".options = [ "noatime" ];
+    "/".options = [ "noatime" ];
   };
 }
