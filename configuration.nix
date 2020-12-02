@@ -57,7 +57,17 @@
     ];
     printing = {
       enable = true;
-      drivers = [ pkgs.brlaser ];
+      drivers = [
+        (pkgs.brlaser.overrideAttrs (old: {
+          patches = [
+            (pkgs.fetchpatch {
+              name = "l2300d-fix.patch";
+              url = "https://patch-diff.githubusercontent.com/raw/pdewacht/brlaser/pull/68.patch";
+              sha256 = "07iqv048q0iplghn0aamjslyixw1p5jbk004i20xnl1vs95nyqzy";
+            })
+          ];
+        }))
+      ];
     };
   };
 
@@ -87,9 +97,11 @@
       isNormalUser = true;
       description = "Artemis Tosini";
       uid = 1000;
-      extraGroups = [ "wheel" "docker" "lxd" ];
+      extraGroups = [ "wheel" ];
+      group = "artemis";
       # hashedPassword set in private
     };
+    groups.artemis.gid = config.users.artemis.uid;
     mutableUsers = false;
   };
   systemd.extraConfig = "DefaultLimitCORE=infinity";

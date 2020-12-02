@@ -160,9 +160,7 @@ in
     firefox-wayland
 
     # Communication
-    discord
     signal-desktop
-    slack
     tdesktop
 
     # Gnome configuration
@@ -174,9 +172,6 @@ in
     hicolor-icon-theme
     numix-icon-theme
     numix-icon-theme-circle
-
-    # Games
-    steam-run
 
     # Dictionaries
   ]) ++ (with pkgs.hunspellDicts; [
