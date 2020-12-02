@@ -12,6 +12,7 @@
     ../../sets/hacking.nix
     ../../sets/hardware.nix
     ../../sets/neovim
+    ../../sets/printing.nix
     ../../sets/ssh.nix
     ../../sets/sway.nix
     ../../sets/virtualization.nix

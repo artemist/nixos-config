@@ -55,12 +55,6 @@
     udev.packages = [
       (pkgs.callPackage ./externals/rules/uhk.nix { })
     ];
-    printing = {
-      enable = true;
-      drivers = [
-        (pkgs.pkgsi686Linux.callPackage ./externals/packages/hll2300d { })
-      ];
-    };
   };
 
   hardware = {
