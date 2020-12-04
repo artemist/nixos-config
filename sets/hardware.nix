@@ -10,6 +10,7 @@
   environment.systemPackages = with pkgs; [
     kicad-unstable
     openocd
+    picocom
     stlink
     (callPackage ../externals/packages/jlink { })
   ];
