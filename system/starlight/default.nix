@@ -23,10 +23,11 @@
   services.udev.extraRules = ''
     KERNEL=="eth*", ATTR{address}=="00:0f:53:16:15:9c", NAME="lan10g0"
     KERNEL=="eth*", ATTR{address}=="00:0f:53:16:15:9d", NAME="lan10g1"
+    KERNEL=="eth*", ATTR{address}=="b4:2e:99:3d:07:66", NAME="lan1g0"
   '';
   networking.bridges.br0 = {
     rstp = true;
-    interfaces = [ "lan10g0" "lan10g1" "enp4s0" ];
+    interfaces = [ "lan10g0" "lan10g1" "lan1g0" ];
   };
   networking.interfaces.br0 = {
     useDHCP = true;
