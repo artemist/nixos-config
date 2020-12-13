@@ -7,10 +7,21 @@
       enable = true;
       recommendedSysctlSettings = true;
     };
+    libvirtd = {
+      enable = true;
+      qemuOvmf = true;
+      qemuRunAsRoot = false;
+      onBoot = "ignore";
+      onShutdown = "shutdown";
+    };
   };
 
+  environment.systemPackages = with pkgs; [
+    virtmanager
+  ];
+
   users.users = {
-    artemis.extraGroups = [ "docker" "lxd" ];
+    artemis.extraGroups = [ "docker" "lxd" "libvirtd" ];
     lxd = {
       subUidRanges = [{ startUid = 16777216; count = 16777216; } { startUid = config.users.users.artemis.uid; count = 1; }];
       subGidRanges = [{ startGid = 16777216; count = 16777216; } { startGid = 100; count = 1; } { startGid = config.users.groups.artemis.gid; count = 1; }];

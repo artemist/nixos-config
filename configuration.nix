@@ -41,7 +41,6 @@
       enable = true;
       nssmdns = true;
     };
-    chrony.enable = true;
     flatpak.enable = true;
     fwupd.enable = true;
     kbfs.enable = true;
