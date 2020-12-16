@@ -12,13 +12,13 @@
         editorconfig-vim
         fzf-vim
         vim-airline
-        vim-airline-themes
         vim-clang-format
         vim-fetch
         vim-nftables
         vim-nix
         vim-sensible
         vim-toml
+        gruvbox
 
         coc-go
         coc-json

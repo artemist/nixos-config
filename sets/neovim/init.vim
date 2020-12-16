@@ -1,5 +1,7 @@
 cnoremap w!! w !sudo tee > /dev/null %
 
+autocmd vimenter * ++nested colorscheme gruvbox
+
 set guifont=Fira\ Code:h11
 
 let g:airline#extensions#tabline#enabled = 1
@@ -10,7 +12,7 @@ set hidden
 set nobackup
 set nowritebackup
 set cmdheight=2
-set updatetime=2
+set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.

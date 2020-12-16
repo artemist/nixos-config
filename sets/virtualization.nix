@@ -18,6 +18,7 @@
 
   environment.systemPackages = with pkgs; [
     virtmanager
+    spice_gtk
   ];
 
   users.users = {
