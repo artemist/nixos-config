@@ -7,7 +7,7 @@
     ../../externals/wip-pinebook-pro/pinebook_pro.nix
     ../../sets/neovim
     ../../sets/sway.nix
-    ../../sets/networkmanager.nix
+    ../../sets/wifi.nix
   ];
 
   networking.hostName = "mistmane";

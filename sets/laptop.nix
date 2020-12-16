@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./networkmanager.nix
+    ./wifi.nix
   ];
 
   services = {
