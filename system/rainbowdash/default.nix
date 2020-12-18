@@ -7,6 +7,7 @@
     ./hardware-configuration.nix
     ../../sets/cpu/intel.nix
     ../../sets/gpu/intel.nix
+    ../../sets/buildMachines.nix
     ../../sets/hacking.nix
     ../../sets/laptop.nix
     ../../sets/neovim
