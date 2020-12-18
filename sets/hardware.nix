@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
-
+let
+  call =
+    if (pkgs.targetPlatform.system == "x86_64-linux") then pkgs.pkgsi686Linux.callPackage
+    else pkgs.callPackage;
+  jlink = call ../externals/packages/jlink { };
+in
 {
   services.udev.packages = [
     (pkgs.callPackage ../externals/rules/adafruit.nix { })
@@ -12,7 +17,7 @@
     openocd
     picocom
     stlink
-    (callPackage ../externals/packages/jlink { })
+    jlink
   ];
 
   users = {
