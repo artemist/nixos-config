@@ -5,6 +5,7 @@
     ./boot-config.nix
     ./hardware-configuration.nix
     ../../private/starlight.nix
+    ../../sets/builder.nix
     ../../sets/cpu/amd.nix
     ../../sets/fpga.nix
     ../../sets/gpu/amd.nix
