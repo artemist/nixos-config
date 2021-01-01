@@ -11,8 +11,8 @@
     ../../sets/gpu/amd.nix
     ../../sets/hacking.nix
     ../../sets/hardware.nix
-    ../../sets/jack.nix
     ../../sets/neovim
+    ../../sets/pipewire.nix
     ../../sets/printing.nix
     ../../sets/ssh.nix
     ../../sets/sway.nix
