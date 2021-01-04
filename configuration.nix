@@ -40,6 +40,7 @@
     avahi = {
       enable = true;
       nssmdns = true;
+      publish.enable = true;
     };
     flatpak.enable = true;
     fwupd.enable = true;

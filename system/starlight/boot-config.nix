@@ -4,6 +4,7 @@
   imports = [ ../../externals/systemd-boot-secure ];
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
+    extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
     kernel.sysctl."vm.swappiness" = 5;
     cleanTmpDir = true;
     loader.systemd-boot-secure = {

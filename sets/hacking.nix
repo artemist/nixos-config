@@ -12,7 +12,6 @@
     aircrack-ng
     fusee-launcher
     ncat
-    pcsctools
     pwndbg
     python37Packages.binwalk-full
     python37Packages.shodan

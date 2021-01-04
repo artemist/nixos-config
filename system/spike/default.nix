@@ -14,6 +14,5 @@
   ];
 
   networking.hostName = "spike";
-  services.avahi.publish.enable = true;
   system.stateVersion = "20.03";
 }
