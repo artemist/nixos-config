@@ -11,6 +11,7 @@
     ../../sets/hacking.nix
     ../../sets/laptop.nix
     ../../sets/neovim
+    ../../sets/pipewire.nix
     ../../sets/sway.nix
   ];
 
