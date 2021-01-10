@@ -5,9 +5,8 @@
     ./boot-config.nix
     ./hardware-configuration.nix
     ../../externals/wip-pinebook-pro/pinebook_pro.nix
-    ../../sets/neovim
-    ../../sets/sway.nix
     ../../sets/wifi.nix
+    ../../sets/workstation.nix
   ];
 
   networking.hostName = "mistmane";

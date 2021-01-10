@@ -10,9 +10,7 @@
     ../../sets/buildMachines.nix
     ../../sets/hacking.nix
     ../../sets/laptop.nix
-    ../../sets/neovim
-    ../../sets/pipewire.nix
-    ../../sets/sway.nix
+    ../../sets/workstation.nix
   ];
 
   networking.hostName = "rainbowdash";

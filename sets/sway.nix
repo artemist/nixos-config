@@ -9,6 +9,7 @@ let
   });
 in
 {
+  imports = [ ./fonts.nix ];
   security.polkit.enable = true;
   services = {
     accounts-daemon.enable = true;

@@ -4,8 +4,6 @@
   imports = [
     ./private
     ./system/current
-    ./packages.nix
-    ./fonts.nix
   ];
 
   nix = {
@@ -25,58 +23,21 @@
     earlySetup = true;
   };
 
-  i18n.defaultLocale = "de_DE.UTF-8";
-
   nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Etc/UTC";
 
-  environment = {
-    variables.TERMINAL = "alacritty";
-    enableDebugInfo = true;
-  };
+  environment.shellAliases.cp = "cp --reflink=auto --sparse=always";
 
-  services = {
-    avahi = {
-      enable = true;
-      nssmdns = true;
-      publish.enable = true;
-    };
-    flatpak.enable = true;
-    fwupd.enable = true;
-    kbfs.enable = true;
-    keybase.enable = true;
-    pcscd.enable = true;
-    syncthing = {
-      enable = true;
-      user = "artemis";
-      dataDir = "/home/artemis";
-    };
-    udev.packages = [
-      (pkgs.callPackage ./externals/rules/uhk.nix { })
-    ];
-  };
-
-  hardware = {
-    bluetooth.enable = true;
-    opengl.driSupport32Bit = true;
-    pulseaudio = {
-      enable = true;
-      package = pkgs.pulseaudioFull;
-      support32Bit = true;
-      daemon.config.flat-volumes = "no";
-    };
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    publish.enable = true;
   };
 
   networking.firewall.enable = false;
 
-  programs = {
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    fish.enable = true;
-  };
+  programs.fish.enable = true;
 
   users = {
     users.artemis = {
@@ -91,5 +52,5 @@
     mutableUsers = false;
   };
   systemd.extraConfig = "DefaultLimitCORE=infinity";
-  security.pam.loginLimits = [{ domain = "*"; item = "core"; type = "hard"; value = "infinity"; }];
+  security.pam.loginLimits = [ { domain = "*"; item = "core"; type = "hard"; value = "infinity"; } ];
 }
