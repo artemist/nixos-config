@@ -6,6 +6,7 @@
     ./packages.nix
     ./pipewire.nix
     ./neovim
+    ../home
   ];
 
   i18n.defaultLocale = "de_DE.UTF-8";
