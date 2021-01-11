@@ -9,19 +9,21 @@
   home-manager.users.artemis = { pkgs, ... }: {
     imports = [
       ./git.nix
+      ./neovim
     ];
 
     xdg.enable = true;
     xdg.configFile = {
-      "alacritty/alacritty.yml".source = ./alacritty.yml;
-      "mpv/mpv.conf".source = ./mpv.conf;
+      "alacritty/alacritty.yml".source = ./files/alacritty.yml;
+      "mpv/mpv.conf".source = ./files/mpv.conf;
+      "mimeapps.list".source = ./files/mimeapps.list;
       "swaylock/config".text = ''
         daemonize
         ignore-empty-password
         indicator-caps-lock
         show-failed-attempts
         show-keyboard-layout
-        image=${./xp.jpg}
+        image=${./files/xp.jpg}
       '';
     };
   };

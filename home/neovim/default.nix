@@ -4,7 +4,7 @@
   programs.neovim = {
     enable = true;
     vimAlias = true;
-    defaultEditor = true;
+    withNodeJs = true;
     configure = {
       customRC = builtins.readFile ./init.vim;
       packages.default.start = with pkgs.vimPlugins; [
@@ -27,11 +27,16 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
+  home.sessionVariables.EDITOR = "nvim";
+  home.packages = with pkgs; [
     nixpkgs-fmt
-    nodejs
-    python3Packages.python-language-server
-    rnix-lsp
-    rust-analyzer
   ];
+
+  xdg.configFile."nvim/coc-settings.json".text = builtins.toJSON {
+    rust-analyzer.serverPath = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+    languageserver.nix = {
+      command = "${pkgs.rnix-lsp}/bin/rnix-lsp";
+      filetypes = [ "nix" ];
+    };
+  };
 }

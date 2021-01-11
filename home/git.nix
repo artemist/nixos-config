@@ -16,6 +16,7 @@
       transfer.fsckObjects = true;
 
       advice.detachedHead = false;
+      pull.rebase = true;
       format.signOff = true;
       init.defaultBranch = "canon";
       log.showSignature = true;

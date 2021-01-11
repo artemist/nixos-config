@@ -83,6 +83,7 @@ in
     libarchive
     lsof
     mercurialFull
+    neovim
     nix-index
     openssl
     p7zip

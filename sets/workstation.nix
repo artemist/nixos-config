@@ -5,7 +5,6 @@
     ./sway.nix
     ./packages.nix
     ./pipewire.nix
-    ./neovim
     ../home
   ];
 

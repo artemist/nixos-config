@@ -1,6 +1,0 @@
-daemonize
-ignore-empty-password
-image=/home/artemis/.config/swaylock/xp.jpg
-indicator-caps-lock
-show-failed-attempts
-show-keyboard-layout
