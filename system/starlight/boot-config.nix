@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
-
+let
+  cifs_opts = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=60" "x-systemd.device-timeout=5s" "x-systemd.mount-timeout=5s" "uid=${builtins.toString config.users.users.artemis.uid}" "gid=100" ];
+  luna_opts = cifs_opts ++ [ "credentials=/var/private/luna_creds" ];
+in
 {
   imports = [ ../../externals/systemd-boot-secure ];
   boot = {
@@ -33,4 +36,7 @@
       };
     };
   };
+
+  fileSystems."/media/luna/media".options = luna_opts;
+  fileSystems."/media/luna/private".options = luna_opts;
 }

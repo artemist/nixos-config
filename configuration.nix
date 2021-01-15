@@ -29,11 +29,8 @@
 
   environment.shellAliases.cp = "cp --reflink=auto --sparse=always";
 
-  services.avahi = {
-    enable = true;
-    nssmdns = true;
-    publish.enable = true;
-  };
+  services.resolved.extraConfig = "MulticastDNS=true";
+
 
   networking.firewall.enable = false;
 
@@ -52,5 +49,5 @@
     mutableUsers = false;
   };
   systemd.extraConfig = "DefaultLimitCORE=infinity";
-  security.pam.loginLimits = [ { domain = "*"; item = "core"; type = "hard"; value = "infinity"; } ];
+  security.pam.loginLimits = [{ domain = "*"; item = "core"; type = "hard"; value = "infinity"; }];
 }

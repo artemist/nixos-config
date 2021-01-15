@@ -9,7 +9,7 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -28,23 +28,17 @@
       options = [ "subvol=nix" ];
     };
 
-  fileSystems."/home" =
-    {
-      device = "/dev/disk/by-uuid/aca21111-a488-4bc7-90a7-e61517c24818";
-      fsType = "btrfs";
-      options = [ "subvol=home" ];
-    };
-
   fileSystems."/boot" =
     {
       device = "/dev/disk/by-uuid/1AC2-9317";
       fsType = "vfat";
     };
 
-  fileSystems."/media/archive" =
+  fileSystems."/home" =
     {
-      device = "/dev/disk/by-uuid/ba796824-5165-4a95-87c2-1fb49a449138";
+      device = "/dev/disk/by-uuid/aca21111-a488-4bc7-90a7-e61517c24818";
       fsType = "btrfs";
+      options = [ "subvol=home" ];
     };
 
   fileSystems."/media/data" =
@@ -53,8 +47,45 @@
       fsType = "btrfs";
     };
 
-  boot.initrd.luks.devices."alicorn".device = "/dev/disk/by-uuid/3de20c8e-2c31-491a-a8cc-fea4762e8601";
   boot.initrd.luks.devices."glimmer".device = "/dev/disk/by-uuid/43220fc3-2f33-4915-9365-59eb27b21719";
+
+  fileSystems."/var/lib/lxd/shmounts" =
+    {
+      device = "tmpfs";
+      fsType = "tmpfs";
+    };
+
+  fileSystems."/var/lib/lxd/devlxd" =
+    {
+      device = "tmpfs";
+      fsType = "tmpfs";
+    };
+
+  fileSystems."/var/lib/lxd/storage-pools/default" =
+    {
+      device = "/dev/disk/by-uuid/aca21111-a488-4bc7-90a7-e61517c24818";
+      fsType = "btrfs";
+      options = [ "subvol=root/var/lib/lxd/storage-pools/default" ];
+    };
+
+  fileSystems."/var/lib/docker/btrfs" =
+    {
+      device = "/var/lib/lxd/storage-pools/default/root/var/lib/docker/btrfs";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/media/luna/media" =
+    {
+      device = "//10.69.0.69/media";
+      fsType = "cifs";
+    };
+
+  fileSystems."/media/luna/private" =
+    {
+      device = "//10.69.0.69/private";
+      fsType = "cifs";
+    };
 
   swapDevices =
     [{ device = "/dev/disk/by-uuid/b134fecf-719f-45af-b317-001e413f06c4"; }];
