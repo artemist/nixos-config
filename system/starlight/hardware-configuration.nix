@@ -47,8 +47,6 @@
       fsType = "btrfs";
     };
 
-  boot.initrd.luks.devices."glimmer".device = "/dev/disk/by-uuid/43220fc3-2f33-4915-9365-59eb27b21719";
-
   fileSystems."/var/lib/lxd/shmounts" =
     {
       device = "tmpfs";
@@ -75,16 +73,28 @@
       options = [ "bind" ];
     };
 
-  fileSystems."/media/luna/media" =
-    {
-      device = "//10.69.0.69/media";
-      fsType = "cifs";
-    };
-
   fileSystems."/media/luna/private" =
     {
       device = "//10.69.0.69/private";
       fsType = "cifs";
+    };
+
+  fileSystems."/media/luna/photos" =
+    {
+      device = "10.69.0.69:/media/tank/photos";
+      fsType = "nfs4";
+    };
+
+  fileSystems."/media/luna/games" =
+    {
+      device = "10.69.0.69:/media/tank/games";
+      fsType = "nfs4";
+    };
+
+  fileSystems."/media/luna/media" =
+    {
+      device = "10.69.0.69:/media/tank/media";
+      fsType = "nfs4";
     };
 
   swapDevices =
