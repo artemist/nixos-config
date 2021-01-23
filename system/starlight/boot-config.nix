@@ -41,5 +41,5 @@ in
   fileSystems."/media/luna/media".options = net_opts;
   fileSystems."/media/luna/photos".options = net_opts;
   fileSystems."/media/luna/games".options = net_opts;
-  fileSystems."/media/luna/private".options = luna_opts;
+  fileSystems."/media/luna/private".options = net_opts;
 }

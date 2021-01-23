@@ -73,12 +73,6 @@
       options = [ "bind" ];
     };
 
-  fileSystems."/media/luna/private" =
-    {
-      device = "//10.69.0.69/private";
-      fsType = "cifs";
-    };
-
   fileSystems."/media/luna/photos" =
     {
       device = "10.69.0.69:/media/tank/photos";
@@ -94,6 +88,12 @@
   fileSystems."/media/luna/media" =
     {
       device = "10.69.0.69:/media/tank/media";
+      fsType = "nfs4";
+    };
+
+  fileSystems."/media/luna/private" =
+    {
+      device = "10.69.0.69:/media/tank/users/artemis";
       fsType = "nfs4";
     };
 
