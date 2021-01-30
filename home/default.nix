@@ -1,7 +1,9 @@
 { ... }:
 
 {
-  imports = [ ../externals/home-manager/nixos ];
+  imports = [
+    ../externals/home-manager/nixos
+  ];
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;

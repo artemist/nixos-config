@@ -18,6 +18,7 @@
         vim-nix
         vim-sensible
         vim-toml
+        meson
         gruvbox
 
         coc-go
