@@ -9,7 +9,7 @@
       key = "D2173817C3E4B155EA8FFF49A54531E0D32143ED";
       signByDefault = true;
     };
-    ignores = [ "compile_commands.json" ".clangd/" ".idea/" ];
+    ignores = [ "compile_commands.json" ".clangd/" ".idea/" ".config/clangd" ];
     lfs.enable = true;
     delta.enable = true;
     extraConfig = {

@@ -13,6 +13,7 @@
         fzf-vim
         vim-airline
         vim-clang-format
+        vim-fish
         vim-fetch
         vim-nftables
         vim-nix

@@ -11,3 +11,6 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="239a", ATTRS{idProduct}=="800c", TAG+="uacce
 
 # Adafruit feather32 usb-serial interface (Silicon Labs CP2104)
 SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", TAG+="uaccess"
+
+# RP2040
+SUBSYSTEM=="usb", ATTRS{idVendor}=="2e8a", MODE="0660", GROUP="dialout"
