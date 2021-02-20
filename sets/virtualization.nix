@@ -16,6 +16,9 @@
     };
   };
 
+  # Breaks IPv4 on bridge
+  boot.kernel.sysctl."net.bridge.bridge-nf-call-iptables" = 0;
+
   environment.systemPackages = with pkgs; [
     virtmanager
     spice_gtk

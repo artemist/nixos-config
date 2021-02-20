@@ -12,7 +12,10 @@
   };
   hardware.pulseaudio.enable = lib.mkForce false;
   environment.systemPackages = with pkgs; [
-    qjackctl
     pulseaudioLight
+    qjackctl
+
+    carla
+    lsp-plugins
   ];
 }

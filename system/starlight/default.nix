@@ -11,6 +11,7 @@
     ../../sets/gpu/amd.nix
     ../../sets/hacking.nix
     ../../sets/hardware.nix
+    ../../sets/krb5.nix
     ../../sets/printing.nix
     ../../sets/ssh.nix
     ../../sets/virtualization.nix
