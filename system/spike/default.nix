@@ -9,6 +9,7 @@
     ../../sets/hacking.nix
     ../../sets/laptop.nix
     ../../sets/ssh.nix
+    ../../sets/buildMachines.nix
     ../../sets/workstation.nix
   ];
 
