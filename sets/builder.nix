@@ -3,7 +3,7 @@
 {
   nix.trustedUsers = [ "build" ];
   users.users.build = {
-    isNormalUser = false;
+    isSystemUser = true;
     home = "/home/build";
     createHome = true;
     useDefaultShell = true;

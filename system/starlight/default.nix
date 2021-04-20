@@ -52,6 +52,13 @@
     fileSystems = [ "/" "/media/data" "/media/archive" ];
   };
 
+  # Skye user for luna
+  users.users.skye = {
+    isSystemUser = true;
+    uid = 1001;
+    extraGroups = [ "users" ];
+  };
+
   # Packages
   services.tor = {
     enable = true;
