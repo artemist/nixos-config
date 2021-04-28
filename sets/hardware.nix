@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let
-  jlink = pkgs.callPackage ../externals/packages/jlink { };
+  oldpkgs = import (fetchTarball "http://nixos.org/channels/nixos-20.03/nixexprs.tar.xz") { config.allowUnfree = true; };
+  jlink = oldpkgs.callPackage ../externals/packages/jlink { };
 in
 {
   services.udev.packages = [

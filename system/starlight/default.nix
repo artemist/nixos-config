@@ -24,6 +24,7 @@
     KERNEL=="eth*", ATTR{address}=="00:0f:53:16:15:9c", NAME="lan10g0"
     KERNEL=="eth*", ATTR{address}=="00:0f:53:16:15:9d", NAME="lan10g1"
     KERNEL=="eth*", ATTR{address}=="b4:2e:99:3d:07:66", NAME="lan1g0"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0407", MODE="0660", GROUP="plugdev"
   '';
   networking.bridges.br0 = {
     rstp = true;
@@ -75,6 +76,10 @@
     listenAddresses = [ "localhost:631" "10.69.0.2:631" "starlight.manehattan.artem.ist:631" ];
     allowFrom = [ "localhost" "10.69.0.*" ];
   };
+
+  # Scanning
+  hardware.sane.enable = true;
+  users.users.artemis.extraGroups = [ "scanner" ];
 
   system.stateVersion = "19.09";
 }

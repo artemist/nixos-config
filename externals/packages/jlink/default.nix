@@ -18,7 +18,7 @@
 , libXrandr
 }:
 let
-  jlinkVersion = "694";
+  jlinkVersion = "700a";
 
   architecture = {
     x86_64-linux = "x86_64";
@@ -28,10 +28,10 @@ let
   }.${stdenv.hostPlatform.system} or (throw "unsupported system ${stdenv.hostPlatform.system}");
 
   sha256 = {
-    x86_64-linux = "1y1i30y8h9pq345r25wycnfns1zz0y3g7b66a82nx3075zx2n4lm";
-    i686-linux = "1vdfxiwwxxr6vjybd0xl8iq79b5j7kd10bk9j22ghkg7b4mbsjrm";
-    armv7l-linux = "0hpiirzy1921fca7b0bcrmc48r03r0lv0qph6xnqdkv66iplj1gz";
-    aarch64-linux = "0c1sbyil6a97pr9ln9jf0ih6zmxvkl9lvxy86bbnbs8wrkgjfp8g";
+    x86_64-linux = "0b9jyhd0lkd0icabpfgdcbmzdz4arw1wvjkzchbm4gpd4lvw5q0g";
+    i686-linux = "0dam6v4gxc0jbhw3ab73jw9v8m166wxy07blfb53gq8xpl71x0f9";
+    armv7l-linux = "1ihcs0pxd28ay7v5c5kc6v28n9wml1s6p94b8lcxyddjli3lpkly";
+    aarch64-linux = "1pr1ziksixjrryhiycyl4qbr7fjnpgkj00iyphapxqcd0b64hsyr";
   }.${stdenv.hostPlatform.system} or (throw "unsupported system ${stdenv.hostPlatform.system}");
 
   url = "https://www.segger.com/downloads/jlink/JLink_Linux_V${jlinkVersion}_${architecture}.tgz";
