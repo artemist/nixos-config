@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
-  oldpkgs = import (fetchTarball "http://nixos.org/channels/nixos-20.03/nixexprs.tar.xz") { config.allowUnfree = true; };
-  jlink = oldpkgs.callPackage ../externals/packages/jlink { };
+  call = if (pkgs.targetPlatform.system == "x86_64-linux") then pkgs.pkgsi686Linux.callPackage else pkgs.callPackage;
+  jlink = call ../externals/packages/jlink { };
 in
 {
   services.udev.packages = [
