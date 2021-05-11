@@ -2,11 +2,10 @@
 
 {
   services.udev.packages = with pkgs; [
-    limesuite
+    soapysdr-with-plugins
   ];
   environment.systemPackages = with pkgs; [
-    limesuite
-    soapysdr
+    soapysdr-with-plugins
     gqrx
   ];
 }
