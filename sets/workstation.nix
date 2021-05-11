@@ -28,13 +28,13 @@
     };
     udev.packages = [
       (pkgs.callPackage ../externals/rules/uhk.nix { })
-      (pkgs.callPackage ../externals/rules/steam-input.nix { })
     ];
   };
 
   hardware = {
     bluetooth.enable = true;
     opengl.driSupport32Bit = true;
+    steam-hardware.enable = true;
   };
 
   programs.gnupg.agent = {

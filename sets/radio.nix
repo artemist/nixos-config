@@ -1,10 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    gr-limesdr
+  services.udev.packages = with pkgs; [
     limesuite
-    gnuradio-with-packages
+  ];
+  environment.systemPackages = with pkgs; [
+    limesuite
     soapysdr
     gqrx
   ];

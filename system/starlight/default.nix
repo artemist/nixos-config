@@ -13,6 +13,7 @@
     ../../sets/hardware.nix
     ../../sets/krb5.nix
     ../../sets/printing.nix
+    ../../sets/radio.nix
     ../../sets/ssh.nix
     ../../sets/virtualization.nix
     ../../sets/workstation.nix
