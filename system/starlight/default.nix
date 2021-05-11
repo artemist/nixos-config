@@ -70,13 +70,6 @@
     weechat
   ];
 
-
-  # Printing
-  services.printing = {
-    listenAddresses = [ "localhost:631" "10.69.0.2:631" "starlight.manehattan.artem.ist:631" ];
-    allowFrom = [ "localhost" "10.69.0.*" ];
-  };
-
   # Scanning
   hardware.sane.enable = true;
   users.users.artemis.extraGroups = [ "scanner" ];
