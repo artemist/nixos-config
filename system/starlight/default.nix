@@ -67,7 +67,13 @@
   };
   boot.binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
   environment.systemPackages = with pkgs; [
-    weechat
+    (weechat.override {
+      configure = { availablePlugins, ... }: {
+        plugins = (builtins.attrValues availablePlugins) ++ [ {
+          pluginFile = "${(callPackage ../../externals/packages/weechat-matrix-rs { })}/lib/weechat/plugins/matrix.so";
+        } ];
+      };
+    })
   ];
 
   # Scanning
