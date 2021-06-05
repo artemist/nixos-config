@@ -41,7 +41,7 @@
       isNormalUser = true;
       description = "Artemis Tosini";
       uid = 1000;
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "wheel" "users" ];
       group = "artemis";
       # hashedPassword set in private
     };

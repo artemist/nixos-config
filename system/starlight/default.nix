@@ -57,7 +57,6 @@
   users.users.skye = {
     isSystemUser = true;
     uid = 1001;
-    extraGroups = [ "users" ];
   };
 
   # Packages
@@ -69,9 +68,8 @@
   environment.systemPackages = with pkgs; [
     (weechat.override {
       configure = { availablePlugins, ... }: {
-        plugins = (builtins.attrValues availablePlugins) ++ [ {
-          pluginFile = "${(callPackage ../../externals/packages/weechat-matrix-rs { })}/lib/weechat/plugins/matrix.so";
-        } ];
+        plugins = (builtins.attrValues availablePlugins);
+        scripts = [ weechatScripts.weechat-matrix ];
       };
     })
   ];
