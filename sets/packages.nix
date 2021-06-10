@@ -142,7 +142,6 @@ in
 
     # Security
     (pass.withExtensions (exts: [ exts.pass-otp ]))
-    _1password
     keybase-gui
     wireguard
     yubikey-manager

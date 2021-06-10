@@ -2,7 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
-    (_1password-gui.override { electron_11 = electron_12; })
+    _1password
+    _1password-gui
   ];
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;

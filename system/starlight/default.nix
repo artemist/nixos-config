@@ -17,6 +17,7 @@
     ../../sets/ssh.nix
     ../../sets/virtualization.nix
     ../../sets/workstation.nix
+    ../../sets/1password.nix
   ];
 
   # Network
