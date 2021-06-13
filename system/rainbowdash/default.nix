@@ -10,6 +10,7 @@
     ../../sets/buildMachines.nix
     ../../sets/hacking.nix
     ../../sets/laptop.nix
+    ../../sets/1password.nix
     ../../sets/workstation.nix
   ];
 
