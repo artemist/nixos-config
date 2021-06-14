@@ -1,4 +1,5 @@
 { stdenv
+, lib
 , fetchurl
 , autoPatchelfHook
 , substituteAll
@@ -82,7 +83,7 @@ stdenv.mkDerivation rec {
     patchelf --add-needed libudev.so.1 $out/JLink/libjlinkarm.so
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage = "https://www.segger.com/downloads/jlink";
     description = "SEGGER J-Link";
     license = licenses.unfree;

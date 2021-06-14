@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, cmake, pkgconfig, libusb1, libftdi1 }:
+{ stdenv, lib, fetchFromGitHub, cmake, pkgconfig, libusb1, libftdi1 }:
 
 stdenv.mkDerivation rec {
   pname = "fujprog";
@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ cmake pkgconfig ];
   buildInputs = [ libftdi1 libusb1 ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "FPGA JTAG programmer for ULX2/3S boards";
     homepage = "https://github.com/kost/fujprog";
     license = licenses.bsd2;
