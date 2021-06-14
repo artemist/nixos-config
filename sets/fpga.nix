@@ -14,10 +14,12 @@
     ghdl
     symbiyosys
     verilog
+    verilator
     # Programming
     dfu-util
     tinyprog
     wishbone-tool
+    openfpgaloader
     (callPackage ../externals/packages/fujproj { })
   ];
 }
