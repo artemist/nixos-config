@@ -22,6 +22,7 @@
   environment.systemPackages = with pkgs; [
     virtmanager
     spice_gtk
+    # swtpm-tpm2
   ];
 
   users.users = {

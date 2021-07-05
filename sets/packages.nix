@@ -1,12 +1,10 @@
 { config, pkgs, ... }:
 let
-  llvm = pkgs.llvmPackages_10;
-  go = pkgs.go_1_15;
+  llvm = pkgs.llvmPackages_12;
 in
 {
   environment.systemPackages = (with pkgs; [
     # Audiovisual
-    audacity
     darktable
     exiftool
     ffmpeg-full
@@ -16,7 +14,6 @@ in
     lame
     mpv
     obs-studio
-    obs-wlrobs
     opusTools
     pamixer
     pavucontrol
@@ -130,8 +127,7 @@ in
     gcc9
     gdb
     gnumake
-    go
-    gopls
+    llvm.bintools
     llvm.clang
     llvm.lld
     nasm
@@ -178,7 +174,4 @@ in
     en-us-large
     de_DE
   ]);
-
-  # Needed for obs-wlrobs
-  environment.pathsToLink = [ "/share/obs" "share/kicad" ];
 }

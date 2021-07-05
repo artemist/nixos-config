@@ -75,6 +75,8 @@
     })
   ];
 
+  hardware.opengl.extraPackages = with pkgs; [ vulkan-validation-layers ];
+
   # Scanning
   hardware.sane.enable = true;
   users.users.artemis.extraGroups = [ "scanner" ];

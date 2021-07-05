@@ -16,9 +16,6 @@ in
       signing-certificate = "/root/secure-boot/db.crt";
     };
 
-    # Device fails with uas
-    kernelParams = [ "usb-storage.quirks=152d:0578:u" ];
-
     # Encrypted drives
     initrd.luks = {
       reusePassphrases = true;
