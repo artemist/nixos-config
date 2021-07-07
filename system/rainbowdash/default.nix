@@ -14,6 +14,10 @@
     ../../sets/workstation.nix
   ];
 
+  environment.systemPackages = [
+    pkgs.pkgsCross.aarch64-multiplatform.buildPackages.gcc
+  ];
+
   networking.hostName = "rainbowdash";
   system.stateVersion = "20.03";
 }

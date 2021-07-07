@@ -21,7 +21,9 @@
       meson
       gruvbox
 
-      coc-go
+      coc-clangd
+      vim-lsp-cxx-highlight
+
       coc-json
       coc-rust-analyzer
     ];
@@ -34,6 +36,10 @@
 
   xdg.configFile."nvim/coc-settings.json".text = builtins.toJSON {
     rust-analyzer.serverPath = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+    clangd = {
+      path = "${pkgs.llvmPackages_latest.clang-unwrapped}/bin/clangd}";
+      semanticHighlighting = true;
+    };
     languageserver.nix = {
       command = "${pkgs.rnix-lsp}/bin/rnix-lsp";
       filetypes = [ "nix" ];
