@@ -37,7 +37,7 @@
   xdg.configFile."nvim/coc-settings.json".text = builtins.toJSON {
     rust-analyzer.serverPath = "${pkgs.rust-analyzer}/bin/rust-analyzer";
     clangd = {
-      path = "${pkgs.llvmPackages_latest.clang-unwrapped}/bin/clangd";
+      path = "${pkgs.clang-tools}/bin/clangd";
       semanticHighlighting = true;
     };
     languageserver.nix = {
