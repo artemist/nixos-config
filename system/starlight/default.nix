@@ -77,9 +77,9 @@
 
   hardware.opengl.extraPackages = with pkgs; [ vulkan-validation-layers ];
 
-  # Scanning
-  hardware.sane.enable = true;
-  users.users.artemis.extraGroups = [ "scanner" ];
+  # Home
+  home-manager.users.artemis.programs.mpv.defaultProfiles = [ "gpu-hq" ];
 
+  # NixOS
   system.stateVersion = "19.09";
 }

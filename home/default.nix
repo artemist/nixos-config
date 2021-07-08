@@ -8,17 +8,16 @@
     useUserPackages = true;
     useGlobalPkgs = true;
   };
-  home-manager.users.artemis = { pkgs, ... }: {
+  home-manager.users.artemis = {
     imports = [
       ./git.nix
+      ./mpv.nix
       ./neovim
     ];
 
     xdg.enable = true;
     xdg.configFile = {
       "alacritty/alacritty.yml".source = ./files/alacritty.yml;
-      "mpv/mpv.conf".source = ./files/mpv/mpv.conf;
-      "mpv/input.conf".source = ./files/mpv/input.conf;
       "mimeapps.list".source = ./files/mimeapps.list;
       "swaylock/config".text = ''
         daemonize
