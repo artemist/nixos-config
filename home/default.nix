@@ -20,11 +20,9 @@
       "alacritty/alacritty.yml".source = ./files/alacritty.yml;
       "mimeapps.list".source = ./files/mimeapps.list;
       "swaylock/config".text = ''
-        daemonize
         ignore-empty-password
         indicator-caps-lock
         show-failed-attempts
-        show-keyboard-layout
         image=${./files/xp.jpg}
       '';
     };
