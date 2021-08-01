@@ -3,13 +3,14 @@
 {
   krb5 = {
     enable = true;
-    libdefaults.default_realm = "ARTEM.IST";
+    libdefaults.default_realm = "MANEHATTAN.ARTEM.IST";
     domain_realm = {
-      "artem.ist" = "ARTEM.IST";
-      ".artem.ist" = "ARTEM.IST";
+      "manehattan.artem.ist" = "MANEHATTAN.ARTEM.IST";
+      ".manehattan.artem.ist" = "MANEHATTAN.ARTEM.IST";
     };
-
-    # Get everything else from DNS
-    realms."ARTEM.IST".admin_server = "manehattan.artem.ist";
+    realms."MANEHATTAN.ARTEM.IST" = {
+      admin_server = "luna.manehattan.artem.ist";
+      kdc = "luna.manehattan.artem.ist";
+    };
   };
 }
