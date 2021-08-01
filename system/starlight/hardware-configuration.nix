@@ -66,13 +66,6 @@
       options = [ "subvol=root/var/lib/lxd/storage-pools/default" ];
     };
 
-  fileSystems."/var/lib/docker/btrfs" =
-    {
-      device = "/var/lib/lxd/storage-pools/default/root/var/lib/docker/btrfs";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
   fileSystems."/media/luna/photos" =
     {
       device = "10.69.0.69:/media/tank/photos";

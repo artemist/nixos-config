@@ -8,6 +8,7 @@ in
     (pkgs.callPackage ../externals/rules/adafruit.nix { })
     (pkgs.callPackage ../externals/rules/limesuite.nix { })
     pkgs.openocd
+    pkgs.platformio
   ];
 
   environment.systemPackages = with pkgs; [
@@ -16,6 +17,7 @@ in
     picocom
     stlink
     jlink
+    platformio
   ];
 
   users = {
