@@ -25,6 +25,10 @@
       WHEEL_RIGHT = "ignore";
       k = "add sub-scale -0.1";
       K = "add sub-scale +0.1";
+      "[" = "add speed -0.1";
+      "]" = "add speed 0.1";
+      "{" = "add speed -1";
+      "}" = "add speed 1";
     };
   };
 }
