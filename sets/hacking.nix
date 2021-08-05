@@ -13,8 +13,8 @@
     fusee-launcher
     ncat
     pwndbg
-    python37Packages.binwalk-full
-    python37Packages.shodan
+    python3Packages.binwalk-full
+    python3Packages.shodan
   ];
 
   users.users.artemis.extraGroups = [ "adbusers" "wireshark" ];

@@ -8,8 +8,8 @@
       hwdec = "vaapi";
       vo = "gpu";
 
-      no-audio-display = "";
-      audio-normalize-downmix = "";
+      audio-display = "no";
+      audio-normalize-downmix = "yes";
       replaygain = "track";
     };
     # Don't make this profile default since not all machines can handle it

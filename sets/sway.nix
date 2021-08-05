@@ -41,6 +41,7 @@ in
     mako
     polkit_gnome
     slurp
+    waypipe
     wf-recorder
     wl-clipboard
     wofi
