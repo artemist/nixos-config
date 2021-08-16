@@ -41,8 +41,7 @@
       isNormalUser = true;
       description = "Artemis Tosini";
       uid = 1000;
-      extraGroups = [ "wheel" "users" ];
-      group = "artemis";
+      extraGroups = [ "wheel" "artemis" ];
       # hashedPassword set in private
     };
     groups.artemis.gid = config.users.users.artemis.uid;

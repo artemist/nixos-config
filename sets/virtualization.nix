@@ -22,6 +22,7 @@
   environment.systemPackages = with pkgs; [
     virtmanager
     spice_gtk
+    cloud-hypervisor
   ];
 
   users.users = {

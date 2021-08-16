@@ -12,6 +12,7 @@
     imports = [
       ./git.nix
       ./mpv.nix
+      ./kitty.nix
       ./neovim
     ];
 
