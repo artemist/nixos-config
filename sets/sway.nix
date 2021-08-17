@@ -1,13 +1,4 @@
 { config, pkgs, ... }:
-let
-  wofi = pkgs.wofi.overrideAttrs (old: {
-    src = pkgs.fetchhg {
-      url = old.src.url;
-      rev = "e3db9b8075e71399bba14a568c59032f47981dab";
-      sha256 = "07fr1yfls94gxpwv3azgzxm7shjs4g5ribvqrh88flpf4cv5hq2d";
-    };
-  });
-in
 {
   imports = [ ./fonts.nix ];
   security.polkit.enable = true;
