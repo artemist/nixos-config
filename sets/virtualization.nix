@@ -23,6 +23,7 @@
     virtmanager
     spice_gtk
     cloud-hypervisor
+    qemu
   ];
 
   users.users = {

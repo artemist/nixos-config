@@ -3,7 +3,6 @@ let
   llvm = pkgs.llvmPackages_12;
   ffmpeg-nonfree = pkgs.ffmpeg-full.override { nonfreeLicensing = true; fdkaacExtlib = true; };
   mpv = pkgs.wrapMpv (pkgs.mpv-unwrapped.override { ffmpeg = ffmpeg-nonfree; }) { };
-  firefox = (pkgs.firefox-bin.override { forceWayland = true; });
 in
 {
   environment.systemPackages = (with pkgs; [
@@ -12,29 +11,16 @@ in
     exiftool
     ffmpeg-nonfree
     flac
-    gimp
-    inkscape
     lame
     mpv
-    obs-studio
     opusTools
-    pamixer
     pavucontrol
-    sox
-    vlc_qt5
     youtubeDL
-
-    # Books
-    calibre
 
     # Wine and tools
     cabextract
     samba
     wineWowPackages.staging
-
-    # Virtualization
-    docker-compose
-    qemu
 
     # Linux tools
     dmidecode
@@ -111,13 +97,9 @@ in
     # Networking
     curlFull
     httpie
-    iodine
     magic-wormhole
-    megatools
     mosh
-    sshfs
     sshuttle
-    transmission-gtk
     transmission-remote-gtk
     wget
 
