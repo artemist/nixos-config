@@ -26,7 +26,7 @@
 
   hardware = {
     bluetooth.enable = true;
-    opengl.driSupport32Bit = true;
+    opengl.driSupport32Bit = (builtins.currentSystem == "x86_64-linux");
     steam-hardware.enable = true;
   };
 

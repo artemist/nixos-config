@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   llvm = pkgs.llvmPackages_12;
   ffmpeg-nonfree = pkgs.ffmpeg-full.override { nonfreeLicensing = true; fdkaacExtlib = true; };
@@ -17,15 +17,8 @@ in
     pavucontrol
     youtubeDL
 
-    # Wine and tools
-    cabextract
-    samba
-    wineWowPackages.staging
-
     # Linux tools
     dmidecode
-    efibootmgr
-    efitools
     gparted
     hdparm
     iptables
@@ -40,7 +33,6 @@ in
     psmisc
     qrencode
     rsync
-    sbsigntool
     xorg.xeyes
     xorg.xkill
     zbar
@@ -109,7 +101,7 @@ in
     clang-tools
     cmake
     conda
-    gcc9
+    gcc11
     gdb
     gnumake
     llvm.bintools
@@ -132,16 +124,11 @@ in
     evince
     gnome3.eog
     gnome3.gnome-system-monitor
-    libreoffice-fresh
     zathura
+    libreoffice-fresh
 
     # Web
-    chromium
     firefox-wayland
-
-    # Communication
-    signal-desktop
-    tdesktop
 
     # Gnome configuration
     gnome3.adwaita-icon-theme
@@ -157,5 +144,14 @@ in
   ]) ++ (with pkgs.hunspellDicts; [
     en-us-large
     de_DE
-  ]);
+  ]) ++ (lib.optionals (builtins.currentSystem == "x86_64-linux") (with pkgs; [
+    efibootmgr
+    efitools
+    sbsigntool
+    
+    # Wine and tools
+    cabextract
+    samba
+    wineWowPackages.staging
+  ]));
 }
