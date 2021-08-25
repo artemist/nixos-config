@@ -141,7 +141,6 @@ in
 
     # Security
     (pass.withExtensions (exts: [ exts.pass-otp ]))
-    keybase-gui
     wireguard
     yubikey-manager
     yubioath-desktop

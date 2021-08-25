@@ -18,8 +18,6 @@
   services = {
     flatpak.enable = true;
     fwupd.enable = true;
-    kbfs.enable = true;
-    keybase.enable = true;
     pcscd.enable = true;
     syncthing = {
       enable = true;

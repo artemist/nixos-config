@@ -12,6 +12,7 @@
     ../../sets/hacking.nix
     ../../sets/hardware.nix
     ../../sets/krb5.nix
+    ../../sets/keybase.nix
     ../../sets/printing.nix
     ../../sets/radio.nix
     ../../sets/ssh.nix
