@@ -16,6 +16,8 @@
       ./neovim
     ];
 
+    services.syncthing.enable = true;
+
     xdg.enable = true;
     xdg.configFile = {
       "alacritty/alacritty.yml".source = ./files/alacritty.yml;

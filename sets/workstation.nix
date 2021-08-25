@@ -19,11 +19,6 @@
     flatpak.enable = true;
     fwupd.enable = true;
     pcscd.enable = true;
-    syncthing = {
-      enable = true;
-      user = "artemis";
-      dataDir = "/home/artemis";
-    };
     udev.packages = [
       (pkgs.callPackage ../externals/rules/uhk.nix { })
     ];
