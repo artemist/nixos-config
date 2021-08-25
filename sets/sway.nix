@@ -4,6 +4,7 @@
   security.polkit.enable = true;
   services = {
     accounts-daemon.enable = true;
+    logind.lidSwitch = "suspend";
     logind.extraConfig = "HandlePowerKey=suspend";
   };
   xdg.portal = {
