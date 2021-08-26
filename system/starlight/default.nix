@@ -44,16 +44,9 @@
 
 
   # Filesystems
-  boot.supportedFilesystems = [ "zfs" "btrfs" ];
-  boot.zfs = {
-    enableUnstable = true;
-    forceImportAll = false;
-    forceImportRoot = false;
-    requestEncryptionCredentials = false;
-  };
   services.btrfs.autoScrub = {
     enable = true;
-    fileSystems = [ "/" "/media/data" "/media/archive" ];
+    fileSystems = [ "/" "/media/data" ];
   };
 
   # Skye user for luna
