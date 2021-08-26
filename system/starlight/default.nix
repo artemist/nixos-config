@@ -62,10 +62,6 @@
   };
 
   # Packages
-  services.tor = {
-    enable = true;
-    client.enable = true;
-  };
   boot.binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
   environment.systemPackages = with pkgs; [
     (weechat.override {
@@ -81,8 +77,26 @@
   hardware.opengl.extraPackages = with pkgs; [ vulkan-validation-layers ];
 
   # Home
-  home-manager.users.artemis.programs.mpv.defaultProfiles = [ "gpu-hq" ];
-
+  home-manager.users.artemis = {
+    programs.mpv.defaultProfiles = [ "gpu-hq" ];
+    wayland.windowManager.sway.config.output = {
+      "DP-1" = {pos = "0 0"; mode = "3840x2160@59.997Hz"; scale = "2"; };
+      "DP-2" = {pos = "1920 0"; mode = "3840x2160@59.997Hz"; scale = "2"; };
+      "HDMI-A-1" = {pos = "3840 0"; mode = "3840x2160@60Hz"; scale = "2"; };
+    };
+    # no toTOML generator so I guess we have to do this
+    xdg.configFile."rustybar/config.toml".text = ''
+      [[tile]]
+      type = "load"
+      [[tile]]
+      type = "memory"
+      [[tile]]
+      type = "hostname"
+      [[tile]]
+      type = "time"
+      format = "%Y-%m-%dT%H:%M:%S"
+    '';
+  };
   # NixOS
   system.stateVersion = "19.09";
 }

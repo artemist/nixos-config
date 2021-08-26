@@ -15,15 +15,6 @@
     ];
   };
   sound.enable = true;
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-    extraSessionCommands = ''
-      export MOZ_USE_XINPUT2=1
-      export _JAVA_AWT_WM_NONREPARENTING=1
-      export GTK_THEME=Adwaita-dark
-    '';
-  };
   environment.systemPackages = with pkgs; [
     dex
     glib
@@ -40,5 +31,13 @@
     xdg-user-dirs
     xdg_utils
     xsettingsd
+    swaylock
+    swayidle
   ];
+
+  hardware.opengl.enable = true;
+  security.pam.services.swaylock = { };
+  programs.dconf.enable = true;
+  programs.xwayland.enable = true;
+  home-manager.users.artemis.imports = [ ../home/sway.nix ];
 }

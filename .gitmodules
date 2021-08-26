@@ -7,3 +7,6 @@
 [submodule "externals/home-manager"]
 	path = externals/home-manager
 	url = https://github.com/nix-community/home-manager
+[submodule "externals/packages/rustybar"]
+	path = externals/packages/rustybar
+	url = https://github.com/mildlyfunctionalgays/rustybar

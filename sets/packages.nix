@@ -148,7 +148,7 @@ in
     efibootmgr
     efitools
     sbsigntool
-    
+
     # Wine and tools
     cabextract
     samba
