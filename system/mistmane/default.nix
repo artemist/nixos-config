@@ -12,10 +12,11 @@
   networking.hostName = "mistmane";
   programs.light.enable = true;
   system.stateVersion = "20.09";
-  
+
   security.pam.enableEcryptfs = true;
   environment.systemPackages = with pkgs; [
-    ecryptfs ecryptfs-helper
+    ecryptfs
+    ecryptfs-helper
     foot
   ];
 }
