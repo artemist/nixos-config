@@ -43,7 +43,7 @@
       type = "battery"
       [[tile]]
       type = "time"
-      format = "%Y-%m-%dT%H-%S-%S"
+      format = "%Y-%m-%dT%H:%M:%S"
     '';
   };
 
