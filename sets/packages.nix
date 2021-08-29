@@ -54,6 +54,7 @@ in
     git-lfs
     gitAndTools.gitFull
     gitAndTools.pass-git-helper
+    gnupg
     htop
     hunspell
     iw

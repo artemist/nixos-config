@@ -29,9 +29,4 @@
     opengl.driSupport32Bit = (builtins.currentSystem == "x86_64-linux");
     steam-hardware.enable = true;
   };
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
 }
