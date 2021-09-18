@@ -16,7 +16,7 @@
     ../../sets/keybase.nix
     ../../sets/printing.nix
     ../../sets/radio.nix
-    ../../sets/ssh.nix
+    ../../sets/sshd.nix
     ../../sets/virtualization.nix
     ../../sets/workstation.nix
     ../../sets/1password.nix

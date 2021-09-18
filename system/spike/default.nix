@@ -8,7 +8,7 @@
     ../../sets/gpu/intel.nix
     ../../sets/hacking.nix
     ../../sets/laptop.nix
-    ../../sets/ssh.nix
+    ../../sets/sshd.nix
     ../../sets/buildMachines.nix
     ../../sets/workstation.nix
   ];
