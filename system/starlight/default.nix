@@ -53,6 +53,7 @@
   users.users.skye = {
     isSystemUser = true;
     uid = 1001;
+    group = "users";
   };
 
   # Packages
