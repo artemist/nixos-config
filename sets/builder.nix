@@ -13,5 +13,5 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIElCYORRBERl/as01Obp1Og/mdy28V7gw32uCZseOSZt root@spike"
     ];
   };
-  users.groups.build = {};
+  users.groups.build = { };
 }

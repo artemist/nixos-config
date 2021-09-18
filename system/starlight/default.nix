@@ -42,6 +42,9 @@
   };
   networking.dhcpcd.allowInterfaces = [ "br0" ];
 
+  services.openssh.extraConfig = ''
+    HostCertificate ${./starlight-cert.pub}
+  '';
 
   # Filesystems
   services.btrfs.autoScrub = {
