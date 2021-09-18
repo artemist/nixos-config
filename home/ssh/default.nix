@@ -8,8 +8,8 @@
     controlMaster = "auto";
     controlPersist = "10m";
     controlPath = "~/.ssh/c/%r@%n:%p";
-    hashKnownHosts = true;
     # We have to do this as text to gaurantee it's part of the last Host * block
+    userKnownHostsFile = "~/.ssh/known_hosts ${./extra_known_hosts}";
     extraConfig = ''
             HostKeyAlgorithms ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-ed25519,ssh-rsa,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp521,ecdsa-sha2-nistp384,ecdsa-sha2-nistp256
             KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256

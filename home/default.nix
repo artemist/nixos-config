@@ -14,7 +14,7 @@
       ./mpv.nix
       ./kitty.nix
       ./neovim
-      ./ssh.nix
+      ./ssh
     ];
 
     services.syncthing.enable = true;
