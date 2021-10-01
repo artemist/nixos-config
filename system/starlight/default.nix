@@ -42,6 +42,15 @@
   };
   networking.dhcpcd.allowInterfaces = [ "br0" ];
 
+  networking.vlans."br0.5" = {
+    id = 5;
+    interface = "br0";
+  };
+  networking.bridges.brvm = {
+    rstp = false;
+    interfaces = [ "br0.5" ];
+  };
+
   services.openssh.extraConfig = ''
     HostCertificate ${./starlight-cert.pub}
   '';
