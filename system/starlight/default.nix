@@ -14,7 +14,6 @@
     ../../sets/hardware.nix
     ../../sets/krb5.nix
     ../../sets/keybase.nix
-    ../../sets/printing.nix
     ../../sets/radio.nix
     ../../sets/sshd.nix
     ../../sets/virtualization.nix
