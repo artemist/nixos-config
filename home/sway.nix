@@ -76,6 +76,7 @@ in
           "${mod}+j" = "move workspace to left";
           "${mod}+k" = "move workspace to right";
           "${mod}+l" = "exec swaylock";
+          "${mod}+Mod1+e" = "exec wofi-emoji";
           # Sink 0 means the default AIUI
           "XF86AudioRaiseVolume" = "exec pactl set-sink-volume 0 +5%";
           "XF86AudioLowerVolume" = "exec pactl set-sink-volume 0 -5%";

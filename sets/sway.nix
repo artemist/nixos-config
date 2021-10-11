@@ -28,6 +28,7 @@
     wf-recorder
     wl-clipboard
     wofi
+    wofi-emoji
     xdg-user-dirs
     xdg_utils
     xsettingsd
