@@ -13,7 +13,6 @@
     ../../sets/hacking.nix
     ../../sets/hardware.nix
     ../../sets/krb5.nix
-    ../../sets/keybase.nix
     ../../sets/radio.nix
     ../../sets/sshd.nix
     ../../sets/virtualization.nix

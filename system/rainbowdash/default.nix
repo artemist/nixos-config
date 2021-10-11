@@ -13,7 +13,6 @@
     ../../sets/1password.nix
     ../../sets/workstation.nix
     ../../sets/krb5.nix
-    ../../sets/keybase.nix
   ];
 
   environment.systemPackages = [
