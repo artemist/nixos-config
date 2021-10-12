@@ -5,28 +5,28 @@
 
 {
   imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
+    [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "usbhid" "usb_storage" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.availableKernelModules = [ "usbhid" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/ee6d20e7-03ec-462b-a28a-3e970acc5f0a";
+    { device = "/dev/disk/by-uuid/8b204d52-62c1-48e9-b487-e7138f49903a";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/ef0ee32a-8ee0-4c4a-af21-d033ac2bb774";
+    { device = "/dev/disk/by-uuid/375e4660-be08-40ba-8961-0a9cc3a96187";
       fsType = "ext4";
     };
 
-  swapDevices = [ ];
+  swapDevices =
+    [
+      { device = "/dev/disk/by-uuid/1114039c-3329-4551-a56d-fccde77a31a7"; }
+    ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 }

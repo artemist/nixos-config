@@ -11,12 +11,6 @@
 
   networking.hostName = "mistmane";
 
-  security.pam.enableEcryptfs = true;
-  environment.systemPackages = with pkgs; [
-    ecryptfs
-    ecryptfs-helper
-  ];
-
   home-manager.users.artemis = {
     programs.foot = {
       enable = true;
@@ -54,11 +48,6 @@
     lidSwitch = lib.mkForce "lock";
     extraConfig = lib.mkForce "HandlePowerKey=lock";
   };
-
-  swapDevices = [{
-    device = "/dev/disk/by-partuuid/3f4fb4d3-1e13-f64a-a435-8f866833c2b1";
-    randomEncryption = true;
-  }];
 
   # rockchip/dptx.bin isn't in the initrd. Instead of fix nixpkgs let's do something incredibly cursed
   boot.extraModulePackages = [ (pkgs.callPackage ../../externals/packages/dptx-dummy { kernel = config.boot.kernelPackages.kernel; }) ];
