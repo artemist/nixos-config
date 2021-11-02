@@ -32,6 +32,7 @@
   home.sessionVariables.EDITOR = "nvim";
   home.packages = with pkgs; [
     nixpkgs-fmt
+    python3Packages.pylint
   ];
 
   xdg.configFile."nvim/coc-settings.json".text = builtins.toJSON {
