@@ -7,14 +7,6 @@ in
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
-    kernelPatches = [ {
-      name = "logo";
-      patch = null;
-      extraConfig = ''
-        LOGO y
-        LOGO_LINUX_CLUT224 y
-      '';
-    } ];
     kernel.sysctl."vm.swappiness" = 5;
     cleanTmpDir = true;
     loader.systemd-boot-secure = {
