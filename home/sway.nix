@@ -47,7 +47,7 @@ in
       menu = "wofi -i -S run";
 
       fonts = {
-        names = [ "Fira Code" ];
+        names = [ "Inter" ];
         size = 8.0;
       };
 
