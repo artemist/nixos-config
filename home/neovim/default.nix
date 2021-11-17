@@ -1,5 +1,19 @@
 { config, pkgs, ... }:
 
+let
+  lsp-colors = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "lsp-colors.nvim";
+    version = "2021-10-22";
+    src = pkgs.fetchFromGitHub {
+      owner = "folke";
+      repo = "lsp-colors.nvim";
+      rev = "517fe3ab6b63f9907b093bc9443ef06b56f804f3";
+      sha256 = "vXX9/5hulIlDwE9ISZlTMxxrl+Jjyquagv5+AHmEA5c=";
+      fetchSubmodules = false;
+    };
+    meta.homepage = "https://github.com/folke/lsp-colors.nvim";
+  };
+in
 {
   programs.neovim = {
     enable = true;
@@ -21,6 +35,7 @@
 
       nvim-lspconfig
       nvim-compe
+      lsp-colors
     ];
   };
 
@@ -31,17 +46,8 @@
     python3Packages.ipython
     python3Packages.pylint
     nodePackages.pyright
+    rust-analyzer
+    rnix-lsp
   ];
 
-  xdg.configFile."nvim/coc-settings.json".text = builtins.toJSON {
-    rust-analyzer.serverPath = "${pkgs.rust-analyzer}/bin/rust-analyzer";
-    clangd = {
-      path = "${pkgs.clang-tools}/bin/clangd";
-      semanticHighlighting = true;
-    };
-    languageserver.nix = {
-      command = "${pkgs.rnix-lsp}/bin/rnix-lsp";
-      filetypes = [ "nix" ];
-    };
-  };
 }
