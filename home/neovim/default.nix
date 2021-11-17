@@ -4,10 +4,8 @@
   programs.neovim = {
     enable = true;
     vimAlias = true;
-    withNodeJs = true;
     extraConfig = builtins.readFile ./init.vim;
     plugins = with pkgs.vimPlugins; [
-      coc-nvim
       editorconfig-vim
       fzf-vim
       vim-airline
@@ -21,18 +19,18 @@
       meson
       gruvbox
 
-      coc-clangd
-      vim-lsp-cxx-highlight
-
-      coc-json
-      coc-rust-analyzer
+      nvim-lspconfig
+      nvim-compe
     ];
   };
 
   home.sessionVariables.EDITOR = "nvim";
   home.packages = with pkgs; [
     nixpkgs-fmt
+    python3
+    python3Packages.ipython
     python3Packages.pylint
+    nodePackages.pyright
   ];
 
   xdg.configFile."nvim/coc-settings.json".text = builtins.toJSON {
