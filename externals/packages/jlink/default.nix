@@ -19,32 +19,14 @@
 , libXrandr
 }:
 let
-  jlinkVersion = "756a";
-
-  architecture = {
-    x86_64-linux = "x86_64";
-    i686-linux = "i386";
-    armv7l-linux = "arm";
-    aarch64-linux = "arm64";
-  }.${stdenv.hostPlatform.system} or (throw "unsupported system ${stdenv.hostPlatform.system}");
-
-  sha256 = {
-    x86_64-linux = "1bg038042byrfn575n3add9l83i1clbav7fzm7ga7svfd06k4lny";
-    i686-linux = "0a1prsb91rhpy55qklmnh3r1ac6325yvk3gjwhy0dcl34fd0wjqf";
-    armv7l-linux = "1vvxsfizvdsgqv0f71nxqj5kmj9glx09z1jsrqq8h3ld95f92xmp";
-    aarch64-linux = "0gw50jnd92g1p4391qiyvcwmn76akc3f1f5arkax6dqcwim443gg";
-  }.${stdenv.hostPlatform.system} or (throw "unsupported system ${stdenv.hostPlatform.system}");
-
-  url = "https://www.segger.com/downloads/jlink/JLink_Linux_V${jlinkVersion}_${architecture}.tgz";
+  conf = (lib.importJSON ./version.json).${stdenv.hostPlatform.system} or (throw "unsupported system ${stdenv.hostPlatform.system}");
 in
 stdenv.mkDerivation rec {
   pname = "jlink";
-  version = jlinkVersion;
+  version = conf.version;
 
   src = fetchurl {
-    url = url;
-    sha256 = sha256;
-    curlOpts = "-d accept_license_agreement=accepted -d non_emb_ctr=confirmed";
+    inherit (conf) url sha256 curlOpts;
   };
 
   dontConfigure = true;
@@ -82,6 +64,8 @@ stdenv.mkDerivation rec {
   preFixup = ''
     patchelf --add-needed libudev.so.1 $out/JLink/libjlinkarm.so
   '';
+
+  passthru.updateScript = ./update.py;
 
   meta = with lib; {
     homepage = "https://www.segger.com/downloads/jlink";
