@@ -26,7 +26,7 @@ stdenv.mkDerivation rec {
   version = conf.version;
 
   src = fetchurl {
-    inherit (conf) url sha256 curlOpts;
+    inherit (conf) url hash curlOpts;
   };
 
   dontConfigure = true;

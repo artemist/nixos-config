@@ -30,12 +30,12 @@ for nix_arch, jlink_arch in arches:
     url = URL_FORMAT.format(version=version.replace('.', ''), arch=jlink_arch)
     out = subprocess.run(
         ['nix-prefetch', f'{{fetchurl}}: fetchurl {{ url = "{url}"; curlOpts = "{CURL_OPTS}"; }}'], stdout=subprocess.PIPE, check=True)
-    sha256 = out.stdout.decode('utf8').strip()
+    file_hash = out.stdout.decode('utf8').strip()
     out_obj[nix_arch] = {
         'url': url,
         'version': version,
         'curlOpts': CURL_OPTS,
-        'sha256': sha256
+        'hash': file_hash
     }
 
 out_file = open(os.path.join(BASE_DIR, 'version.json'), 'w')
