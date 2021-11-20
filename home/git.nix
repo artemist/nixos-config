@@ -20,7 +20,6 @@
       format.signOff = true;
       init.defaultBranch = "canon";
       log.showSignature = true;
-      mailmap.file = "${../private/mailmap}";
 
       credential.helper = "!${pkgs.gitAndTools.pass-git-helper}/bin/pass-git-helper $@";
       sendemail = {

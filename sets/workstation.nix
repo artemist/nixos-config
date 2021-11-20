@@ -5,6 +5,7 @@
     ./sway.nix
     ./packages.nix
     ./pipewire.nix
+    ./base.nix
     ../home
   ];
 
@@ -27,7 +28,7 @@
 
   hardware = {
     bluetooth.enable = true;
-    opengl.driSupport32Bit = (builtins.currentSystem == "x86_64-linux");
+    opengl.driSupport32Bit = (pkgs.system == "x86_64-linux");
     steam-hardware.enable = true;
   };
 }

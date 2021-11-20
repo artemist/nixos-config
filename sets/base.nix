@@ -1,14 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    ./private
-    ./system/current
-  ];
-
   nix = {
-    daemonNiceLevel = 5;
-    daemonIONiceLevel = 1;
     autoOptimiseStore = true;
     package = pkgs.nixFlakes;
     extraOptions = ''

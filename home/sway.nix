@@ -1,6 +1,5 @@
 { pkgs, lib, config, ... }:
 let
-  rustybar = pkgs.callPackage ../externals/packages/rustybar { };
   sway-scripts = pkgs.callPackage ../externals/packages/sway-scripts { };
   cfg = config.wayland.windowManager.sway;
   mod = cfg.config.modifier;
@@ -91,7 +90,7 @@ in
       window.titlebar = true;
 
       bars = [{
-        statusCommand = "${rustybar}/bin/rustybar";
+        statusCommand = "${pkgs.rustybar}/bin/rustybar";
         position = "top";
         fonts = cfg.config.fonts;
         colors = {

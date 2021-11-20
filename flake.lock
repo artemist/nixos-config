@@ -1,0 +1,119 @@
+{
+  "nodes": {
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1637362702,
+        "narHash": "sha256-WFGEXrh2wWHi5DLdUX1qM5T3P5TgmVE6AyM+bVuOaNs=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "8230decb3f0cb3408607accc93e5d0951ebf3963",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1637155076,
+        "narHash": "sha256-26ZPNiuzlsnXpt55Q44+yzXvp385aNAfevzVEKbrU5Q=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "715f63411952c86c8f57ab9e3e3cb866a015b5f2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "private": {
+      "locked": {
+        "lastModified": 1637378493,
+        "narHash": "sha256-NLiiT8fGx4SY497Tcgq0R0l2RkBaqQ7pJgZRwjwxixc=",
+        "ref": "unified",
+        "rev": "07ecdbf1995278df6aa67b1055fd9f94f3971010",
+        "revCount": 27,
+        "type": "git",
+        "url": "ssh://git@github.com/artemist/nixos-config-private"
+      },
+      "original": {
+        "ref": "unified",
+        "type": "git",
+        "url": "ssh://git@github.com/artemist/nixos-config-private"
+      }
+    },
+    "root": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs",
+        "private": "private",
+        "rustybar": "rustybar",
+        "wip-pinebook-pro": "wip-pinebook-pro"
+      }
+    },
+    "rustybar": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": "utils"
+      },
+      "locked": {
+        "lastModified": 1637380210,
+        "narHash": "sha256-aUpCO7JeSlhG2ydZucnzHTQdCd849u1EzTgIqTjpJV4=",
+        "owner": "mildlyfunctionalgays",
+        "repo": "rustybar",
+        "rev": "c21016e81ad2b460e05d1049cd15aafeac6f5dc9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mildlyfunctionalgays",
+        "repo": "rustybar",
+        "type": "github"
+      }
+    },
+    "utils": {
+      "locked": {
+        "lastModified": 1637014545,
+        "narHash": "sha256-26IZAc5yzlD9FlDT54io1oqG/bBoyka+FJk5guaX4x4=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "bba5dcc8e0b20ab664967ad83d24d64cb64ec4f4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "wip-pinebook-pro": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1635815864,
+        "narHash": "sha256-oIhShK2j198APnhm45iqhF8TDQ3M50LY3Hxn4hUDPF4=",
+        "owner": "samueldr",
+        "repo": "wip-pinebook-pro",
+        "rev": "caa3d3e324c369454da05ef6558c44ee1a0ee234",
+        "type": "github"
+      },
+      "original": {
+        "owner": "samueldr",
+        "repo": "wip-pinebook-pro",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

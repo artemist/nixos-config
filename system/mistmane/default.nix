@@ -4,7 +4,6 @@
   imports = [
     ./boot-config.nix
     ./hardware-configuration.nix
-    ../../externals/wip-pinebook-pro/pinebook_pro.nix
     ../../sets/laptop.nix
     ../../sets/workstation.nix
   ];

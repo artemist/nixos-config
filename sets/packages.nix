@@ -145,7 +145,7 @@ in
   ]) ++ (with pkgs.hunspellDicts; [
     en-us-large
     de_DE
-  ]) ++ (lib.optionals (builtins.currentSystem == "x86_64-linux") (with pkgs; [
+  ]) ++ (lib.optionals (pkgs.system == "x86_64-linux") (with pkgs; [
     efibootmgr
     efitools
     sbsigntool
