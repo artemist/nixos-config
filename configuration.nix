@@ -10,6 +10,10 @@
     daemonNiceLevel = 5;
     daemonIONiceLevel = 1;
     autoOptimiseStore = true;
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
     gc = {
       automatic = true;
       dates = "00:00";
@@ -31,7 +35,6 @@
 
   services.resolved.extraConfig = "MulticastDNS=true";
 
-
   networking.firewall.enable = false;
 
   programs.fish.enable = true;
@@ -42,6 +45,7 @@
       description = "Artemis Tosini";
       uid = 1000;
       extraGroups = [ "wheel" "artemis" ];
+      shell = pkgs.fish;
       # hashedPassword set in private
     };
     groups.artemis.gid = config.users.users.artemis.uid;
