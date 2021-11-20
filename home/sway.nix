@@ -1,6 +1,5 @@
 { pkgs, lib, config, ... }:
 let
-  sway-scripts = pkgs.callPackage ../externals/packages/sway-scripts { };
   cfg = config.wayland.windowManager.sway;
   mod = cfg.config.modifier;
   extraWorkspaces = {
@@ -31,7 +30,6 @@ let
     extraWorkspaces;
 in
 {
-  home.packages = [ sway-scripts ];
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;

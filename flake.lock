@@ -38,11 +38,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1637378493,
-        "narHash": "sha256-NLiiT8fGx4SY497Tcgq0R0l2RkBaqQ7pJgZRwjwxixc=",
+        "lastModified": 1637382407,
+        "narHash": "sha256-Bw/R8th8bbJ7w6qN6+kxv7pfN3oa+VuzuJdEWgFmDuA=",
         "ref": "unified",
-        "rev": "07ecdbf1995278df6aa67b1055fd9f94f3971010",
-        "revCount": 27,
+        "rev": "992cc2ee5ba553bf3471e69fb59d8fe1fef4e87b",
+        "revCount": 28,
         "type": "git",
         "url": "ssh://git@github.com/artemist/nixos-config-private"
       },
