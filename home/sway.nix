@@ -1,5 +1,6 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 let
+  rustybar = inputs.rustybar.defaultPackage."${pkgs.system}";
   cfg = config.wayland.windowManager.sway;
   mod = cfg.config.modifier;
   extraWorkspaces = {
@@ -88,7 +89,7 @@ in
       window.titlebar = true;
 
       bars = [{
-        statusCommand = "${pkgs.rustybar}/bin/rustybar";
+        statusCommand = "${rustybar}/bin/rustybar";
         position = "top";
         fonts = cfg.config.fonts;
         colors = {

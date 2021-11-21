@@ -20,19 +20,16 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, rustybar, private, wip-pinebook-pro }:
+  outputs = { self, nixpkgs, home-manager, rustybar, private, wip-pinebook-pro, ... } @ inputs:
     let
       defaultModules = [
-        ({ pkgs, ... }: {
-          nixpkgs.overlays = [ rustybar.overlay ];
-        })
         private.nixosModules.base
         home-manager.nixosModules.home-manager
       ];
       makeSystem = conf: nixpkgs.lib.nixosSystem (nixpkgs.lib.recursiveUpdate
         {
           specialArgs = {
-            inherit rustybar;
+            inherit inputs;
           };
         }
         conf);
