@@ -22,25 +22,24 @@
 
   outputs = { self, nixpkgs, home-manager, rustybar, private, wip-pinebook-pro, ... } @ inputs:
     let
-      defaultModules = [
-        private.nixosModules.base
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.extraSpecialArgs.inputs = inputs;
-        }
-      ];
-      makeSystem = conf: nixpkgs.lib.nixosSystem (nixpkgs.lib.recursiveUpdate
-        {
+      makeSystem = conf: nixpkgs.lib.nixosSystem (nixpkgs.lib.recursiveUpdate conf
+        rec {
           specialArgs = {
             inherit inputs;
           };
-        }
-        conf);
+          modules = [
+            private.nixosModules.base
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = specialArgs;
+            }
+          ] ++ (conf.modules or [ ]);
+        });
     in
     {
       nixosConfigurations.starlight = makeSystem {
         system = "x86_64-linux";
-        modules = defaultModules ++ [
+        modules = [
           ./system/starlight
           private.nixosModules.starlight
         ];
@@ -48,21 +47,21 @@
 
       nixosConfigurations.rainbowdash = makeSystem {
         system = "x86_64-linux";
-        modules = defaultModules ++ [
+        modules = [
           ./system/rainbowdash
         ];
       };
 
       nixosConfigurations.spike = makeSystem {
         system = "x86_64-linux";
-        modules = defaultModules ++ [
+        modules = [
           ./system/spike
         ];
       };
 
       nixosConfigurations.mistmane = makeSystem {
         system = "aarch64-linux";
-        modules = defaultModules ++ [
+        modules = [
           ./system/mistmane
         ];
       };
