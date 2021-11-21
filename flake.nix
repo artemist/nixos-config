@@ -25,6 +25,9 @@
       defaultModules = [
         private.nixosModules.base
         home-manager.nixosModules.home-manager
+        {
+          home-manager.extraSpecialArgs.inputs = inputs;
+        }
       ];
       makeSystem = conf: nixpkgs.lib.nixosSystem (nixpkgs.lib.recursiveUpdate
         {

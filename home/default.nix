@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 
 {
   home-manager = {
@@ -6,7 +6,6 @@
     useGlobalPkgs = true;
   };
   home-manager.users.artemis = {
-    extraSpecialArgs.inputs = inputs;
     imports = [
       ./git.nix
       ./mpv.nix
