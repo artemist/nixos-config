@@ -12,6 +12,7 @@
   i18n.defaultLocale = "de_DE.UTF-8";
 
   environment = {
+    variables.EDITOR = "nvim";
     variables.TERMINAL = "alacritty";
     variables.OCL_ICD_VENDORS = "/run/opengl-driver/etc/OpenCL/vendors";
     enableDebugInfo = true;
