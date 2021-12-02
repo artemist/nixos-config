@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs,  ... }:
+{ pkgs, lib, config, inputs, ... }:
 let
   rustybar = inputs.rustybar.defaultPackage."${pkgs.system}";
   cfg = config.wayland.windowManager.sway;

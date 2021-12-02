@@ -15,6 +15,10 @@
     ];
 
     services.syncthing.enable = true;
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
 
     xdg.enable = true;
     xdg.configFile = {
