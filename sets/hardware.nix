@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 let
   jlink = pkgs.callPackage ../externals/packages/jlink { };
 in
@@ -12,7 +12,7 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
-    kicad-unstable
+    pkgs-unstable.kicad-unstable
     openocd
     picocom
     stlink

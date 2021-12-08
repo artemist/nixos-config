@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-21.11";
@@ -20,12 +21,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, rustybar, private, wip-pinebook-pro, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, rustybar, private, wip-pinebook-pro, nixpkgs-unstable, ... } @ inputs:
     let
       makeSystem = conf: nixpkgs.lib.nixosSystem (nixpkgs.lib.recursiveUpdate conf
         rec {
           specialArgs = {
             inherit inputs;
+            pkgs-unstable = nixpkgs-unstable.legacyPackages."${conf.system}";
           };
           modules = [
             private.nixosModules.base

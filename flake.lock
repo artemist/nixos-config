@@ -37,6 +37,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1638873506,
+        "narHash": "sha256-BCZS7lDqQKgKbkTbmMtV8DI4MQDTCelbCI4f2FPjzAc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "ebb7f07eec7dc57fc14acdc0b8206b4d4fe1da07",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable-small",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "private": {
       "locked": {
         "lastModified": 1637382407,
@@ -57,6 +73,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "private": "private",
         "rustybar": "rustybar",
         "wip-pinebook-pro": "wip-pinebook-pro"
