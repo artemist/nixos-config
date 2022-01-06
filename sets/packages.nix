@@ -99,7 +99,6 @@ in
     # Development
     binutils-unwrapped
     ccache
-    (lib.hiPrio clang-tools)
     cmake
     conda
     gcc11

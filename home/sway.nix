@@ -4,6 +4,7 @@ let
   cfg = config.wayland.windowManager.sway;
   mod = cfg.config.modifier;
   extraWorkspaces = {
+    "0" = "10";
     F1 = "11 Firefox";
     F2 = "12 Music";
     F3 = "13";
