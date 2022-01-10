@@ -30,9 +30,6 @@
     };
     xdg.configFile."rustybar/config.toml".text = ''
       [[tile]]
-      type = "iwd"
-      interface = "wlan0"
-      [[tile]]
       type = "load"
       [[tile]]
       type = "memory"

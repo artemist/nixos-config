@@ -1,8 +1,9 @@
 { pkgs, ... }:
 {
   services.udev.packages = [ pkgs.crda ];
-  networking.wireless.iwd = {
+  networking.networkmanager = {
     enable = true;
-    settings.General.AddressRandomization = "network";
+    wifi.macAddress = "random";
   };
+  users.users.artemis.extraGroups = [ "networkmanager" ];
 }
