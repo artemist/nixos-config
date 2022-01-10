@@ -65,7 +65,10 @@ local on_attach = function(client, bufnr)
 end
 
 nvim_lsp['pyright'].setup { on_attach = on_attach }
-nvim_lsp['clangd'].setup { on_attach = on_attach }
+nvim_lsp['clangd'].setup {
+	on_attach = on_attach,
+	cmd = { "{{CLANGDPATH}}" }
+}
 nvim_lsp['rust_analyzer'].setup { on_attach = on_attach }
 nvim_lsp['rnix'].setup { on_attach = on_attach }
 

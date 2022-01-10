@@ -18,7 +18,9 @@ in
   programs.neovim = {
     enable = true;
     vimAlias = true;
-    extraConfig = builtins.readFile ./init.vim;
+    extraConfig = (builtins.replaceStrings
+      [ "{{CLANGDPATH}}" ] [ "${pkgs.clang-tools}/bin/clangd" ]
+      (builtins.readFile ./init.vim));
     plugins = with pkgs.vimPlugins; [
       editorconfig-vim
       fzf-vim
