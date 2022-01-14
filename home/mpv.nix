@@ -18,6 +18,12 @@
       cscale = "ewa_lanczossharp";
     };
 
+    # 1.5 times speed, ≈702 cents pitch up
+    profiles.wat = {
+      speed = "1.5";
+      audio-pitch-correction = "no";
+    };
+
     bindings = {
       WHEEL_UP = "ignore";
       WHEEL_DOWN = "ignore";
