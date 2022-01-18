@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   imports = [
@@ -13,10 +13,6 @@
     ../../sets/1password.nix
     ../../sets/workstation.nix
     ../../sets/krb5.nix
-  ];
-
-  environment.systemPackages = [
-    pkgs.pkgsCross.aarch64-multiplatform.buildPackages.gcc
   ];
 
   boot.supportedFilesystems = [ "nfs4" ];
