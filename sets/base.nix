@@ -44,6 +44,9 @@
     groups.artemis.gid = config.users.users.artemis.uid;
     mutableUsers = false;
   };
+
+  security.sudo.execWheelOnly = true;
+
   systemd.extraConfig = "DefaultLimitCORE=infinity";
   security.pam.loginLimits = [{ domain = "*"; item = "core"; type = "hard"; value = "infinity"; }];
 }
