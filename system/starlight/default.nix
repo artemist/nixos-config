@@ -77,8 +77,6 @@
     })
   ];
 
-  boot.extraModulePackages = [ config.boot.kernelPackages.hid-nintendo ];
-
   hardware.opengl.extraPackages = with pkgs; [ vulkan-validation-layers ];
 
   # Home
