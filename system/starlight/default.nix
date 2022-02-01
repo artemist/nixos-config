@@ -5,7 +5,7 @@
     ./boot-config.nix
     ./hardware-configuration.nix
     ./scripts.nix
-    ./postgres.nix
+    ./vfio.nix
     ../../sets/builder.nix
     ../../sets/fpga.nix
     ../../sets/hacking.nix
