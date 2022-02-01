@@ -5,6 +5,7 @@
     ./boot-config.nix
     ./hardware-configuration.nix
     ./scripts.nix
+    ./vfio.nix
     ../../sets/builder.nix
     ../../sets/cpu/amd.nix
     ../../sets/fpga.nix
