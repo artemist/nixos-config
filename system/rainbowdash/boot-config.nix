@@ -22,4 +22,9 @@
     "/boot".options = [ "noatime" ];
     "/".options = [ "noatime" ];
   };
+
+  services.btrfs.autoScrub = {
+    enable = true;
+    fileSystems = [ "/" ];
+  };
 }

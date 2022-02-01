@@ -38,4 +38,9 @@ in
   fileSystems."/media/luna/photos".options = net_opts;
   fileSystems."/media/luna/games".options = net_opts;
   fileSystems."/media/luna/private".options = net_opts;
+
+  services.btrfs.autoScrub = {
+    enable = true;
+    fileSystems = [ "/" "/media/data" ];
+  };
 }
