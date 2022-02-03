@@ -1,18 +1,14 @@
 { config, pkgs, lib, ... }:
 let
   llvm = pkgs.llvmPackages_12;
-  ffmpeg-nonfree = pkgs.ffmpeg-full.override { nonfreeLicensing = true; fdkaacExtlib = true; };
-  mpv = pkgs.wrapMpv (pkgs.mpv-unwrapped.override { ffmpeg = ffmpeg-nonfree; }) { };
 in
 {
   environment.systemPackages = (with pkgs; [
     # Audiovisual
     darktable
     exiftool
-    ffmpeg-nonfree
     flac
     lame
-    mpv
     opusTools
     pavucontrol
     youtubeDL
