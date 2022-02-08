@@ -1,9 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, pkgs-unstable, lib, ... }:
 
 {
   nix = {
     autoOptimiseStore = true;
-    package = pkgs.nixFlakes;
+    package = pkgs-unstable.nix;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
