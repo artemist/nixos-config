@@ -19,7 +19,8 @@ in
     enable = true;
     vimAlias = true;
     extraConfig = (builtins.replaceStrings
-      [ "{{CLANGDPATH}}" ] [ "${pkgs.clang-tools}/bin/clangd" ]
+      [ "{{CLANGDPATH}}" "{{JLSPATH}}" ]
+      [ "${pkgs.clang-tools}/bin/clangd" "${pkgs.java-language-server}/bin/java-language-server" ]
       (builtins.readFile ./init.vim));
     plugins = with pkgs.vimPlugins; [
       editorconfig-vim

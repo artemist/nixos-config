@@ -69,6 +69,10 @@ nvim_lsp['clangd'].setup {
 	on_attach = on_attach,
 	cmd = { "{{CLANGDPATH}}" }
 }
+nvim_lsp['java_language_server'].setup {
+	on_attach = on_attach,
+	cmd = { "{{JLSPATH}}" }
+}
 nvim_lsp['rust_analyzer'].setup { on_attach = on_attach }
 nvim_lsp['rnix'].setup { on_attach = on_attach }
 
