@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, pkgs-unstable, lib, ... }:
 let
   llvm = pkgs.llvmPackages_12;
 in
@@ -148,6 +148,6 @@ in
     # Wine and tools
     cabextract
     samba
-    wineWowPackages.staging
+    pkgs-unstable.wineWowPackages.waylandFull
   ]));
 }
