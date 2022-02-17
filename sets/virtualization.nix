@@ -10,6 +10,7 @@
     libvirtd = {
       enable = true;
       qemu.ovmf.enable = true;
+      qemu.swtpm.enable = true;
       qemu.runAsRoot = false;
       onBoot = "ignore";
       onShutdown = "shutdown";
