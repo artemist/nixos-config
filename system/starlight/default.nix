@@ -102,5 +102,5 @@
     '';
   };
   # NixOS
-  system.stateVersion = "19.09";
+  system.stateVersion = "21.11";
 }
