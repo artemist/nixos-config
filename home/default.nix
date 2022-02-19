@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   home-manager = {
@@ -13,6 +13,8 @@
       ./neovim
       ./ssh
     ];
+
+    home.stateVersion = config.system.stateVersion;
 
     services.syncthing.enable = true;
     programs.direnv = {
