@@ -25,16 +25,18 @@ in
     plugins = with pkgs.vimPlugins; [
       editorconfig-vim
       fzf-vim
+      gruvbox
+      meson
       vim-airline
       vim-clang-format
-      vim-fish
       vim-fetch
+      vim-fish
+      vim-flatbuffers
       vim-nftables
       vim-nix
+      vim-protobuf
       vim-sensible
       vim-toml
-      meson
-      gruvbox
 
       nvim-lspconfig
       nvim-compe
