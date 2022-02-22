@@ -39,6 +39,8 @@
     '';
   };
 
+  services.thermald.enable = true;
+
   networking.domain = "manehattan.artem.ist";
   networking.hostName = "rainbowdash";
   system.stateVersion = "20.03";
