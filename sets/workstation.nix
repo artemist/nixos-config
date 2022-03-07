@@ -28,6 +28,8 @@
     ];
   };
 
+  programs.ssh.startAgent = true;
+
   hardware = {
     bluetooth.enable = true;
     opengl.driSupport32Bit = (pkgs.system == "x86_64-linux");
