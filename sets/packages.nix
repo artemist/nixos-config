@@ -124,7 +124,7 @@ in
     libreoffice-fresh
 
     # Web
-    pkgs-unstable.firefox-wayland
+    firefox-wayland
 
     # Gnome configuration
     gnome3.adwaita-icon-theme
