@@ -27,7 +27,7 @@
         rec {
           specialArgs = {
             inherit inputs;
-            pkgs-unstable = nixpkgs-unstable.legacyPackages."${conf.system}";
+            pkgs-unstable = import nixpkgs-unstable { config.allowUnfree = true; system = conf.system; };
           };
           modules = [
             private.nixosModules.base

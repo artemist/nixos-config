@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -34,5 +34,17 @@
     bluetooth.enable = true;
     opengl.driSupport32Bit = (pkgs.system == "x86_64-linux");
     steam-hardware.enable = true;
+    sane = {
+      enable = true;
+      brscan5.enable = true;
+    };
   };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      brscan5 = pkgs-unstable.brscan5;
+    })
+  ];
+
+  users.users.artemis.extraGroups = [ "scanner" ];
 }
