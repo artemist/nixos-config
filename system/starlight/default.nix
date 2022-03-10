@@ -18,7 +18,6 @@
     ../../sets/virtualization.nix
     ../../sets/workstation.nix
     ../../sets/1password.nix
-    ../../sets/kernelpatch.nix
   ];
 
   # Network
