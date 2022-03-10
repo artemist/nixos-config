@@ -11,6 +11,7 @@ in
     lame
     opusTools
     pavucontrol
+    simple-scan
     youtubeDL
 
     # Linux tools
