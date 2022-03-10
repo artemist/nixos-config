@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs, ... }:
+{ pkgs, pkgs-unstable, lib, config, inputs, ... }:
 let
   rustybar = inputs.rustybar.defaultPackage."${pkgs.system}";
   cfg = config.wayland.windowManager.sway;
@@ -34,12 +34,15 @@ in
 {
   wayland.windowManager.sway = {
     enable = true;
-    wrapperFeatures.gtk = true;
-    extraSessionCommands = ''
-      export MOZ_USE_XINPUT2=1
-      export _JAVA_AWT_WM_NONREPARENTING=1
-      export GTK_THEME=Adwaita-dark
-    '';
+    package = pkgs-unstable.sway.override {
+      withBaseWrapper = true;
+      withGtkWrapper = true;
+      extraSessionCommands = ''
+        export MOZ_USE_XINPUT2=1
+        export _JAVA_AWT_WM_NONREPARENTING=1
+        export GTK_THEME=Adwaita-dark
+      '';
+    };
     config = {
       modifier = "Mod4";
       terminal = "alacritty";

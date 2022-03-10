@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 {
   imports = [ ./fonts.nix ];
   security.polkit.enable = true;
@@ -32,8 +32,8 @@
     xdg-user-dirs
     xdg_utils
     xsettingsd
-    swaylock
-    swayidle
+    pkgs-unstable.swaylock
+    pkgs-unstable.swayidle
   ];
 
   hardware.opengl.enable = true;
