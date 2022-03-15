@@ -27,8 +27,8 @@
     waypipe
     wf-recorder
     wl-clipboard
-    wofi
-    wofi-emoji
+    pkgs-unstable.wofi
+    pkgs-unstable.wofi-emoji
     xdg-user-dirs
     xdg_utils
     xsettingsd
