@@ -8,6 +8,7 @@
     ../../sets/cpu/intel.nix
     ../../sets/gpu/intel.nix
     ../../sets/buildMachines.nix
+    ../../sets/hardware.nix
     ../../sets/hacking.nix
     ../../sets/laptop.nix
     ../../sets/1password.nix

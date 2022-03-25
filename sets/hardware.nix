@@ -19,6 +19,7 @@ in
     jlink
     platformio
     saleae-logic-2
+    pkgs-unstable.proxmark3-rrg
   ];
 
   users = {
