@@ -118,11 +118,11 @@
     "wip-pinebook-pro": {
       "flake": false,
       "locked": {
-        "lastModified": 1645472103,
-        "narHash": "sha256-HIaav1YN+jk0kx8+0Ccov2hsStAIJkB790ENZGDgeU4=",
+        "lastModified": 1648577588,
+        "narHash": "sha256-ur0wxh0hrQH2BiFBxfmm16dJtS+tGzIU9EN3EZpSCpQ=",
         "owner": "samueldr",
         "repo": "wip-pinebook-pro",
-        "rev": "b7de8c47fec5b96e66c615990b3c15a841a466b9",
+        "rev": "97751d24818f5fdc7abf4418fcfcc31fecfcc18a",
         "type": "github"
       },
       "original": {
