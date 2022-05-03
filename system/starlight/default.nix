@@ -26,6 +26,8 @@
     KERNEL=="eth*", ATTR{address}=="00:0f:53:16:15:9c", NAME="lan10g0"
     KERNEL=="eth*", ATTR{address}=="00:0f:53:16:15:9d", NAME="lan10g1"
     KERNEL=="eth*", ATTR{address}=="b4:2e:99:3d:07:66", NAME="lan1g0"
+
+    SUBSYSTEM=="usb", ATTR{idVendor}=="057e", ATTR{idProduct}=="3000", TAG+="uaccess", TAG+="udev-acl"
   '';
   networking.bridges.br0 = {
     rstp = true;
