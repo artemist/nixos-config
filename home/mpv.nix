@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  ffmpeg = pkgs.ffmpeg-full.override { nonfreeLicensing = true; fdkaacExtlib = true; };
+  ffmpeg = pkgs.ffmpeg-full;
   scripts = with pkgs.mpvScripts; [ sponsorblock ];
   mpv = pkgs.wrapMpv (pkgs.mpv-unwrapped.override { inherit ffmpeg; }) { inherit scripts; };
 in
