@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports = [
@@ -7,9 +7,7 @@
     ./scripts.nix
     ./postgres.nix
     ../../sets/builder.nix
-    ../../sets/cpu/amd.nix
     ../../sets/fpga.nix
-    ../../sets/gpu/amd.nix
     ../../sets/hacking.nix
     ../../sets/hardware.nix
     ../../sets/krb5.nix
@@ -18,6 +16,8 @@
     ../../sets/virtualization.nix
     ../../sets/workstation.nix
     ../../sets/1password.nix
+    inputs.nixos-hardware.nixosModules.common-cpu-amd
+    inputs.nixos-hardware.nixosModules.common-gpu-amd
   ];
 
   # Network

@@ -1,16 +1,15 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
     ./boot-config.nix
     ./hardware-configuration.nix
-    ../../sets/cpu/intel.nix
-    ../../sets/gpu/intel.nix
     ../../sets/hacking.nix
     ../../sets/laptop.nix
     ../../sets/sshd.nix
     ../../sets/buildMachines.nix
     ../../sets/workstation.nix
+    inputs.nixos-hardware.nixosModules.gpd-micropc
   ];
 
   networking.hostName = "spike";

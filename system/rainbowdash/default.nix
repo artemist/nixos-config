@@ -1,12 +1,10 @@
-{ config, ... }:
+{ config, inputs, ... }:
 
 {
   imports = [
     ./boot-config.nix
     ./secure-boot.nix
     ./hardware-configuration.nix
-    ../../sets/cpu/intel.nix
-    ../../sets/gpu/intel.nix
     ../../sets/buildMachines.nix
     ../../sets/hardware.nix
     ../../sets/hacking.nix
@@ -14,6 +12,7 @@
     ../../sets/1password.nix
     ../../sets/workstation.nix
     ../../sets/krb5.nix
+    inputs.nixos-hardware.nixosModules.dell-xps-13-9380
   ];
 
   boot.supportedFilesystems = [ "nfs4" ];

@@ -19,7 +19,7 @@
     services.syncthing.enable = true;
     programs.direnv = {
       enable = true;
-      nix-direnv = { 
+      nix-direnv = {
         enable = true;
         enableFlakes = true;
       };
