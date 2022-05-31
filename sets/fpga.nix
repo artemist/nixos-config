@@ -11,7 +11,6 @@
     trellis
     yosys
     # Testing
-    ghdl
     symbiyosys
     verilog
     verilator

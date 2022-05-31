@@ -12,7 +12,7 @@ in
     opusTools
     pavucontrol
     simple-scan
-    youtubeDL
+    youtube-dl
 
     # Linux tools
     dmidecode
@@ -20,7 +20,7 @@ in
     hdparm
     iptables
     lm_sensors
-    manpages
+    man-pages
     nethogs
     nvme-cli
     parted
@@ -35,8 +35,8 @@ in
     zbar
 
     # Filesystems
-    cifs_utils
-    nfsUtils
+    cifs-utils
+    nfs-utils
     ntfs3g
     udftools
 
@@ -112,7 +112,7 @@ in
 
     # Security
     (pass.withExtensions (exts: [ exts.pass-otp ]))
-    wireguard
+    wireguard-tools
     yubikey-manager
     yubioath-desktop
 
@@ -129,10 +129,8 @@ in
 
     # Gnome configuration
     gnome3.adwaita-icon-theme
-    gnome3.gnome-tweak-tool
-    gnome3.gsettings-desktop-schemas
-    gnomeExtensions.appindicator
-    gnome_themes_standard
+    gsettings-desktop-schemas
+    gnome-themes-extra
     hicolor-icon-theme
     numix-icon-theme
     numix-icon-theme-circle

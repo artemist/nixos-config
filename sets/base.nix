@@ -3,7 +3,6 @@
 {
   nix = {
     autoOptimiseStore = true;
-    package = pkgs-unstable.nix;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';

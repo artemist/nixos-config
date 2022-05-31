@@ -13,7 +13,7 @@
   hardware.pulseaudio.enable = lib.mkForce false;
   security.rtkit.enable = true;
   environment.systemPackages = with pkgs; [
-    pulseaudioLight
+    pulseaudio
     qjackctl
 
     carla

@@ -5,7 +5,7 @@
     enable = true;
     permitRootLogin = "no";
     passwordAuthentication = false;
-    challengeResponseAuthentication = false;
+    kbdInteractiveAuthentication = false;
   };
   # users.users.artemis.openssh.authorizedKeys.keys set in private
 }

@@ -10,7 +10,7 @@
   };
   environment.systemPackages = with pkgs; [
     aircrack-ng
-    ncat
+    nmap
     pwndbg
     python3Packages.binwalk-full
   ];
