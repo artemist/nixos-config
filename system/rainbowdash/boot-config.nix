@@ -3,14 +3,7 @@
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "mem_sleep_default=deep" "initcall_debug" ];
-    kernelPatches = [{
-      name = "debug_acpi";
-      patch = null;
-      extraConfig = ''
-        ACPI_DEBUG y
-      '';
-    }];
+    kernelParams = [ "mem_sleep_default=deep" ];
     kernel.sysctl."vm.swappiness" = 5;
     cleanTmpDir = true;
     blacklistedKernelModules = [ "psmouse" ];

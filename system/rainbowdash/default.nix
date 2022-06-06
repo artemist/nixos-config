@@ -12,14 +12,10 @@
     ../../sets/1password.nix
     ../../sets/workstation.nix
     ../../sets/krb5.nix
-    inputs.nixos-hardware.nixosModules.common-cpu-intel
-    inputs.nixos-hardware.nixosModules.common-pc-laptop
-    inputs.nixos-hardware.nixosModules.common-pc-laptop-acpi_call
+    inputs.nixos-hardware.nixosModules.dell-xps-13-9380
   ];
 
   boot.supportedFilesystems = [ "nfs4" ];
-
-  services.throttled.enable = true;
 
   # Home
   home-manager.users.artemis = {
@@ -43,6 +39,7 @@
     '';
   };
 
+  services.thermald.enable = true;
 
   networking.domain = "manehattan.artem.ist";
   networking.hostName = "rainbowdash";

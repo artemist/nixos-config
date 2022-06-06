@@ -5,7 +5,10 @@
     ./wifi.nix
   ];
 
-  services.upower.enable = true;
+  services = {
+    tlp.enable = true;
+    upower.enable = true;
+  };
   programs.light.enable = true;
   users.users.artemis.extraGroups = [ "video" ];
 
