@@ -1,7 +1,4 @@
 { config, pkgs, pkgs-unstable, lib, ... }:
-let
-  llvm = pkgs.llvmPackages_12;
-in
 {
   environment.systemPackages = (with pkgs; [
     # Audiovisual
@@ -41,7 +38,6 @@ in
     udftools
 
     # Useful CLI tools
-    age
     appimage-run
     bat
     bind
@@ -58,21 +54,16 @@ in
     jq
     libarchive
     lsof
-    mercurialFull
     neovim
     nix-index
     openssl
     p7zip
-    pandoc
     parallel
     pciutils
     pdftk
-    pijul
     poppler_utils
     ripgrep
     rlwrap
-    signify
-    subversion
     tmux
     tomb
     traceroute
@@ -80,7 +71,6 @@ in
     unrar
     unzip
     usbutils
-    xclip
     xxd
     zip
 
@@ -94,21 +84,8 @@ in
     wget
 
     # Development
-    binutils-unwrapped
-    ccache
-    cmake
-    conda
-    gcc11
-    gdb
-    gnumake
-    llvm.bintools
-    llvm.clang
-    llvm.lld
-    nasm
     patchelf
     rustup
-    valgrind
-    yarn
 
     # Security
     (pass.withExtensions (exts: [ exts.pass-otp ]))

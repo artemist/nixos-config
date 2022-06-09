@@ -15,8 +15,5 @@
   environment.systemPackages = with pkgs; [
     pulseaudio
     qjackctl
-
-    carla
-    lsp-plugins
   ];
 }
