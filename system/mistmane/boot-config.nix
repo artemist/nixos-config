@@ -3,7 +3,6 @@
 {
   boot = {
     kernel.sysctl."vm.swappiness" = 5;
-    kernelPackages = pkgs.linuxPackages_pinebookpro_lts;
     kernelParams = [ "console=tty1" ];
     cleanTmpDir = true;
     loader.grub.enable = false;

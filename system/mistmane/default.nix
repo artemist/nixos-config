@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports = [
@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
     ../../sets/laptop.nix
     ../../sets/workstation.nix
+    "${inputs.wip-pinebook-pro}/pinebook_pro.nix"
   ];
 
   networking.hostName = "mistmane";
@@ -44,10 +45,6 @@
     lidSwitch = lib.mkForce "lock";
     extraConfig = lib.mkForce "HandlePowerKey=lock";
   };
-
-  # rockchip/dptx.bin isn't in the initrd. Instead of fix nixpkgs let's do something incredibly cursed
-  boot.extraModulePackages = [ (pkgs.callPackage ../../externals/packages/dptx-dummy { kernel = config.boot.kernelPackages.kernel; }) ];
-  boot.initrd.availableKernelModules = [ "dptx-dummy" ];
 
   system.stateVersion = "21.11";
 }

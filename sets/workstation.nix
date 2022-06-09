@@ -36,7 +36,7 @@
     steam-hardware.enable = true;
     sane = {
       enable = true;
-      brscan5.enable = true;
+      brscan5.enable = (pkgs.system == "x86_64-linux");
     };
   };
 
