@@ -11,7 +11,7 @@
       dates = "00:00";
       options = "--delete-older-than 14d";
     };
-    trustedUsers = [ "artemis" ];
+    settings.trusted-users = [ "artemis" ];
   };
 
   console = {

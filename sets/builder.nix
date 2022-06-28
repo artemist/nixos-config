@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  nix.trustedUsers = [ "build" ];
+  nix.settings.trusted-users = [ "build" ];
   users.users.build = {
     isSystemUser = true;
     home = "/home/build";
