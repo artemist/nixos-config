@@ -9,7 +9,7 @@
     opusTools
     pavucontrol
     simple-scan
-    youtube-dl
+    yt-dlp
 
     # Linux tools
     dmidecode

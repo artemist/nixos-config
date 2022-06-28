@@ -18,6 +18,8 @@ in
       audio-display = "no";
       audio-normalize-downmix = "yes";
       replaygain = "track";
+
+      script-opts-append = "ytdl_hook-ytdl_path=yt-dlp";
     };
     # Don't make this profile default since not all machines can handle it
     profiles.gpu-hq = {
