@@ -19,6 +19,10 @@
   };
 
   services = {
+    avahi = {
+      enable = true;
+      nssmdns = true;
+    };
     flatpak.enable = true;
     fwupd.enable = true;
     pcscd.enable = true;
