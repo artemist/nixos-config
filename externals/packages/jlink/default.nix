@@ -32,6 +32,7 @@ stdenv.mkDerivation rec {
   dontConfigure = true;
   dontBuild = true;
   dontStrip = true;
+  preferLocalBuild = true;
 
   nativeBuildInputs = [ autoPatchelfHook ];
   buildInputs = [
