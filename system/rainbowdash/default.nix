@@ -12,7 +12,9 @@
     ../../sets/1password.nix
     ../../sets/workstation.nix
     ../../sets/krb5.nix
-    inputs.nixos-hardware.nixosModules.dell-xps-13-9380
+    inputs.nixos-hardware.nixosModules.common-cpu-intel
+    inputs.nixos-hardware.nixosModules.common-pc-laptop
+    inputs.nixos-hardware.nixosModules.common-pc-laptop-acpi_call
   ];
 
   boot.supportedFilesystems = [ "nfs4" ];
@@ -39,6 +41,7 @@
     '';
   };
 
+  boot.blacklistedKernelModules = [ "psmouse" ];
   services.thermald.enable = true;
 
   networking.domain = "manehattan.artem.ist";

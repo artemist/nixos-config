@@ -3,7 +3,6 @@
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "mem_sleep_default=deep" ];
     kernel.sysctl."vm.swappiness" = 5;
     cleanTmpDir = true;
     blacklistedKernelModules = [ "psmouse" ];
