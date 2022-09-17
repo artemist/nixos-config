@@ -3,6 +3,7 @@
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [ "fbcon=rotate:1" ];
     kernel.sysctl."vm.swappiness" = 5;
     cleanTmpDir = true;
 
@@ -12,10 +13,9 @@
     };
 
     initrd = {
-      availableKernelModules = [ "battery" ]; # wat
       luks.devices."${config.networking.hostName}" = {
         name = config.networking.hostName;
-        device = "/dev/disk/by-uuid/9df93bae-80b9-48c2-be43-b73994afda5b";
+        device = "/dev/disk/by-uuid/eb0e5aaf-afa3-43e4-89b3-af4a3f7f0546";
         preLVM = true;
         allowDiscards = true;
       };
