@@ -12,7 +12,7 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
-    pkgs-unstable.kicad
+    kicad
     openocd
     picocom
     stlink
