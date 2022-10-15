@@ -14,7 +14,6 @@
   environment = {
     variables.EDITOR = "nvim";
     variables.TERMINAL = "alacritty";
-    variables.OCL_ICD_VENDORS = "/run/opengl-driver/etc/OpenCL/vendors";
     enableDebugInfo = true;
   };
 

@@ -1,4 +1,4 @@
-{ config, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -40,6 +40,11 @@
       format = "%Y-%m-%dT%H:%M:%S"
     '';
   };
+
+  # Not in nixos-hardware for some reason
+  hardware.opengl.extraPackages = with pkgs; [
+    intel-compute-runtime
+  ];
 
   boot.blacklistedKernelModules = [ "psmouse" ];
   services.thermald.enable = true;
