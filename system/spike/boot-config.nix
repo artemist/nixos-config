@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs-unstable.linuxPackages_latest;
     kernelParams = [ "fbcon=rotate:1" ];
     kernel.sysctl."vm.swappiness" = 5;
     cleanTmpDir = true;
