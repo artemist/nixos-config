@@ -79,6 +79,10 @@
     })
   ];
 
+  services.udev.packages = [
+    (pkgs.callPackage ../../externals/rules/m1n1.nix { })
+  ];
+
   hardware.opengl.extraPackages = with pkgs; [ vulkan-validation-layers ];
 
   # Home

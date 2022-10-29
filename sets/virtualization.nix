@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   virtualisation = {
@@ -16,6 +16,9 @@
       onShutdown = "shutdown";
     };
   };
+
+  # no more cgroups v1
+  systemd.enableUnifiedCgroupHierarchy = lib.mkForce true;
 
   # Breaks IPv4 on bridge
   boot.kernel.sysctl."net.bridge.bridge-nf-call-iptables" = 0;
