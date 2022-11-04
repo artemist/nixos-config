@@ -10,6 +10,7 @@
     ../../sets/hacking.nix
     ../../sets/laptop.nix
     ../../sets/1password.nix
+    ../../sets/virtualization.nix
     ../../sets/workstation.nix
     ../../sets/krb5.nix
     inputs.nixos-hardware.nixosModules.common-cpu-intel

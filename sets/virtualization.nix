@@ -2,7 +2,6 @@
 
 {
   virtualisation = {
-    docker.enable = true;
     lxd = {
       enable = true;
       recommendedSysctlSettings = true;
@@ -30,7 +29,7 @@
   ];
 
   users.users = {
-    artemis.extraGroups = [ "docker" "lxd" "libvirtd" ];
+    artemis.extraGroups = [ "lxd" "libvirtd" ];
     lxd = {
       isSystemUser = true;
       subUidRanges = [{ startUid = 16777216; count = 16777216; } { startUid = config.users.users.artemis.uid; count = 1; }];
