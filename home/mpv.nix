@@ -9,6 +9,7 @@ in
   home.packages = [ ffmpeg ];
   programs.mpv = {
     enable = true;
+    package = mpv;
     config = {
       slang = "eng,en";
       alang = "eng,en";

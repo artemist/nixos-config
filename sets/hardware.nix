@@ -8,7 +8,6 @@ in
     (pkgs.callPackage ../externals/rules/limesuite.nix { })
     pkgs.openocd
     pkgs.platformio
-    pkgs.saleae-logic-2
   ];
 
   environment.systemPackages = with pkgs; [
@@ -18,7 +17,6 @@ in
     stlink
     jlink
     platformio
-    saleae-logic-2
     pkgs-unstable.proxmark3-rrg
   ];
 

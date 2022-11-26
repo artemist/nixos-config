@@ -58,7 +58,7 @@ stdenv.mkDerivation rec {
     mkdir -p $out/{JLink,bin}
     cp -R * $out/JLink
     ln -s $out/JLink/J* $out/bin/
-    rm -r $out/bin/JLinkDevices.xml $out/JLink/libQt*
+    rm -r $out/JLink/libQt*
     install -D -t $out/lib/udev/rules.d 99-jlink.rules
   '';
 
