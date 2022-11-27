@@ -20,7 +20,7 @@ in
       audio-normalize-downmix = "yes";
       replaygain = "track";
 
-      script-opts-append = "ytdl_hook-ytdl_path=yt-dlp";
+      script-opts-set = "sponsorblock-local_database=no,sponsorblock-skip_categories=[sponsor,intro,selfpromo]";
     };
     # Don't make this profile default since not all machines can handle it
     profiles.gpu-hq = {
