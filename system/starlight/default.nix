@@ -79,6 +79,18 @@
     })
   ];
 
+  services.printing.drivers = [
+    (pkgs.brlaser.overrideAttrs (old: {
+      version = "unstable-2020-04-20";
+      src = pkgs.fetchFromGitHub {
+        owner = "pdewacht";
+        repo = "brlaser";
+        rev = "9d7ddda8383bfc4d205b5e1b49de2b8bcd9137f1";
+        sha256 = "sha256-pNkwJKdKhBO8u97GyvfxmyisaqIkzuk5UslWdaYFMLc=";
+      };
+    }))
+  ];
+
   services.udev.packages = [
     (pkgs.callPackage ../../externals/rules/m1n1.nix { })
   ];
