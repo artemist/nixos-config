@@ -2,7 +2,7 @@
 {
   environment.systemPackages = (with pkgs; [
     # Audiovisual
-    darktable
+    pkgs-unstable.darktable
     exiftool
     flac
     lame
