@@ -103,6 +103,7 @@
 
     # Web
     firefox-wayland
+    google-chrome
 
     # Gnome configuration
     gnome3.adwaita-icon-theme
