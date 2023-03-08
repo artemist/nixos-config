@@ -11,6 +11,7 @@
     settings = {
       update_check_interval = 0;
       close_on_child_death = true;
+      confirm_os_window_close = 2;
       enable_audio_bell = 0;
       term = "kitty";
       clipboard_control = false;

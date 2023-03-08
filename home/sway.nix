@@ -42,7 +42,7 @@ in
     '';
     config = {
       modifier = "Mod4";
-      terminal = "alacritty";
+      terminal = "kitty";
       menu = "wofi -i -S run";
 
       fonts = {

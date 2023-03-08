@@ -13,7 +13,7 @@
 
   environment = {
     variables.EDITOR = "nvim";
-    variables.TERMINAL = "alacritty";
+    variables.TERMINAL = "kitty";
     enableDebugInfo = true;
   };
 
