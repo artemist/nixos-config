@@ -28,6 +28,9 @@
 
     SUBSYSTEM=="usb", ATTR{idVendor}=="057e", ATTR{idProduct}=="3000", TAG+="uaccess", TAG+="udev-acl"
   '';
+
+  networking.useDHCP = false;
+
   networking.bridges.br0 = {
     rstp = true;
     interfaces = [ "lan10g0" "lan10g1" "lan1g0" ];
@@ -39,7 +42,6 @@
       prefixLength = 128;
     }];
   };
-  networking.dhcpcd.allowInterfaces = [ "br0" ];
 
   networking.vlans."br0.5" = {
     id = 5;
