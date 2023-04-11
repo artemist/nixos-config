@@ -14,6 +14,7 @@
     ../../sets/sshd.nix
     ../../sets/virtualization.nix
     ../../sets/workstation.nix
+    ../../sets/ime.nix
     ../../sets/1password.nix
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-gpu-amd
