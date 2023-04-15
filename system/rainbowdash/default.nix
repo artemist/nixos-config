@@ -9,6 +9,7 @@
     ../../sets/hardware.nix
     ../../sets/hacking.nix
     ../../sets/laptop.nix
+    ../../sets/ime.nix
     ../../sets/1password.nix
     ../../sets/virtualization.nix
     ../../sets/workstation.nix
@@ -26,6 +27,7 @@
       output."eDP-1" = { mode = "3840x2400@59.994Hz"; scale = "2"; };
       input."1386:18753:Wacom_HID_4941_Finger".map_to_output = "eDP-1";
       input."1739:52710:DLL096D:01_06CB:CDE6_Touchpad" = { middle_emulation = "enabled"; click_method = "clickfinger"; };
+      startup = [{ command = "swayidle -w before-sleep 'light -O' after-resume 'light -I'"; always = true; }];
     };
     xdg.configFile."rustybar/config.toml".text = ''
       [[tile]]

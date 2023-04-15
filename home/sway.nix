@@ -62,7 +62,7 @@ in
       startup = [
         { command = "mako"; }
         { command = "dbus-update-activation-environment --systemd --all"; always = true; }
-        { command = "swayidle -w before-sleep 'swaylock -f' timeout 600 'swaylock -f' timeout 1200 'swaymsg \"output * dpms off\"' resume 'swaymsg \"output * dpms on\"'"; }
+        { command = "swayidle -w before-sleep 'swaylock -f' timeout 600 'swaylock -f' timeout 660 'swaymsg \"output * dpms off\"' resume 'swaymsg \"output * dpms on\"'"; }
       ];
 
       # I have to set these to something and can't set them to existing uses
