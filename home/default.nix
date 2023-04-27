@@ -7,6 +7,7 @@
   };
   home-manager.users.artemis = {
     imports = [
+      ./gtk.nix
       ./git.nix
       ./mpv.nix
       ./kitty.nix
