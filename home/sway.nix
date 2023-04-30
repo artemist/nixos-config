@@ -35,7 +35,6 @@ in
   home.sessionVariables = {
     MOZ_USE_XINPUT2 = 1;
     _JAVA_AWT_WM_NONREPARENTING = 1;
-    GTK_THEME = "Adwaita-dark";
     NIXOS_OZONE_WL = 1;
   };
   wayland.windowManager.sway = {

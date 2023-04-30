@@ -44,7 +44,10 @@ in
     ];
   };
 
-  home.sessionVariables.EDITOR = "nvim";
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
   home.packages = with pkgs; [
     nixpkgs-fmt
     python3
