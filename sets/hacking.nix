@@ -9,6 +9,7 @@
     };
   };
   environment.systemPackages = with pkgs; [
+    apktool
     aircrack-ng
     nmap
     pwndbg
