@@ -21,4 +21,6 @@
     };
   };
   # users.users.artemis.openssh.authorizedKeys.keys set in private
+
+  programs.mosh.enable = true;
 }
