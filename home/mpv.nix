@@ -1,12 +1,12 @@
 { pkgs, config, ... }:
 let
-  ffmpeg = pkgs.ffmpeg-full;
+  ffmpeg_5 = pkgs.ffmpeg_5-full;
   scripts = with pkgs.mpvScripts; [ sponsorblock ];
-  mpv = pkgs.wrapMpv (pkgs.mpv-unwrapped.override { inherit ffmpeg; }) { inherit scripts; };
+  mpv = pkgs.wrapMpv (pkgs.mpv-unwrapped.override { inherit ffmpeg_5; }) { inherit scripts; };
 in
 
 {
-  home.packages = [ ffmpeg ];
+  home.packages = [ ffmpeg_5 ];
   programs.mpv = {
     enable = true;
     package = mpv;

@@ -91,7 +91,7 @@
     (pass.withExtensions (exts: [ exts.pass-otp ]))
     wireguard-tools
     yubikey-manager
-    yubioath-desktop
+    yubioath-flutter
 
     # GUI tools
     alacritty

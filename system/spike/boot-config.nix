@@ -5,7 +5,7 @@
     kernelPackages = pkgs-unstable.linuxPackages_latest;
     kernelParams = [ "fbcon=rotate:1" ];
     kernel.sysctl."vm.swappiness" = 5;
-    cleanTmpDir = true;
+    tmp.cleanOnBoot = true;
 
     loader = {
       systemd-boot.enable = true;

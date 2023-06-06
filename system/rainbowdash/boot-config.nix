@@ -4,7 +4,7 @@
   boot = {
     kernelPackages = pkgs-unstable.linuxPackages_latest;
     kernel.sysctl."vm.swappiness" = 5;
-    cleanTmpDir = true;
+    tmp.cleanOnBoot = true;
     blacklistedKernelModules = [ "psmouse" ];
 
     initrd = {

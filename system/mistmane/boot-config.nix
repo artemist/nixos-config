@@ -4,7 +4,7 @@
   boot = {
     kernel.sysctl."vm.swappiness" = 5;
     kernelParams = [ "console=tty1" ];
-    cleanTmpDir = true;
+    tmp.cleanOnBoot = true;
     loader.grub.enable = false;
     loader.generic-extlinux-compatible.enable = true;
     initrd.luks.devices."${config.networking.hostName}" = {

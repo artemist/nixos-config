@@ -8,7 +8,7 @@ in
     kernelPackages = pkgs-unstable.linuxPackages_latest;
     extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
     kernel.sysctl."vm.swappiness" = 5;
-    cleanTmpDir = true;
+    tmp.cleanOnBoot = true;
     loader.systemd-boot-secure = {
       enable = true;
       signed = true;
