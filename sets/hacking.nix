@@ -14,6 +14,9 @@
     nmap
     pwndbg
     python3Packages.binwalk-full
+
+    fusee-launcher
+    hactool
   ];
 
   users.users.artemis.extraGroups = [ "adbusers" "wireshark" ];

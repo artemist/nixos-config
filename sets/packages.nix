@@ -8,6 +8,7 @@
     lame
     opusTools
     pavucontrol
+    r128gain
     simple-scan
     yt-dlp
 
@@ -50,7 +51,6 @@
     gnupg
     htop
     hunspell
-    iw
     jq
     libarchive
     lsof
@@ -66,7 +66,6 @@
     rlwrap
     tmux
     tomb
-    traceroute
     tree
     unrar
     unzip
@@ -76,10 +75,12 @@
 
     # Networking
     curlFull
-    httpie
+    iw
     magic-wormhole
     mosh
+    mtr
     sshuttle
+    traceroute
     transmission-remote-gtk
     wget
 
@@ -98,7 +99,6 @@
     evince
     gnome3.eog
     gnome3.gnome-system-monitor
-    zathura
     libreoffice-fresh
 
     # Web
@@ -110,8 +110,6 @@
     gsettings-desktop-schemas
     gnome-themes-extra
     hicolor-icon-theme
-    numix-icon-theme
-    numix-icon-theme-circle
 
     # Dictionaries
   ]) ++ (with pkgs.hunspellDicts; [
