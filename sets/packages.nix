@@ -102,7 +102,7 @@
     libreoffice-fresh
 
     # Web
-    firefox-wayland
+    firefox-bin
     google-chrome
 
     # Gnome configuration
