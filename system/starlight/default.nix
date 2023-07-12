@@ -53,6 +53,15 @@
     interfaces = [ "br0.5" ];
   };
 
+  networking.vlans."br0.4" = {
+    id = 4;
+    interface = "br0";
+  };
+  networking.bridges.briot = {
+    rstp = false;
+    interfaces = [ "br0.4" ];
+  };
+
   services.openssh.extraConfig = ''
     HostCertificate ${./starlight-cert.pub}
   '';
