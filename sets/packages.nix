@@ -40,7 +40,6 @@
 
     # Useful CLI tools
     appimage-run
-    bat
     bind
     borgbackup
     file
@@ -72,6 +71,10 @@
     usbutils
     xxd
     zip
+
+    # Coreutils replacements
+    bat
+    exa
 
     # Networking
     curlFull

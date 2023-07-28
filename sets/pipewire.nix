@@ -14,6 +14,6 @@
   security.rtkit.enable = true;
   environment.systemPackages = with pkgs; [
     pulseaudio
-    qjackctl
+    qpwgraph
   ];
 }
