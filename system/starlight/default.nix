@@ -5,17 +5,19 @@
     ./boot-config.nix
     ./hardware-configuration.nix
     ./scripts.nix
+    ../../sets/1password.nix
     ../../sets/builder.nix
+    ../../sets/disc.nix
     ../../sets/fpga.nix
     ../../sets/hacking.nix
     ../../sets/hardware.nix
+    ../../sets/ime.nix
     ../../sets/krb5.nix
+    ../../sets/music.nix
     ../../sets/radio.nix
     ../../sets/sshd.nix
     ../../sets/virtualization.nix
     ../../sets/workstation.nix
-    ../../sets/ime.nix
-    ../../sets/1password.nix
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-gpu-amd
   ];
@@ -81,14 +83,6 @@
 
   # Packages
   boot.binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
-  environment.systemPackages = with pkgs; [
-    (weechat.override {
-      configure = { availablePlugins, ... }: {
-        plugins = (builtins.attrValues availablePlugins);
-        scripts = [ weechatScripts.weechat-matrix ];
-      };
-    })
-  ];
 
   services.printing.drivers = [
     (pkgs.brlaser.overrideAttrs (old: {
