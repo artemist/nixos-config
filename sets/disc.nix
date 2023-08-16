@@ -6,5 +6,8 @@
     makemkv
   ];
 
+  # Needed for MakeMKV
+  boot.kernelModules = [ "sg" ];
+
   users.users.artemis.extraGroups = [ "cdrom" ];
 }

@@ -103,6 +103,8 @@
     gnome3.eog
     gnome3.gnome-system-monitor
     libreoffice-fresh
+    qalculate-gtk
+    libqalculate
 
     # Web
     firefox-bin
