@@ -44,6 +44,10 @@
     '';
   };
 
+  services.printing.drivers = with pkgs; [
+    cups-dymo
+  ];
+
   # Not in nixos-hardware for some reason
   hardware.opengl.extraPackages = with pkgs; [
     intel-compute-runtime
