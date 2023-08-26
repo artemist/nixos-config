@@ -3,17 +3,17 @@
 {
   imports = [
     ./boot-config.nix
-    ./secure-boot.nix
     ./hardware-configuration.nix
-    ../../sets/buildMachines.nix
-    ../../sets/hardware.nix
-    ../../sets/hacking.nix
-    ../../sets/laptop.nix
-    ../../sets/ime.nix
     ../../sets/1password.nix
+    ../../sets/buildMachines.nix
+    ../../sets/hacking.nix
+    ../../sets/hardware.nix
+    ../../sets/ime.nix
+    ../../sets/krb5.nix
+    ../../sets/laptop.nix
+    ../../sets/secureBoot.nix
     ../../sets/virtualization.nix
     ../../sets/workstation.nix
-    ../../sets/krb5.nix
     inputs.nixos-hardware.nixosModules.common-cpu-intel
     inputs.nixos-hardware.nixosModules.common-pc-laptop
     inputs.nixos-hardware.nixosModules.common-pc-laptop-acpi_call

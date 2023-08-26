@@ -3,6 +3,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.3.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
@@ -22,7 +26,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, rustybar, private, wip-pinebook-pro, nixpkgs-unstable, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, rustybar, private, wip-pinebook-pro, nixpkgs-unstable, lanzaboote, ... } @ inputs:
     let
       makeSystem = conf: nixpkgs.lib.nixosSystem (nixpkgs.lib.recursiveUpdate conf
         rec {
