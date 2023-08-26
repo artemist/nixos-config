@@ -4,8 +4,7 @@ let
     #! ${pkgs.runtimeShell}
     PATH=${pkgs.sway}/bin
   '';
-in
-{
+in {
   home-manager.users.artemis.home.packages = [
     (pkgs.writeScriptBin "work" ''
       ${swayPrelude}

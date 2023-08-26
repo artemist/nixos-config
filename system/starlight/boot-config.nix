@@ -1,8 +1,13 @@
 { config, pkgs, pkgs-unstable, ... }:
 let
-  net_opts = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=60" "x-systemd.device-timeout=5s" "x-systemd.mount-timeout=5s" ];
-in
-{
+  net_opts = [
+    "x-systemd.automount"
+    "noauto"
+    "x-systemd.idle-timeout=60"
+    "x-systemd.device-timeout=5s"
+    "x-systemd.mount-timeout=5s"
+  ];
+in {
   imports = [ ../../externals/systemd-boot-secure ];
   boot = {
     kernelPackages = pkgs-unstable.linuxPackages_latest;

@@ -12,8 +12,5 @@
   };
   hardware.pulseaudio.enable = lib.mkForce false;
   security.rtkit.enable = true;
-  environment.systemPackages = with pkgs; [
-    pulseaudio
-    qpwgraph
-  ];
+  environment.systemPackages = with pkgs; [ pulseaudio qpwgraph ];
 }

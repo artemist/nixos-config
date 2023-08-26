@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   programs.fish = {
     enable = true;
     interactiveShellInit = "set -g -x GPG_TTY (tty)";

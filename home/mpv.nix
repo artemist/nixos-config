@@ -2,10 +2,11 @@
 let
   ffmpeg_5 = pkgs.ffmpeg_5-full;
   scripts = with pkgs.mpvScripts; [ sponsorblock ];
-  mpv = pkgs.wrapMpv (pkgs.mpv-unwrapped.override { inherit ffmpeg_5; }) { inherit scripts; };
-in
+  mpv = pkgs.wrapMpv (pkgs.mpv-unwrapped.override { inherit ffmpeg_5; }) {
+    inherit scripts;
+  };
 
-{
+in {
   home.packages = [ ffmpeg_5 ];
   programs.mpv = {
     enable = true;
@@ -20,7 +21,8 @@ in
       audio-normalize-downmix = "yes";
       replaygain = "track";
 
-      script-opts-set = "sponsorblock-local_database=no,sponsorblock-skip_categories=[sponsor,intro,selfpromo]";
+      script-opts-set =
+        "sponsorblock-local_database=no,sponsorblock-skip_categories=[sponsor,intro,selfpromo]";
     };
     # Don't make this profile default since not all machines can handle it
     profiles.gpu-hq = {

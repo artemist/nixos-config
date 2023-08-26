@@ -13,15 +13,14 @@ let
     };
     meta.homepage = "https://github.com/folke/lsp-colors.nvim";
   };
-in
-{
+in {
   programs.neovim = {
     enable = true;
     vimAlias = true;
-    extraConfig = (builtins.replaceStrings
-      [ "{{CLANGDPATH}}" "{{JLSPATH}}" ]
-      [ "${pkgs.clang-tools}/bin/clangd" "${pkgs.java-language-server}/bin/java-language-server" ]
-      (builtins.readFile ./init.vim));
+    extraConfig = (builtins.replaceStrings [ "{{CLANGDPATH}}" "{{JLSPATH}}" ] [
+      "${pkgs.clang-tools}/bin/clangd"
+      "${pkgs.java-language-server}/bin/java-language-server"
+    ] (builtins.readFile ./init.vim));
     plugins = with pkgs.vimPlugins; [
       editorconfig-vim
       fzf-vim

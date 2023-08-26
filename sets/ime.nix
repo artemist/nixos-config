@@ -10,7 +10,8 @@
   # Required for support in kitty, ibus/fcitx5 are somewhat compatible so this works
   environment.variables.GLFW_IM_MODULE = "ibus";
 
-  home-manager.users.artemis.wayland.windowManager.sway.config.startup = [
-    { command = "fcitx5 -d --replace"; always = true; }
-  ];
+  home-manager.users.artemis.wayland.windowManager.sway.config.startup = [{
+    command = "fcitx5 -d --replace";
+    always = true;
+  }];
 }

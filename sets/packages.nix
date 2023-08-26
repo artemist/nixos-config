@@ -1,5 +1,4 @@
-{ config, pkgs, pkgs-unstable, lib, ... }:
-{
+{ config, pkgs, pkgs-unstable, lib, ... }: {
   environment.systemPackages = (with pkgs; [
     # Audiovisual
     pkgs-unstable.darktable
@@ -117,17 +116,15 @@
     hicolor-icon-theme
 
     # Dictionaries
-  ]) ++ (with pkgs.hunspellDicts; [
-    en-us-large
-    de_DE
-  ]) ++ (lib.optionals (pkgs.system == "x86_64-linux") (with pkgs; [
-    efibootmgr
-    efitools
-    sbsigntool
+  ]) ++ (with pkgs.hunspellDicts; [ en-us-large de_DE ])
+    ++ (lib.optionals (pkgs.system == "x86_64-linux") (with pkgs; [
+      efibootmgr
+      efitools
+      sbsigntool
 
-    # Wine and tools
-    cabextract
-    samba
-    pkgs-unstable.wineWowPackages.waylandFull
-  ]));
+      # Wine and tools
+      cabextract
+      samba
+      pkgs-unstable.wineWowPackages.waylandFull
+    ]));
 }

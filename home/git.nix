@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;
@@ -20,7 +19,8 @@
       init.defaultBranch = "canon";
       log.showSignature = true;
 
-      credential.helper = "!${pkgs.gitAndTools.pass-git-helper}/bin/pass-git-helper $@";
+      credential.helper =
+        "!${pkgs.gitAndTools.pass-git-helper}/bin/pass-git-helper $@";
       sendemail = {
         smtpServer = "smtp.fastmail.com";
         smtpUser = "me@artem.ist";

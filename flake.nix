@@ -3,6 +3,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    utils.url = "github:numtide/flake-utils";
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +20,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    private.url = "git+ssh://git@github.com/artemist/nixos-config-private?ref=unified";
+    private.url =
+      "git+ssh://git@github.com/artemist/nixos-config-private?ref=unified";
 
     wip-pinebook-pro = {
       url = "github:samueldr/wip-pinebook-pro";
@@ -26,53 +29,46 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, rustybar, private, wip-pinebook-pro, nixpkgs-unstable, lanzaboote, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, private, nixpkgs-unstable, utils, ...
+    }@inputs:
     let
-      makeSystem = conf: nixpkgs.lib.nixosSystem (nixpkgs.lib.recursiveUpdate conf
-        rec {
+      makeSystem = conf:
+        nixpkgs.lib.nixosSystem (nixpkgs.lib.recursiveUpdate conf rec {
           specialArgs = {
             inherit inputs;
-            pkgs-unstable = import nixpkgs-unstable { config.allowUnfree = true; system = conf.system; };
+            pkgs-unstable = import nixpkgs-unstable {
+              config.allowUnfree = true;
+              system = conf.system;
+            };
           };
           modules = [
             private.nixosModules.base
             home-manager.nixosModules.home-manager
-            {
-              home-manager.extraSpecialArgs = specialArgs;
-            }
+            { home-manager.extraSpecialArgs = specialArgs; }
           ] ++ (conf.modules or [ ]);
         });
-    in
-    {
+    in {
       nixosConfigurations.starlight = makeSystem {
         system = "x86_64-linux";
-        modules = [
-          ./system/starlight
-          private.nixosModules.starlight
-        ];
+        modules = [ ./system/starlight private.nixosModules.starlight ];
       };
 
       nixosConfigurations.rainbowdash = makeSystem {
         system = "x86_64-linux";
-        modules = [
-          ./system/rainbowdash
-        ];
+        modules = [ ./system/rainbowdash ];
       };
 
       nixosConfigurations.spike = makeSystem {
         system = "x86_64-linux";
-        modules = [
-          ./system/spike
-        ];
+        modules = [ ./system/spike ];
       };
 
       nixosConfigurations.mistmane = makeSystem {
         system = "aarch64-linux";
-        modules = [
-          ./system/mistmane
-        ];
+        modules = [ ./system/mistmane ];
       };
-
-    };
+    } // utils.lib.eachDefaultSystem (system:
+      let pkgs = import nixpkgs { inherit system; };
+      in { formatter = pkgs.nixfmt; });
 }
 

@@ -1,5 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
-{
+{ config, pkgs, pkgs-unstable, ... }: {
   imports = [ ./fonts.nix ];
   security.polkit.enable = true;
   services = {
@@ -9,10 +8,7 @@
   };
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
-    ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk xdg-desktop-portal-wlr ];
   };
   sound.enable = true;
   environment.systemPackages = with pkgs; [

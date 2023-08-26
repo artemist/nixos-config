@@ -24,10 +24,19 @@
   # Home
   home-manager.users.artemis = {
     wayland.windowManager.sway.config = {
-      output."eDP-1" = { mode = "3840x2400@59.994Hz"; scale = "2"; };
+      output."eDP-1" = {
+        mode = "3840x2400@59.994Hz";
+        scale = "2";
+      };
       input."1386:18753:Wacom_HID_4941_Finger".map_to_output = "eDP-1";
-      input."1739:52710:DLL096D:01_06CB:CDE6_Touchpad" = { middle_emulation = "enabled"; click_method = "clickfinger"; };
-      startup = [{ command = "swayidle -w before-sleep 'light -O' after-resume 'light -I'"; always = true; }];
+      input."1739:52710:DLL096D:01_06CB:CDE6_Touchpad" = {
+        middle_emulation = "enabled";
+        click_method = "clickfinger";
+      };
+      startup = [{
+        command = "swayidle -w before-sleep 'light -O' after-resume 'light -I'";
+        always = true;
+      }];
     };
     xdg.configFile."rustybar/config.toml".text = ''
       [[tile]]
@@ -44,14 +53,10 @@
     '';
   };
 
-  services.printing.drivers = with pkgs; [
-    cups-dymo
-  ];
+  services.printing.drivers = with pkgs; [ cups-dymo ];
 
   # Not in nixos-hardware for some reason
-  hardware.opengl.extraPackages = with pkgs; [
-    intel-compute-runtime
-  ];
+  hardware.opengl.extraPackages = with pkgs; [ intel-compute-runtime ];
 
   boot.blacklistedKernelModules = [ "psmouse" ];
   services.thermald.enable = true;

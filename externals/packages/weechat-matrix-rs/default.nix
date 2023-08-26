@@ -1,4 +1,5 @@
-{ stdenv, lib, rustPlatform, fetchFromGitHub, pkg-config, cmake, openssl, llvmPackages, weechat }:
+{ stdenv, lib, rustPlatform, fetchFromGitHub, pkg-config, cmake, openssl
+, llvmPackages, weechat }:
 
 rustPlatform.buildRustPackage rec {
   pname = "weechat-matrix-rs";

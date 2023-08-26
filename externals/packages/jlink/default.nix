@@ -1,33 +1,14 @@
-{ stdenv
-, lib
-, fetchurl
-, autoPatchelfHook
-, substituteAll
-, qt4
-, fontconfig
-, freetype
-, libusb
-, libICE
-, libSM
-, ncurses5
-, udev
-, libX11
-, libXext
-, libXcursor
-, libXfixes
-, libXrender
-, libXrandr
-}:
+{ stdenv, lib, fetchurl, autoPatchelfHook, substituteAll, qt4, fontconfig
+, freetype, libusb, libICE, libSM, ncurses5, udev, libX11, libXext, libXcursor
+, libXfixes, libXrender, libXrandr }:
 let
-  conf = (lib.importJSON ./version.json).${stdenv.hostPlatform.system} or (throw "unsupported system ${stdenv.hostPlatform.system}");
-in
-stdenv.mkDerivation rec {
+  conf = (lib.importJSON ./version.json).${stdenv.hostPlatform.system} or (throw
+    "unsupported system ${stdenv.hostPlatform.system}");
+in stdenv.mkDerivation rec {
   pname = "jlink";
   version = conf.version;
 
-  src = fetchurl {
-    inherit (conf) url hash curlOpts;
-  };
+  src = fetchurl { inherit (conf) url hash curlOpts; };
 
   dontConfigure = true;
   dontBuild = true;

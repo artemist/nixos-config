@@ -1,10 +1,6 @@
 { ... }:
-let
-  common-gtk = {
-    gtk-application-prefer-dark-theme = true;
-  };
-in
-{
+let common-gtk = { gtk-application-prefer-dark-theme = true; };
+in {
   home.sessionVariables.GTK_THEME = "Adwaita:dark";
   gtk = {
     enable = true;

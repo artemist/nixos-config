@@ -96,9 +96,8 @@
     }))
   ];
 
-  services.udev.packages = [
-    (pkgs.callPackage ../../externals/rules/m1n1.nix { })
-  ];
+  services.udev.packages =
+    [ (pkgs.callPackage ../../externals/rules/m1n1.nix { }) ];
 
   hardware.opengl.extraPackages = with pkgs; [ vulkan-validation-layers ];
 
@@ -106,9 +105,21 @@
   home-manager.users.artemis = {
     programs.mpv.defaultProfiles = [ "gpu-hq" ];
     wayland.windowManager.sway.config.output = {
-      "DP-1" = { pos = "0 0"; mode = "3840x2160@59.997Hz"; scale = "2"; };
-      "DP-2" = { pos = "1920 0"; mode = "3840x2160@59.997Hz"; scale = "2"; };
-      "DP-3" = { pos = "3840 0"; mode = "3840x2160@60Hz"; scale = "2"; };
+      "DP-1" = {
+        pos = "0 0";
+        mode = "3840x2160@59.997Hz";
+        scale = "2";
+      };
+      "DP-2" = {
+        pos = "1920 0";
+        mode = "3840x2160@59.997Hz";
+        scale = "2";
+      };
+      "DP-3" = {
+        pos = "3840 0";
+        mode = "3840x2160@60Hz";
+        scale = "2";
+      };
     };
     # no toTOML generator so I guess we have to do this
     xdg.configFile."rustybar/config.toml".text = ''

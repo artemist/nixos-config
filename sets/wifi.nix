@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   services.udev.packages = [ pkgs.crda ];
   networking.networkmanager = {
     enable = true;

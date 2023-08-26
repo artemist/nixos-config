@@ -1,8 +1,6 @@
 { config, pkgs, pkgs-unstable, ... }:
-let
-  jlink = pkgs.callPackage ../externals/packages/jlink { };
-in
-{
+let jlink = pkgs.callPackage ../externals/packages/jlink { };
+in {
   services.udev.packages = [
     (pkgs.callPackage ../externals/rules/adafruit.nix { })
     (pkgs.callPackage ../externals/rules/limesuite.nix { })
