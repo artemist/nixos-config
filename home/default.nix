@@ -20,7 +20,6 @@
     xdg.enable = true;
     xdg.configFile = {
       "alacritty/alacritty.yml".source = ./files/alacritty.yml;
-      "mimeapps.list".source = ./files/mimeapps.list;
       "swaylock/config".text = ''
         ignore-empty-password
         indicator-caps-lock
