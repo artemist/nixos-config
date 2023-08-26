@@ -104,6 +104,8 @@
 
   # Home
   home-manager.users.artemis = {
+    programs.git.signing.key =
+      lib.mkForce "3D2BB230F9FAF0C5183246DD4FDC96F161E7BA8A";
     programs.mpv.defaultProfiles = [ "gpu-hq" ];
     wayland.windowManager.sway.config.output = {
       "DP-1" = {
