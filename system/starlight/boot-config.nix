@@ -8,18 +8,11 @@ let
     "x-systemd.mount-timeout=5s"
   ];
 in {
-  imports = [ ../../externals/systemd-boot-secure ];
   boot = {
     kernelPackages = pkgs-unstable.linuxPackages_latest;
     extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
     kernel.sysctl."vm.swappiness" = 5;
     tmp.cleanOnBoot = true;
-    loader.systemd-boot-secure = {
-      enable = true;
-      signed = true;
-      signing-key = "/root/secure-boot/db.key";
-      signing-certificate = "/root/secure-boot/db.crt";
-    };
 
     # Encrypted drives
     initrd.luks = {

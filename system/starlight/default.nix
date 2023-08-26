@@ -15,6 +15,7 @@
     ../../sets/krb5.nix
     ../../sets/music.nix
     ../../sets/radio.nix
+    ../../sets/secureBoot.nix
     ../../sets/sshd.nix
     ../../sets/virtualization.nix
     ../../sets/workstation.nix
