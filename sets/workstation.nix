@@ -35,5 +35,10 @@
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+  };
+
   users.users.artemis.extraGroups = [ "scanner" ];
 }
