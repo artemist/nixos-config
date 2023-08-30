@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 let jlink = pkgs.callPackage ../externals/packages/jlink { };
 in {
   services.udev.packages = [
@@ -9,13 +9,13 @@ in {
   ];
 
   environment.systemPackages = with pkgs; [
-    pkgs-unstable.kicad
+    kicad
     openocd
     picocom
     stlink
     jlink
     platformio
-    pkgs-unstable.proxmark3-rrg
+    proxmark3-rrg
   ];
 
   users = {

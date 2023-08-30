@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }: {
+{ config, pkgs, ... }: {
   imports = [ ./fonts.nix ];
   security.polkit.enable = true;
   services = {
@@ -23,13 +23,13 @@
     waypipe
     wf-recorder
     wl-clipboard
-    pkgs-unstable.wofi
-    pkgs-unstable.wofi-emoji
+    wofi
+    wofi-emoji
     xdg-user-dirs
     xdg_utils
     xsettingsd
-    pkgs-unstable.swaylock
-    pkgs-unstable.swayidle
+    swaylock
+    swayidle
   ];
 
   hardware.opengl.enable = true;

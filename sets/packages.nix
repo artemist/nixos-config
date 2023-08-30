@@ -1,7 +1,7 @@
-{ config, pkgs, pkgs-unstable, lib, ... }: {
+{ config, pkgs, lib, ... }: {
   environment.systemPackages = (with pkgs; [
     # Audiovisual
-    pkgs-unstable.darktable
+    darktable
     exiftool
     flac
     lame
@@ -125,6 +125,6 @@
       # Wine and tools
       cabextract
       samba
-      pkgs-unstable.wineWowPackages.waylandFull
+      wineWowPackages.waylandFull
     ]));
 }

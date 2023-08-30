@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 
 let
   lsp-colors = pkgs.vimUtils.buildVimPluginFrom2Nix {
@@ -53,7 +53,7 @@ in {
     python3Packages.ipython
     python3Packages.pylint
     nodePackages.pyright
-    pkgs-unstable.rust-analyzer
+    rust-analyzer
     rnix-lsp
   ];
 

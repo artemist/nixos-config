@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 let
   net_opts = [
     "x-systemd.automount"
@@ -9,7 +9,7 @@ let
   ];
 in {
   boot = {
-    kernelPackages = pkgs-unstable.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
     extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
     kernel.sysctl."vm.swappiness" = 5;
     tmp.cleanOnBoot = true;

@@ -3,8 +3,8 @@
 {
   fonts = {
     fontconfig.enable = true;
-    enableDefaultFonts = true;
-    fonts = with pkgs; [
+    enableDefaultPackages = true;
+    packages = with pkgs; [
       # MS fonts
       cantarell-fonts
       corefonts

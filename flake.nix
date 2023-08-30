@@ -1,7 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     utils.url = "github:numtide/flake-utils";
 
@@ -11,7 +10,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -29,18 +28,11 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, private, nixpkgs-unstable, utils, ...
-    }@inputs:
+  outputs = { self, nixpkgs, home-manager, private, utils, ... }@inputs:
     let
       makeSystem = conf:
         nixpkgs.lib.nixosSystem (nixpkgs.lib.recursiveUpdate conf rec {
-          specialArgs = {
-            inherit inputs;
-            pkgs-unstable = import nixpkgs-unstable {
-              config.allowUnfree = true;
-              system = conf.system;
-            };
-          };
+          specialArgs = { inherit inputs; };
           modules = [
             private.nixosModules.base
             home-manager.nixosModules.home-manager

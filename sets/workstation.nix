@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [ ./sway.nix ./packages.nix ./pipewire.nix ./base.nix ../home ];
@@ -18,7 +18,6 @@
       nssmdns = true;
     };
     flatpak.enable = true;
-    fwupd.enable = true;
     pcscd.enable = true;
     printing.enable = true;
     udev.packages = [ (pkgs.callPackage ../externals/rules/uhk.nix { }) ];
@@ -35,8 +34,6 @@
       brscan5.enable = (pkgs.system == "x86_64-linux");
     };
   };
-
-  nixpkgs.overlays = [ (final: prev: { brscan5 = pkgs-unstable.brscan5; }) ];
 
   users.users.artemis.extraGroups = [ "scanner" ];
 }
