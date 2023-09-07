@@ -52,7 +52,6 @@
     jq
     libarchive
     lsof
-    neovim
     nix-index
     openssl
     p7zip

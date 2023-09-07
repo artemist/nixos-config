@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     rustybar = {
       url = "github:mildlyfunctionalgays/rustybar";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,7 +33,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, private, utils, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, private, utils, nixvim, ... }@inputs:
     let
       makeSystem = conf:
         nixpkgs.lib.nixosSystem (nixpkgs.lib.recursiveUpdate conf rec {
@@ -36,6 +41,7 @@
           modules = [
             private.nixosModules.base
             home-manager.nixosModules.home-manager
+            nixvim.nixosModules.nixvim
             { home-manager.extraSpecialArgs = specialArgs; }
           ] ++ (conf.modules or [ ]);
         });

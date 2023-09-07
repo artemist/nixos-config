@@ -1,0 +1,119 @@
+{ pkgs, ... }:
+
+{
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+  programs.nixvim = {
+    enable = true;
+    vimAlias = true;
+
+    # Basic editing / QoL
+    editorconfig.enable = true;
+    colorschemes.kanagawa.enable = true;
+    plugins = {
+      nix.enable = true;
+      airline = {
+        enable = true;
+        powerline = true;
+        theme = "dark";
+      };
+    };
+    globals = {
+      "airline#extensions#tabline#enabled" = 1;
+      "airline#extensions#tabline#formatter" = "unique_tail_improved";
+    };
+    extraPlugins = with pkgs.vimPlugins; [
+      vim-fetch
+      vim-fish
+      vim-flatbuffers
+      vim-nftables
+      vim-protobuf
+      vim-sensible
+      vim-toml
+    ];
+    options = {
+      hidden = true;
+      backup = false;
+      writebackup = false;
+      cmdheight = 2;
+      updatetime = 300;
+      shortmess = "filnxtToOFc";
+      signcolumn = "yes";
+      number = true;
+    };
+
+    # LSP
+    plugins.rust-tools.enable = true;
+    plugins.lsp-format.enable = true;
+    plugins.lsp = {
+      enable = true;
+      servers = {
+        clangd.enable = true;
+        java-language-server.enable = true;
+        nil_ls.enable = true;
+        pylsp.enable = true;
+      };
+
+      keymaps = {
+        silent = true;
+        diagnostic = {
+          "<leader>rk" = "goto_prev";
+          "<leader>rj" = "goto_next";
+        };
+        lspBuf = {
+          K = "hover";
+          gD = "declaration";
+          gd = "definition";
+          gt = "type_definition";
+          gr = "references";
+          gi = "implementation";
+          "<leader>ra" = "code_action";
+          "<leader>rn" = "rename";
+          "<leader>rs" = "signature_help";
+        };
+      };
+
+      onAttach = ''
+        if client.server_capabilities.documentHighlightProvider then
+            vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+            vim.api.nvim_clear_autocmds { buffer = bufnr, group = "lsp_document_highlight" }
+            vim.api.nvim_create_autocmd("CursorHold", {
+                callback = vim.lsp.buf.document_highlight,
+                buffer = bufnr,
+                group = "lsp_document_highlight",
+                desc = "Document Highlight",
+            })
+            vim.api.nvim_create_autocmd("CursorMoved", {
+                callback = vim.lsp.buf.clear_references,
+                buffer = bufnr,
+                group = "lsp_document_highlight",
+                desc = "Clear All the References",
+            })
+        end
+      '';
+    };
+
+    # Autocomplete
+    plugins = {
+      nvim-cmp = {
+        enable = true;
+        sources = [
+          { name = "nvim_lsp"; }
+          { name = "path"; }
+          { name = "calc"; }
+          { name = "emoji"; }
+        ];
+        mappingPresets = [ "insert" "cmdline" ];
+        mapping = {
+          "<CR>" = "cmp.mapping.confirm({ select = true })";
+          "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+          "<C-f>" = "cmp.mapping.scroll_docs(4)";
+          "<C-Space>" = "cmp.mapping.complete()";
+          "<C-e>" = "cmp.mapping.abort()";
+        };
+      };
+    };
+  };
+}
