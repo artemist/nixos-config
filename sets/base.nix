@@ -1,7 +1,13 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
+  systemd.tmpfiles.rules =
+    lib.mapAttrsToList (key: value: "L+ /etc/channels/${key} - - - - ${value.outPath}")
+    inputs;
+
   nix = {
+    nixPath =
+      [ "/etc/channels" "/nix/var/nix/profiles/per-user/root/channels" ];
     settings.auto-optimise-store = true;
     extraOptions = ''
       experimental-features = nix-command flakes

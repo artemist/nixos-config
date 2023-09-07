@@ -9,6 +9,7 @@
     pavucontrol
     r128gain
     simple-scan
+    skanlite
     yt-dlp
 
     # Linux tools
