@@ -16,6 +16,8 @@
     colorschemes.kanagawa.enable = true;
     plugins = {
       nix.enable = true;
+      fugitive.enable = true;
+      gitgutter.enable = true;
       airline = {
         enable = true;
         powerline = true;
@@ -40,7 +42,6 @@
       backup = false;
       writebackup = false;
       cmdheight = 2;
-      updatetime = 300;
       shortmess = "filnxtToOFc";
       signcolumn = "yes";
       number = true;
@@ -48,7 +49,6 @@
 
     # LSP
     plugins.rust-tools.enable = true;
-    plugins.lsp-format.enable = true;
     plugins.lsp = {
       enable = true;
       servers = {
@@ -56,6 +56,8 @@
         java-language-server.enable = true;
         nil_ls.enable = true;
         pylsp.enable = true;
+        texlab.enable = true;
+        jsonls.enable = true;
       };
 
       keymaps = {
@@ -74,6 +76,7 @@
           "<leader>ra" = "code_action";
           "<leader>rn" = "rename";
           "<leader>rs" = "signature_help";
+          "<leader>f" = "format";
         };
       };
 
