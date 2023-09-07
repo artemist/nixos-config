@@ -41,7 +41,6 @@
           modules = [
             private.nixosModules.base
             home-manager.nixosModules.home-manager
-            nixvim.nixosModules.nixvim
             { home-manager.extraSpecialArgs = specialArgs; }
           ] ++ (conf.modules or [ ]);
         });

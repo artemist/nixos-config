@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
+  imports = [ inputs.nixvim.nixosModules.nixvim ];
+
   environment.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
@@ -97,6 +99,9 @@
 
     # Autocomplete
     plugins = {
+      cmp-cmdline.enable = true;
+      cmp-git.enable = true;
+      cmp-buffer.enable = true;
       nvim-cmp = {
         enable = true;
         sources = [
@@ -115,5 +120,35 @@
         };
       };
     };
+
+    # For some reason you can't do this directly in nix?
+    extraConfigLuaPost = ''
+      do
+        local cmp = require('cmp')
+        cmp.setup.filetype('gitcommit', {
+          sources = cmp.config.sources({
+            { name = 'git' },
+          }, {
+            { name = 'buffer' },
+          })
+        })
+
+        cmp.setup.cmdline({ '/', '?' }, {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = {
+            { name = 'buffer' }
+          }
+        })
+
+        cmp.setup.cmdline(':', {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = cmp.config.sources({
+            { name = 'path' }
+          }, {
+            { name = 'cmdline' }
+          })
+        })
+      end
+    '';
   };
 }
