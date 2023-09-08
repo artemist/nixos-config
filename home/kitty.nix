@@ -5,7 +5,7 @@
     enable = true;
     font = {
       package = pkgs.fira-code;
-      name = "Fira Code";
+      name = "FiraCode Nerd Font";
       size = 9;
     };
     settings = {

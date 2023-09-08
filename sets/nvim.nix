@@ -18,15 +18,7 @@
       nix.enable = true;
       fugitive.enable = true;
       gitgutter.enable = true;
-      airline = {
-        enable = true;
-        powerline = true;
-        theme = "dark";
-      };
-    };
-    globals = {
-      "airline#extensions#tabline#enabled" = 1;
-      "airline#extensions#tabline#formatter" = "unique_tail_improved";
+      lualine.enable = true;
     };
     extraPlugins = with pkgs.vimPlugins; [
       vim-fetch
@@ -34,7 +26,6 @@
       vim-flatbuffers
       vim-nftables
       vim-protobuf
-      vim-sensible
       vim-toml
     ];
     options = {
@@ -48,7 +39,11 @@
     };
 
     # LSP
-    plugins.rust-tools.enable = true;
+    plugins.rust-tools = {
+      enable = true;
+      server.standalone = false;
+    };
+    plugins.clangd-extensions.enable = true;
     plugins.lsp = {
       enable = true;
       servers = {

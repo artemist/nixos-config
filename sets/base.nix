@@ -1,9 +1,8 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  systemd.tmpfiles.rules =
-    lib.mapAttrsToList (key: value: "L+ /etc/channels/${key} - - - - ${value.outPath}")
-    inputs;
+  systemd.tmpfiles.rules = lib.mapAttrsToList
+    (key: value: "L+ /etc/channels/${key} - - - - ${value.outPath}") inputs;
 
   nix = {
     nixPath =

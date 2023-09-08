@@ -16,7 +16,7 @@
       enable = true;
       settings.main = {
         shell = "/run/current-system/sw/bin/fish";
-        font = "Fira Code:size=6";
+        font = "FiraCode Nerd Font:size=6";
       };
     };
     wayland.windowManager.sway.config = {

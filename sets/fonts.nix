@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   fonts = {
@@ -12,6 +12,7 @@
       # Mono fonts
       dejavu_fonts
       fira-code
+      fira-code-nerdfont
       iosevka
       source-code-pro
       source-sans-pro
