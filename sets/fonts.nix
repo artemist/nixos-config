@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   fonts = {
@@ -32,32 +32,33 @@
     '';
 
     enableDefaultPackages = true;
-    packages = with pkgs; [
-      # MS fonts
-      cantarell-fonts
-      corefonts
+    packages = with pkgs;
+      [
+        # MS fonts
+        cantarell-fonts
+        corefonts
 
-      # Mono fonts
-      dejavu_fonts
-      fira-code
-      iosevka
-      source-code-pro
-      source-sans-pro
+        # Mono fonts
+        dejavu_fonts
+        fira-code
+        iosevka
+        source-code-pro
+        source-sans-pro
 
-      # UI fonts
-      b612
-      inter
-      roboto
+        # UI fonts
+        b612
+        inter
+        roboto
 
-      # Large multilingual fonts
-      fira-go
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      noto-fonts-extra
+        # Large multilingual fonts
+        fira-go
+        noto-fonts
+        noto-fonts-cjk
+        noto-fonts-emoji
+        noto-fonts-extra
 
-      # Weird symbols
-      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
-    ];
+        # Weird symbols
+        (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+      ] ++ (builtins.attrValues inputs.fonts.packages.${pkgs.system});
   };
 }
