@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -i python3 -p "python3.withPackages (ps: with ps; [ beautifulsoup4 requests ] )" nix-prefetch
+#! nix-shell -i python3 -p "python3.withPackages (ps: with ps; [ beautifulsoup4 requests lxml ] )" nix-prefetch
 import requests
 import bs4
 import json

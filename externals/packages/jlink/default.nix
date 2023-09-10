@@ -1,4 +1,4 @@
-{ stdenv, lib, fetchurl, autoPatchelfHook, substituteAll, qt4, fontconfig
+{ stdenv, lib, fetchurl, autoPatchelfHook, fontconfig
 , freetype, libusb, libICE, libSM, ncurses5, udev, libX11, libXext, libXcursor
 , libXfixes, libXrender, libXrandr }:
 let
@@ -17,7 +17,6 @@ in stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ autoPatchelfHook ];
   buildInputs = [
-    qt4
     fontconfig
     freetype
     libusb
@@ -39,7 +38,6 @@ in stdenv.mkDerivation rec {
     mkdir -p $out/{JLink,bin}
     cp -R * $out/JLink
     ln -s $out/JLink/J* $out/bin/
-    rm -r $out/JLink/libQt*
     install -D -t $out/lib/udev/rules.d 99-jlink.rules
   '';
 
