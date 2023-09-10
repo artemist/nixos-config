@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ pkgs, lib, ... }: {
   environment.systemPackages = (with pkgs; [
     # Audiovisual
     darktable
@@ -73,7 +73,7 @@
 
     # Coreutils replacements
     bat
-    exa
+    eza
 
     # Networking
     curlFull
