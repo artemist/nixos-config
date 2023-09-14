@@ -1,6 +1,6 @@
-{ stdenv, lib, fetchurl, autoPatchelfHook, fontconfig
-, freetype, libusb, libICE, libSM, ncurses5, udev, libX11, libXext, libXcursor
-, libXfixes, libXrender, libXrandr }:
+{ stdenv, lib, fetchurl, autoPatchelfHook, fontconfig, freetype, libusb, libICE
+, libSM, ncurses5, udev, libX11, libXext, libXcursor, libXfixes, libXrender
+, libXrandr }:
 let
   conf = (lib.importJSON ./version.json).${stdenv.hostPlatform.system} or (throw
     "unsupported system ${stdenv.hostPlatform.system}");

@@ -19,6 +19,31 @@
       fugitive.enable = true;
       gitgutter.enable = true;
       lualine.enable = true;
+      telescope = {
+        enable = true;
+        keymaps = {
+          "<leader>tgf" = "git_files";
+          "<leader>tb" = "buffers";
+          "<leader>tl" = "live_grep";
+          "<leader>ts" = "grep_string";
+          "<leader>tf" = "find_files";
+          "<leader>tt" = "builtin";
+
+          gd = "lsp_definitions";
+          gt = "lsp_type_definitions";
+          gr = "lsp_references";
+          gi = "lsp_implementations";
+          gcd = "diagnostics";
+          gsd = "lsp_document_symbols";
+          gsw = "lsp_workspace_symbols";
+          gci = "lsp_incoming_calls";
+          gco = "lsp_outgoing_calls";
+
+          "<leader>tgs" = "git_status";
+          "<leader>tgb" = "git_branches";
+          "<leader>tgc" = "git_commits";
+        };
+      };
     };
     extraPlugins = with pkgs.vimPlugins; [
       vim-fetch
@@ -64,10 +89,7 @@
         lspBuf = {
           K = "hover";
           gD = "declaration";
-          gd = "definition";
-          gt = "type_definition";
-          gr = "references";
-          gi = "implementation";
+
           "<leader>ra" = "code_action";
           "<leader>rn" = "rename";
           "<leader>rs" = "signature_help";
