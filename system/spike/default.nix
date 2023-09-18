@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
     ../../sets/hacking.nix
     ../../sets/laptop.nix
+    ../../sets/secureBoot.nix
     ../../sets/sshd.nix
     ../../sets/buildMachines.nix
     ../../sets/workstation.nix
@@ -13,7 +14,7 @@
   ];
 
   networking.hostName = "spike";
-  system.stateVersion = "22.05";
+  system.stateVersion = "23.11";
 
   home-manager.users.artemis.xdg.configFile."rustybar/config.toml".text = ''
     [[tile]]
@@ -39,10 +40,5 @@
       scroll_method = "on_button_down";
       scroll_button = "BTN_MIDDLE";
     };
-  };
-
-  services.btrfs.autoScrub = {
-    enable = true;
-    fileSystems = [ "/" ];
   };
 }
