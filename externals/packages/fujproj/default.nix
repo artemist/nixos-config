@@ -1,4 +1,4 @@
-{ stdenv, lib, fetchFromGitHub, cmake, pkgconfig, libusb1, libftdi1 }:
+{ stdenv, lib, fetchFromGitHub, cmake, pkg-config, libusb1, libftdi1 }:
 
 stdenv.mkDerivation rec {
   pname = "fujprog";
@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     sha256 = "08kzkzd5a1wfd1aycywdynxh3qy6n7z9i8lihkahmb4xac3chmz5";
   };
 
-  nativeBuildInputs = [ cmake pkgconfig ];
+  nativeBuildInputs = [ cmake pkg-config ];
   buildInputs = [ libftdi1 libusb1 ];
 
   meta = with lib; {

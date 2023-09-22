@@ -60,6 +60,7 @@
     pciutils
     pdftk
     poppler_utils
+    python3Packages.ipython
     ripgrep
     rlwrap
     tmux

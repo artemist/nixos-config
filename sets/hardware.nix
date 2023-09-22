@@ -4,18 +4,20 @@ in {
   services.udev.packages = [
     (pkgs.callPackage ../externals/rules/adafruit.nix { })
     (pkgs.callPackage ../externals/rules/limesuite.nix { })
+    pkgs.libsigrok
     pkgs.openocd
     pkgs.platformio
   ];
 
   environment.systemPackages = with pkgs; [
+    jlink
     kicad
     openocd
     picocom
-    stlink
-    jlink
     platformio
     proxmark3-rrg
+    pulseview
+    stlink
   ];
 
   users = {

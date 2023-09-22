@@ -1,37 +1,34 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     utils.url = "github:numtide/flake-utils";
-
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     fonts = {
       url = "github:artemist/fonts";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "utils";
     };
-
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "utils";
     };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "utils";
     };
-
     rustybar = {
       url = "github:mildlyfunctionalgays/rustybar";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.utils.follows = "utils";
     };
-
     private.url =
       "git+ssh://git@github.com/artemist/nixos-config-private?ref=unified";
-
     wip-pinebook-pro = {
       url = "github:samueldr/wip-pinebook-pro";
       flake = false;

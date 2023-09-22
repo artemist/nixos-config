@@ -22,7 +22,7 @@
   # Breaks IPv4 on bridge
   boot.kernel.sysctl."net.bridge.bridge-nf-call-iptables" = 0;
 
-  environment.systemPackages = with pkgs; [ virtmanager spice-gtk qemu ];
+  environment.systemPackages = with pkgs; [ virt-manager spice-gtk qemu ];
 
   users.users = {
     artemis.extraGroups = [ "lxd" "libvirtd" ];
