@@ -19,6 +19,7 @@
       fugitive.enable = true;
       gitgutter.enable = true;
       lualine.enable = true;
+      typst-vim.enable = true;
       telescope = {
         enable = true;
         keymaps = {
@@ -74,10 +75,12 @@
       servers = {
         clangd.enable = true;
         java-language-server.enable = true;
+        jsonls.enable = true;
         nil_ls.enable = true;
         pylsp.enable = true;
         texlab.enable = true;
-        jsonls.enable = true;
+        tsserver.enable = true;
+        typst-lsp.enable = true;
       };
 
       keymaps = {
@@ -119,12 +122,15 @@
 
     # Autocomplete
     plugins = {
+      luasnip.enable = true;
       cmp-cmdline.enable = true;
       cmp-git.enable = true;
       cmp-buffer.enable = true;
       nvim-cmp = {
         enable = true;
+        snippet.expand = "luasnip";
         sources = [
+          { name = "luasnip"; }
           { name = "nvim_lsp"; }
           { name = "path"; }
           { name = "calc"; }
