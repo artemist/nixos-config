@@ -13,9 +13,8 @@
           </test>
           <edit name="fontfeatures" mode="append">
             <string>tnum on</string>
-            <string>cv03 on</string>
-            <string>cv04 on</string>
-            <string>cv08 on</string>
+            <string>ss01 on</string>
+            <string>ss02 on</string>
           </edit>
         </match>
         <match target="font">
