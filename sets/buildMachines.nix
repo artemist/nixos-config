@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   nix = {
@@ -15,8 +15,12 @@
     '';
   };
 
-  home-manager.users.root.programs.ssh = {
-    enable = true;
-    userKnownHostsFile = "~/.ssh/known_hosts ${../home/ssh/extra_known_hosts}";
+  home-manager.users.root = {
+    home.stateVersion = config.system.stateVersion;
+    programs.ssh = {
+      enable = true;
+      userKnownHostsFile =
+        "~/.ssh/known_hosts ${../home/ssh/extra_known_hosts}";
+    };
   };
 }
