@@ -479,11 +479,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1695347458,
-        "narHash": "sha256-eK5Jlzq5X2R4hSZEcY6oXX35yCyanSRB/EApBDULYjU=",
+        "lastModified": 1695603143,
+        "narHash": "sha256-7iR+IWQcKdRwazFQSM5RxfvXihN1jILVN7jx2QObG2g=",
         "owner": "mildlyfunctionalgays",
         "repo": "rustybar",
-        "rev": "33be10885773f1e33f77e95e551aab1a370410dd",
+        "rev": "ea274f26c9fc3a1adc88b9b80dd67f35330f65a3",
         "type": "github"
       },
       "original": {
