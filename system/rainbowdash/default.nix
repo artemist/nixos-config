@@ -8,7 +8,6 @@
     ../../sets/buildMachines.nix
     ../../sets/hacking.nix
     ../../sets/hardware.nix
-    ../../sets/ime.nix
     ../../sets/krb5.nix
     ../../sets/laptop.nix
     ../../sets/secureBoot.nix

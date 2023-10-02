@@ -11,7 +11,6 @@
     ../../sets/fpga.nix
     ../../sets/hacking.nix
     ../../sets/hardware.nix
-    ../../sets/ime.nix
     ../../sets/krb5.nix
     ../../sets/music.nix
     ../../sets/radio.nix
