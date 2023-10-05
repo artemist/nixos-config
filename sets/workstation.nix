@@ -1,8 +1,15 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ ./sway.nix ./packages.nix ./pipewire.nix ./base.nix ./nvim.nix ../home ];
+  imports = [
+    ./sway.nix
+    ./packages.nix
+    ./pipewire.nix
+    ./base.nix
+    ./nvim.nix
+    ../home
+    ./nix-index.nix
+  ];
 
   i18n.defaultLocale = "de_DE.UTF-8";
   i18n.supportedLocales = [ "all" ];

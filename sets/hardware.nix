@@ -4,12 +4,14 @@ in {
   services.udev.packages = [
     (pkgs.callPackage ../externals/rules/adafruit.nix { })
     (pkgs.callPackage ../externals/rules/limesuite.nix { })
+    pkgs.glasgow
     pkgs.libsigrok
     pkgs.openocd
     pkgs.platformio
   ];
 
   environment.systemPackages = with pkgs; [
+    glasgow
     jlink
     kicad
     openocd

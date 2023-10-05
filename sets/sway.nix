@@ -20,16 +20,17 @@
     mako
     polkit_gnome
     slurp
+    swayidle
+    swaylock
     waypipe
     wf-recorder
     wl-clipboard
     wofi
     wofi-emoji
+    wtype
     xdg-user-dirs
     xdg_utils
     xsettingsd
-    swaylock
-    swayidle
   ];
 
   hardware.opengl.enable = true;

@@ -22,6 +22,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "utils";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     rustybar = {
       url = "github:mildlyfunctionalgays/rustybar";
       inputs.nixpkgs.follows = "nixpkgs";
