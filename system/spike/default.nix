@@ -4,11 +4,12 @@
   imports = [
     ./boot-config.nix
     ./hardware-configuration.nix
+    ../../sets/1password.nix
+    ../../sets/buildMachines.nix
     ../../sets/hacking.nix
     ../../sets/laptop.nix
     ../../sets/secureBoot.nix
     ../../sets/sshd.nix
-    ../../sets/buildMachines.nix
     ../../sets/workstation.nix
     inputs.nixos-hardware.nixosModules.gpd-micropc
   ];

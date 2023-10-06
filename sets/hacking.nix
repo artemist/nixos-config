@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs = {
@@ -10,13 +10,11 @@
   };
   environment.systemPackages = with pkgs; [
     apktool
-    aircrack-ng
     nmap
     pwndbg
     python3Packages.binwalk-full
 
     fusee-launcher
-    hactool
   ];
 
   users.users.artemis.extraGroups = [ "adbusers" "wireshark" ];

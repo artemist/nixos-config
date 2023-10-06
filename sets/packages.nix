@@ -91,10 +91,9 @@
     rustup
 
     # Security
-    (pass.withExtensions (exts: [ exts.pass-otp ]))
+    pass
     wireguard-tools
     yubikey-manager
-    yubioath-flutter
 
     # GUI tools
     alacritty
