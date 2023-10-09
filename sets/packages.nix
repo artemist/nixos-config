@@ -101,6 +101,7 @@
     gnome3.eog
     gnome3.gnome-system-monitor
     libreoffice-fresh
+    nheko
     qalculate-gtk
     libqalculate
 

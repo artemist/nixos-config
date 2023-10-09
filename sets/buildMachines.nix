@@ -4,6 +4,7 @@
   nix = {
     buildMachines = [{
       hostName = "starlight.manehattan.artem.ist";
+      protocol = "ssh-ng";
       sshUser = "build";
       supportedFeatures = [ "kvm" "big-parallel" "benchmark" "nixos-text" ];
       system = "x86_64-linux";
