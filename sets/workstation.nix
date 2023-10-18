@@ -26,6 +26,7 @@
       nssmdns = true;
     };
     flatpak.enable = true;
+    fwupd.enable = true;
     pcscd.enable = true;
     printing.enable = true;
     udev.packages = [ (pkgs.callPackage ../externals/rules/uhk.nix { }) ];

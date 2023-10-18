@@ -14,4 +14,9 @@
       allowDiscards = true;
     };
   }];
+
+  # This has to go in crypttab because we won't have the keyfile in the initrd
+  environment.etc.crypttab.text = ''
+    microsd /dev/disk/by-uuid/51ed9e97-06cf-4c54-a71a-c182bb0ced9e /var/lib/private/µsd_key
+  '';
 }
