@@ -135,6 +135,10 @@
       type = "time"
       format = "%Y-%m-%dT%H:%M:%S"
     '';
+    xdg.userDirs = {
+      music = "/media/data/Musik";
+      pictures = "/media/luna/photos";
+    };
   };
   # NixOS
   system.stateVersion = "21.11";

@@ -6,8 +6,16 @@
     useGlobalPkgs = true;
   };
   home-manager.users.artemis = {
-    imports =
-      [ ./fish.nix ./gtk.nix ./git.nix ./mpv.nix ./kitty.nix ./ssh ./gpg.nix ];
+    imports = [
+      ./fish.nix
+      ./gtk.nix
+      ./git.nix
+      ./mpv.nix
+      ./kitty.nix
+      ./ssh
+      ./gpg.nix
+      ./dirs.nix
+    ];
 
     home.stateVersion = config.system.stateVersion;
 
