@@ -34,8 +34,9 @@
 
     # Filesystems
     cifs-utils
+    exfatprogs
     nfs-utils
-    ntfs3g
+    ntfsprogs
     udftools
 
     # Useful CLI tools

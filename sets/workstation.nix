@@ -34,6 +34,8 @@
 
   programs.ssh.startAgent = true;
 
+  programs.nix-ld.enable = true;
+
   hardware = {
     bluetooth.enable = true;
     opengl.driSupport32Bit = (pkgs.system == "x86_64-linux");
