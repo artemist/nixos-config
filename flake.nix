@@ -71,7 +71,14 @@
         modules = [ ./system/mistmane ];
       };
     } // utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs { inherit system; };
-      in { formatter = pkgs.nixfmt; });
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      in {
+        formatter = pkgs.nixfmt;
+        packages = { jlink = pkgs.callPackage ./externals/packages/jlink { }; };
+      });
 }
 

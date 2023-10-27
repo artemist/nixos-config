@@ -18,6 +18,5 @@
     tinyprog
     wishbone-tool
     openfpgaloader
-    (callPackage ../externals/packages/fujproj { })
   ];
 }
