@@ -78,7 +78,11 @@
         };
       in {
         formatter = pkgs.nixfmt;
-        packages = { jlink = pkgs.callPackage ./externals/packages/jlink { }; };
+        packages = {
+          jlink = pkgs.callPackage ./externals/packages/jlink { };
+          nvim = inputs.nixvim.legacyPackages."${system}".makeNixvim
+            (import ./sets/nvim.nix { inherit pkgs inputs; });
+        };
       });
 }
 

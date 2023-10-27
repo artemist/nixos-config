@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, inputs, ... }@args:
 
 {
   imports = [
@@ -6,9 +6,9 @@
     ./packages.nix
     ./pipewire.nix
     ./base.nix
-    ./nvim.nix
     ../home
     ./nix-index.nix
+    inputs.nixvim.nixosModules.nixvim
   ];
 
   i18n.defaultLocale = "de_DE.UTF-8";
@@ -16,9 +16,12 @@
 
   environment = {
     variables.EDITOR = "nvim";
+    variables.VISUAL = "nvim";
     variables.TERMINAL = "kitty";
     enableDebugInfo = true;
   };
+
+  programs.nixvim = import ./nvim.nix args // { enable = true; };
 
   services = {
     avahi = {
